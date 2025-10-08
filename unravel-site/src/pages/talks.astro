@@ -109,16 +109,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .talk-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(14, 159, 188, 0.2);
+    border-color: var(--color-primary-300);
+  }
+  
+  .talk-card:nth-child(even):hover {
+    box-shadow: 0 8px 24px rgba(108, 179, 63, 0.2);
+    border-color: var(--color-secondary-300);
   }
 
   .talk-video {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    background: var(--color-neutral-900);
+    background: linear-gradient(135deg, var(--color-primary-900), var(--color-neutral-900));
     border-radius: 12px 12px 0 0;
     overflow: hidden;
+  }
+  
+  .talk-card:nth-child(even) .talk-video {
+    background: linear-gradient(135deg, var(--color-secondary-900), var(--color-neutral-900));
   }
 
   .talk-video iframe {
@@ -143,13 +153,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: var(--spacing-sm);
     color: var(--color-text-primary);
     line-height: var(--leading-tight);
+    position: relative;
+    padding-left: var(--spacing-md);
+  }
+  
+  .talk-content h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-primary-500), var(--color-secondary-500));
+    border-radius: 2px;
+  }
+  
+  .talk-card:nth-child(even) .talk-content h3::before {
+    background: linear-gradient(180deg, var(--color-secondary-500), var(--color-primary-500));
   }
 
   .talk-speaker {
     font-size: var(--text-sm);
-    color: var(--color-primary-600);
-    font-weight: 500;
+    color: var(--color-primary-700);
+    font-weight: 600;
     margin-bottom: var(--spacing-md);
+  }
+  
+  .talk-card:nth-child(even) .talk-speaker {
+    color: var(--color-secondary-700);
   }
 
   .talk-content .text-muted {
@@ -162,13 +193,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     gap: var(--spacing-lg);
     padding-top: var(--spacing-md);
-    border-top: 1px solid var(--color-neutral-200);
+    border-top: 2px solid;
+    border-image: linear-gradient(90deg, var(--color-primary-300), var(--color-secondary-300)) 1;
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
   }
 
+  .talk-duration {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-secondary-500);
+    color: var(--color-neutral-000);
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
   .talk-duration::before {
-    content: "⏱️ ";
+    content: "⏱️";
     margin-right: var(--spacing-xs);
   }
 

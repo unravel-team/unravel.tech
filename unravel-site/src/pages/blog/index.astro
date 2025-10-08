@@ -114,7 +114,7 @@ const sortedPosts = allPosts.sort((a, b) =>
   }
 
   .post-card-title a:hover {
-    color: var(--color-primary-500);
+    color: var(--color-primary-600);
   }
 
   .post-card-meta {
@@ -123,6 +123,14 @@ const sortedPosts = allPosts.sort((a, b) =>
     font-size: var(--text-xs);
     color: var(--color-text-tertiary);
     margin: 0;
+  }
+  
+  .post-author {
+    font-weight: 500;
+  }
+  
+  .post-date {
+    font-weight: 500;
   }
 
   .post-card-description {
@@ -146,18 +154,29 @@ const sortedPosts = allPosts.sort((a, b) =>
     border-radius: 12px;
     font-size: var(--text-xs);
     font-weight: 500;
+    transition: all var(--transition-base);
+  }
+  
+  .tag:first-child {
+    background: var(--color-secondary-500);
+    color: var(--color-neutral-000);
+  }
+  
+  .tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(14, 159, 188, 0.2);
   }
 
   .read-more {
-    color: var(--color-primary-600);
+    color: var(--color-primary-700);
     font-weight: 600;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
     align-self: flex-start;
   }
 
   .read-more:hover {
-    color: var(--color-primary-500);
-    text-decoration: none;
+    color: var(--color-primary-600);
+    text-decoration: underline;
   }
 
   /* Responsive */

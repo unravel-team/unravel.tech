@@ -152,8 +152,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-badge {
     display: inline-block;
-    background: var(--color-primary-100);
-    color: var(--color-primary-700);
+    background: var(--color-secondary-500);
+    color: var(--color-neutral-000);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: 20px;
     font-size: var(--text-xs);
@@ -215,13 +215,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .service-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-lg);
+    width: 4rem;
+    height: 4rem;
+    background: var(--color-primary-500);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-neutral-000);
+    transition: all var(--transition-base);
+  }
+  
+  .service-card:hover .service-icon {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(14, 159, 188, 0.3);
   }
 
   .service-card h3 {
     margin-bottom: var(--spacing-md);
     color: var(--color-text-primary);
+  }
+  
+  /* Green accent on specific card */
+  .service-card:nth-child(5) .service-icon {
+    background: var(--color-secondary-500);
+  }
+  
+  .service-card:nth-child(5):hover .service-icon {
+    box-shadow: 0 8px 20px rgba(108, 179, 63, 0.3);
   }
 
   .service-card p {
@@ -234,6 +257,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-neutral-000);
     padding: var(--spacing-3xl) 0;
     margin: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
   }
 
   .stats-grid {
@@ -241,6 +266,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--spacing-2xl);
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
   .stat-number {
@@ -276,6 +303,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-2xl);
   }
+  
 
   .btn-lg {
     padding: 1rem 2rem;
