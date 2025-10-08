@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="AI Consulting | Transform Your Business with AI"
+  description="Expert AI consulting services for enterprises. Machine learning, NLP, computer vision, and predictive analytics solutions."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">AI CONSULTING</div>
+        <h1 class="hero-title">
+          Transform Your Business with <span class="gradient-text">Artificial Intelligence</span>
+        </h1>
+        <p class="hero-description">
+          Harness the power of AI to drive innovation and growth. Expert guidance in machine learning, 
+          natural language processing, and predictive analytics that delivers measurable business value.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+          <a href="#services" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="text-center">Our Services</h2>
+        <p class="text-center text-muted">
+          Comprehensive AI solutions tailored to your business needs
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="card service-card">
+          <div class="service-icon">🤖</div>
+          <h3>Machine Learning</h3>
+          <p class="text-muted">
+            Build intelligent systems that learn from data and improve over time. 
+            From predictive models to recommendation engines.
+          </p>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon">💬</div>
+          <h3>Natural Language Processing</h3>
+          <p class="text-muted">
+            Extract insights from text data, build chatbots, and automate 
+            document processing with advanced NLP techniques.
+          </p>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon">👁️</div>
+          <h3>Computer Vision</h3>
+          <p class="text-muted">
+            Enable machines to see and understand visual data. Object detection, 
+            image classification, and facial recognition systems.
+          </p>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon">📊</div>
+          <h3>Predictive Analytics</h3>
+          <p class="text-muted">
+            Forecast trends, identify risks, and make data-driven decisions 
+            with powerful predictive modeling solutions.
+          </p>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon">🔄</div>
+          <h3>AI Strategy</h3>
+          <p class="text-muted">
+            Develop a comprehensive AI roadmap aligned with your business 
+            objectives and technical capabilities.
+          </p>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Implementation</h3>
+          <p class="text-muted">
+            End-to-end implementation support from proof of concept to 
+            production deployment and monitoring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Average ROI Increase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>
+          Let's discuss how AI can drive innovation and growth for your organization.
+        </p>
+        <a href="mailto:hello@aiconsulting.com" class="btn btn-primary btn-lg">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, rgba(230, 247, 250, 0.4) 0%, rgba(240, 248, 235, 0.4) 100%);
+    padding: var(--spacing-3xl) 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Services Section */
+  .services {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .section-header {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-3xl);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .service-card {
+    text-align: center;
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .service-card h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+  }
+
+  .service-card p {
+    margin-bottom: 0;
+  }
+
+  /* Stats Section */
+  .stats {
+    background: var(--color-primary-500);
+    color: var(--color-neutral-000);
+    padding: var(--spacing-3xl) 0;
+    margin: var(--spacing-3xl) 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .stat-label {
+    font-size: var(--text-base);
+    opacity: 0.9;
+  }
+
+  /* CTA Section */
+  .cta {
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-secondary-100) 100%);
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta-content p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-2xl) 0;
+      min-height: auto;
+    }
+
+    .hero-title {
+      font-size: var(--text-3xl);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
+    }
+  }
+</style>

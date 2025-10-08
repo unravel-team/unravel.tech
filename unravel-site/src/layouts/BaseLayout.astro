@@ -1,0 +1,214 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'AI Consulting | Enterprise Solutions', 
+  description = 'Transform your business with cutting-edge AI consulting services. Expert guidance in machine learning, natural language processing, and predictive analytics.'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+      <div class="container">
+        <div class="nav-content">
+          <a href="/" class="logo">
+            <img src="/logo.png" alt="Unravel - AI Consulting" class="logo-img">
+          </a>
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>AI Consulting</h4>
+          <p class="text-muted">Enterprise AI solutions for modern businesses</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p class="text-muted">hello@aiconsulting.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="text-muted">&copy; 2025 AI Consulting. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+  /* Header & Navigation */
+  header {
+    background: var(--color-neutral-000);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .nav-bar {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .logo:hover {
+    text-decoration: none;
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    .logo-img {
+      height: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .logo-img {
+      height: 40px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: color var(--transition-base);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary-500);
+    text-decoration: none;
+  }
+
+  /* Mobile Navigation */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+
+  /* Main Content */
+  main {
+    min-height: calc(100vh - 200px);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--color-neutral-900);
+    color: var(--color-neutral-100);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .footer-section h4 {
+    color: var(--color-neutral-000);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-base);
+  }
+
+  .footer-section p {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .footer-links a {
+    color: var(--color-neutral-300);
+    transition: color var(--transition-base);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary-400);
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-neutral-700);
+    text-align: center;
+  }
+
+  footer .text-muted {
+    color: var(--color-neutral-400);
+  }
+</style>
