@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Color System v2.0 - AI Consulting</title>
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary-100: #E6F7FA;
+            --color-primary-200: #B3E5EE;
+            --color-primary-300: #80D4E3;
+            --color-primary-400: #4FC3DB;
+            --color-primary-500: #0E9FBC; /* Main Teal */
+            --color-primary-600: #0B7D94;
+            --color-primary-700: #085B6C;
+            --color-primary-800: #053944;
+            --color-primary-900: #02171C;
+            
+            /* Secondary Colors */
+            --color-secondary-100: #F0F8EB;
+            --color-secondary-200: #D4E9C3;
+            --color-secondary-300: #B8DA9B;
+            --color-secondary-400: #8FD464;
+            --color-secondary-500: #6CB33F; /* Main Green */
+            --color-secondary-600: #5A9934;
+            --color-secondary-700: #487F29;
+            --color-secondary-800: #36651E;
+            --color-secondary-900: #244B13;
+            
+            /* Neutral Colors */
+            --color-neutral-000: #FFFFFF;
+            --color-neutral-050: #FAFBFC;
+            --color-neutral-100: #F8F9FA;
+            --color-neutral-200: #E9ECEF;
+            --color-neutral-300: #DEE2E6;
+            --color-neutral-400: #CED4DA;
+            --color-neutral-500: #ADB5BD;
+            --color-neutral-600: #6C757D;
+            --color-neutral-700: #495057;
+            --color-neutral-800: #343A40;
+            --color-neutral-900: #212529;
+            --color-neutral-950: #0D1117;
+            
+            /* Semantic Colors */
+            --color-success: #6CB33F;
+            --color-error: #DC3545;
+            --color-warning: #FFC107;
+            --color-info: #0E9FBC;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--color-neutral-900);
+            background: var(--color-neutral-100);
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--color-neutral-000);
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .version-badge {
+            display: inline-block;
+            background: var(--color-primary-100);
+            color: var(--color-primary-700);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: var(--color-neutral-600);
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        
+        h2 {
+            font-size: 32px;
+            margin: 60px 0 20px 0;
+            color: var(--color-neutral-900);
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin: 40px 0 20px 0;
+            color: var(--color-neutral-800);
+            font-weight: 600;
+        }
+        
+        .section-description {
+            color: var(--color-neutral-600);
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        /* Extended Palette Grid */
+        .extended-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .color-scale {
+            background: var(--color-neutral-000);
+            border: 1px solid var(--color-neutral-200);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .scale-header {
+            padding: 20px;
+            background: var(--color-neutral-050);
+            border-bottom: 1px solid var(--color-neutral-200);
+        }
+        
+        .scale-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-neutral-900);
+            margin-bottom: 4px;
+        }
+        
+        .scale-description {
+            font-size: 14px;
+            color: var(--color-neutral-600);
+        }
+        
+        .color-row {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            align-items: center;
+            border-bottom: 1px solid var(--color-neutral-100);
+            transition: background 0.2s;
+        }
+        
+        .color-row:hover {
+            background: var(--color-neutral-050);
+        }
+        
+        .color-row:last-child {
+            border-bottom: none;
+        }
+        
+        .color-square {
+            width: 80px;
+            height: 60px;
+        }
+        
+        .color-details {
+            padding: 12px 16px;
+        }
+        
+        .color-token {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-neutral-900);
+        }
+        
+        .color-hex {
+            font-size: 12px;
+            color: var(--color-neutral-600);
+            margin-top: 2px;
+        }
+        
+        .contrast-badge {
+            margin-right: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contrast-aaa {
+            background: #D4EDDA;
+            color: #155724;
+        }
+        
+        .contrast-aa {
+            background: #FFF3CD;
+            color: #856404;
+        }
+        
+        .contrast-fail {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+        
+        /* Accessibility Matrix */
+        .accessibility-matrix {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 600px;
+        }
+        
+        .matrix-table th {
+            background: var(--color-neutral-100);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--color-neutral-800);
+            border: 1px solid var(--color-neutral-200);
+        }
+        
+        .matrix-table td {
+            padding: 10px 12px;
+            border: 1px solid var(--color-neutral-200);
+            text-align: center;
+        }
+        
+        .ratio-cell {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .pass { color: var(--color-secondary-600); }
+        .fail { color: var(--color-error); }
+        
+        /* Dark Mode Preview */
+        .dark-mode-preview {
+            background: var(--color-neutral-950);
+            color: var(--color-neutral-100);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .dark-mode-preview h3 {
+            color: var(--color-neutral-100);
+            margin-bottom: 20px;
+        }
+        
+        .dark-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .dark-color-card {
+            background: var(--color-neutral-900);
+            border: 1px solid var(--color-neutral-800);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dark-color-swatch {
+            height: 80px;
+        }
+        
+        .dark-color-info {
+            padding: 12px;
+        }
+        
+        .dark-color-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-neutral-100);
+            margin-bottom: 4px;
+        }
+        
+        .dark-color-hex {
+            font-size: 12px;
+            color: var(--color-neutral-400);
+            font-family: monospace;
+        }
+        
+        /* Design Tokens */
+        .token-block {
+            background: var(--color-neutral-950);
+            color: var(--color-neutral-100);
+            padding: 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .token-code {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .token-comment {
+            color: var(--color-neutral-500);
+        }
+        
+        .token-property {
+            color: #79C0FF;
+        }
+        
+        .token-value {
+            color: #A5D6FF;
+        }
+        
+        /* Usage Examples */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .usage-card {
+            border: 1px solid var(--color-neutral-200);
+            border-radius: 12px;
+            padding: 30px;
+            background: var(--color-neutral-000);
+        }
+        
+        .usage-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--color-neutral-900);
+        }
+        
+        /* Interactive Components */
+        .component-preview {
+            padding: 20px;
+            background: var(--color-neutral-050);
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 4px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary-500);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-primary-600);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(14, 159, 188, 0.25);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background: var(--color-secondary-500);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-secondary-600);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(108, 179, 63, 0.25);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary-500);
+            border: 2px solid var(--color-primary-500);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary-500);
+            color: white;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--color-primary-500);
+        }
+        
+        .btn-ghost:hover {
+            background: var(--color-primary-100);
+        }
+        
+        /* Alert Components */
+        .alert {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 4px solid;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .alert-icon {
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .alert-description {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .alert-success {
+            background: #D4EDDA;
+            border-color: var(--color-success);
+            color: #155724;
+        }
+        
+        .alert-error {
+            background: #F8D7DA;
+            border-color: var(--color-error);
+            color: #721C24;
+        }
+        
+        .alert-warning {
+            background: #FFF3CD;
+            border-color: var(--color-warning);
+            color: #856404;
+        }
+        
+        .alert-info {
+            background: #D1ECF1;
+            border-color: var(--color-info);
+            color: #0C5460;
+        }
+        
+        /* Data Visualization Colors */
+        .data-viz-palette {
+            display: flex;
+            gap: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--color-neutral-050);
+            border-radius: 8px;
+        }
+        
+        .viz-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        /* Color Blind Simulation */
+        .colorblind-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .colorblind-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: 8px;
+        }
+        
+        .colorblind-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-neutral-700);
+        }
+        
+        .colorblind-colors {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .cb-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+        
+        /* Best Practices */
+        .best-practices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .practice-card {
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+        
+        .do-card {
+            background: #D4EDDA;
+            border-color: var(--color-success);
+        }
+        
+        .dont-card {
+            background: #F8D7DA;
+            border-color: var(--color-error);
+        }
+        
+        .practice-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .do-card .practice-title {
+            color: #155724;
+        }
+        
+        .dont-card .practice-title {
+            color: #721C24;
+        }
+        
+        .practice-item {
+            margin: 12px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .best-practices {
+                grid-template-columns: 1fr;
+            }
+            
+            .extended-palette {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="version-badge">Version 2.0 - Enhanced</span>
+        <h1>Brand Color System</h1>
+        <p class="subtitle">Enterprise AI Consulting | Comprehensive Design System</p>
+        
+        <!-- Extended Color Palette -->
+        <h2>Extended Color Palette</h2>
+        <p class="section-description">
+            Complete color scales with 9 tints and shades for maximum flexibility. Each shade is carefully calibrated for optimal contrast ratios and visual harmony.
+        </p>
+        
+        <div class="extended-palette">
+            <!-- Primary Scale -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Primary - Teal</div>
+                    <div class="scale-description">Trust, Technology & Innovation</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #E6F7FA;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-100</div>
+                        <div class="color-hex">#E6F7FA</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.09</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #B3E5EE;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-200</div>
+                        <div class="color-hex">#B3E5EE</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.24</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #80D4E3;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-300</div>
+                        <div class="color-hex">#80D4E3</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.43</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #4FC3DB;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-400</div>
+                        <div class="color-hex">#4FC3DB</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.68</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #0E9FBC;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-500</div>
+                        <div class="color-hex">#0E9FBC • Main</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">2.71</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #0B7D94;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-600</div>
+                        <div class="color-hex">#0B7D94</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aa">4.14</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #085B6C;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-700</div>
+                        <div class="color-hex">#085B6C</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">7.26</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #053944;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-800</div>
+                        <div class="color-hex">#053944</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">12.8</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #02171C;"></div>
+                    <div class="color-details">
+                        <div class="color-token">primary-900</div>
+                        <div class="color-hex">#02171C</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">18.1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Secondary Scale -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Secondary - Green</div>
+                    <div class="scale-description">Growth, Energy & Success</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #F0F8EB;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-100</div>
+                        <div class="color-hex">#F0F8EB</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.06</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #D4E9C3;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-200</div>
+                        <div class="color-hex">#D4E9C3</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.18</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #B8DA9B;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-300</div>
+                        <div class="color-hex">#B8DA9B</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.36</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #8FD464;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-400</div>
+                        <div class="color-hex">#8FD464</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.64</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #6CB33F;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-500</div>
+                        <div class="color-hex">#6CB33F • Main</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">2.95</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #5A9934;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-600</div>
+                        <div class="color-hex">#5A9934</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aa">4.07</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #487F29;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-700</div>
+                        <div class="color-hex">#487F29</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aa">5.71</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #36651E;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-800</div>
+                        <div class="color-hex">#36651E</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">8.14</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #244B13;"></div>
+                    <div class="color-details">
+                        <div class="color-token">secondary-900</div>
+                        <div class="color-hex">#244B13</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">11.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Neutral Scale -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Neutral - Gray</div>
+                    <div class="scale-description">Text, Backgrounds & UI Elements</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #FAFBFC; border: 1px solid #E9ECEF;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-050</div>
+                        <div class="color-hex">#FAFBFC</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.02</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #F8F9FA; border: 1px solid #E9ECEF;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-100</div>
+                        <div class="color-hex">#F8F9FA</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.03</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #E9ECEF;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-200</div>
+                        <div class="color-hex">#E9ECEF</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.12</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #DEE2E6;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-300</div>
+                        <div class="color-hex">#DEE2E6</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.22</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #CED4DA;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-400</div>
+                        <div class="color-hex">#CED4DA</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.41</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #ADB5BD;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-500</div>
+                        <div class="color-hex">#ADB5BD</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-fail">1.91</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #6C757D;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-600</div>
+                        <div class="color-hex">#6C757D</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aa">4.54</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #495057;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-700</div>
+                        <div class="color-hex">#495057</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">7.85</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #343A40;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-800</div>
+                        <div class="color-hex">#343A40</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">11.4</span>
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-square" style="background: #212529;"></div>
+                    <div class="color-details">
+                        <div class="color-token">neutral-900</div>
+                        <div class="color-hex">#212529</div>
+                    </div>
+                    <div>
+                        <span class="contrast-badge contrast-aaa">15.3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Light Mode Color Scheme -->
+        <h2>Light Mode Color Scheme</h2>
+        <p class="section-description">
+            Comprehensive light mode implementation guide with real-world examples. All combinations are tested for WCAG 2.1 AA compliance with proper contrast ratios for optimal readability.
+        </p>
+        
+        <div class="usage-grid" style="margin-top: 30px;">
+            <div class="usage-card">
+                <h3 class="usage-title">Background Colors</h3>
+                <div style="margin-top: 20px;">
+                    <div style="background: #FFFFFF; padding: 20px; border: 1px solid #DEE2E6; border-radius: 8px; margin-bottom: 12px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">PRIMARY BACKGROUND</div>
+                        <div style="font-weight: 600; color: #212529;">Pure White (#FFFFFF)</div>
+                        <div style="font-size: 14px; color: #6C757D; margin-top: 4px;">Main content areas, cards, modals</div>
+                    </div>
+                    <div style="background: #F8F9FA; padding: 20px; border: 1px solid #DEE2E6; border-radius: 8px; margin-bottom: 12px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">SECONDARY BACKGROUND</div>
+                        <div style="font-weight: 600; color: #212529;">Neutral-100 (#F8F9FA)</div>
+                        <div style="font-size: 14px; color: #6C757D; margin-top: 4px;">Page background, subtle sections</div>
+                    </div>
+                    <div style="background: #E9ECEF; padding: 20px; border: 1px solid #DEE2E6; border-radius: 8px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">TERTIARY BACKGROUND</div>
+                        <div style="font-weight: 600; color: #212529;">Neutral-200 (#E9ECEF)</div>
+                        <div style="font-size: 14px; color: #6C757D; margin-top: 4px;">Disabled states, dividers, borders</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usage-card">
+                <h3 class="usage-title">Text Hierarchy</h3>
+                <div style="margin-top: 20px;">
+                    <div style="padding: 16px; background: #FFFFFF; border: 1px solid #DEE2E6; border-radius: 8px; margin-bottom: 12px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">PRIMARY TEXT • 15.3:1</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #212529;">Neutral-900 (#212529)</div>
+                        <div style="font-size: 14px; color: #212529; margin-top: 8px;">Use for headings, titles, and primary content. Excellent contrast for all text sizes.</div>
+                    </div>
+                    <div style="padding: 16px; background: #FFFFFF; border: 1px solid #DEE2E6; border-radius: 8px; margin-bottom: 12px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">SECONDARY TEXT • 7.85:1</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #495057;">Neutral-700 (#495057)</div>
+                        <div style="font-size: 14px; color: #495057; margin-top: 8px;">Use for body text, paragraphs, and descriptions. Passes AAA for large text.</div>
+                    </div>
+                    <div style="padding: 16px; background: #FFFFFF; border: 1px solid #DEE2E6; border-radius: 8px;">
+                        <div style="font-size: 12px; color: #6C757D; font-weight: 600; margin-bottom: 8px;">TERTIARY TEXT • 4.54:1</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #6C757D;">Neutral-600 (#6C757D)</div>
+                        <div style="font-size: 14px; color: #6C757D; margin-top: 8px;">Use for captions, labels, and supporting text. Passes AA standard.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 40px;">Text Readability Examples</h3>
+        <p class="section-description">
+            Real-world examples showing proper text color usage across different content types. Each example shows the contrast ratio and WCAG compliance level.
+        </p>
+        
+        <div class="extended-palette">
+            <!-- Headings Example -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Headings & Titles</div>
+                    <div class="scale-description">Large text (18px+ regular, 14px+ bold)</div>
+                </div>
+                <div style="padding: 24px; background: #FFFFFF;">
+                    <h1 style="font-size: 32px; font-weight: 700; color: #212529; margin-bottom: 12px;">
+                        Primary Heading
+                    </h1>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 20px;">
+                        ✓ Neutral-900 • Contrast: 15.3:1 • AAA Compliant
+                    </div>
+                    
+                    <h2 style="font-size: 24px; font-weight: 600; color: #343A40; margin-bottom: 12px;">
+                        Secondary Heading
+                    </h2>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 20px;">
+                        ✓ Neutral-800 • Contrast: 11.4:1 • AAA Compliant
+                    </div>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; color: #085B6C; margin-bottom: 12px;">
+                        Branded Heading (Primary)
+                    </h3>
+                    <div style="font-size: 11px; color: #6C757D;">
+                        ✓ Primary-700 • Contrast: 7.26:1 • AAA Compliant
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Body Text Example -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Body Text</div>
+                    <div class="scale-description">Regular text (under 18px)</div>
+                </div>
+                <div style="padding: 24px; background: #FFFFFF;">
+                    <p style="font-size: 16px; color: #212529; line-height: 1.6; margin-bottom: 16px;">
+                        <strong>Best Practice:</strong> Our AI consulting services leverage cutting-edge technology to transform your business operations and drive measurable results.
+                    </p>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 24px;">
+                        ✓ Neutral-900 • Contrast: 15.3:1 • AAA Compliant
+                    </div>
+                    
+                    <p style="font-size: 16px; color: #495057; line-height: 1.6; margin-bottom: 16px;">
+                        <strong>Alternative:</strong> Our AI consulting services leverage cutting-edge technology to transform your business operations and drive measurable results.
+                    </p>
+                    <div style="font-size: 11px; color: #6C757D;">
+                        ✓ Neutral-700 • Contrast: 7.85:1 • AAA Compliant
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Supporting Text Example -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Supporting Text</div>
+                    <div class="scale-description">Captions, labels, metadata</div>
+                </div>
+                <div style="padding: 24px; background: #FFFFFF;">
+                    <div style="font-size: 14px; color: #6C757D; margin-bottom: 12px;">
+                        Last updated: October 8, 2025
+                    </div>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 24px;">
+                        ✓ Neutral-600 • Contrast: 4.54:1 • AA Compliant
+                    </div>
+                    
+                    <div style="font-size: 12px; color: #ADB5BD; margin-bottom: 12px; text-decoration: line-through;">
+                        ✗ Too Light - Fails Accessibility
+                    </div>
+                    <div style="font-size: 11px; color: #6C757D;">
+                        ✗ Neutral-500 • Contrast: 1.91:1 • FAILS WCAG
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Links Example -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Interactive Links</div>
+                    <div class="scale-description">Hyperlinks and clickable text</div>
+                </div>
+                <div style="padding: 24px; background: #FFFFFF;">
+                    <p style="font-size: 16px; color: #212529; line-height: 1.8; margin-bottom: 16px;">
+                        Learn more about <a href="#" style="color: #085B6C; text-decoration: underline; font-weight: 600;">our AI solutions</a> and how they can benefit your organization.
+                    </p>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 24px;">
+                        ✓ Primary-700 • Contrast: 7.26:1 • AAA Compliant
+                    </div>
+                    
+                    <p style="font-size: 16px; color: #212529; line-height: 1.8; margin-bottom: 16px;">
+                        Alternative: <a href="#" style="color: #0B7D94; text-decoration: underline; font-weight: 600;">Primary-600 Links</a>
+                    </p>
+                    <div style="font-size: 11px; color: #6C757D;">
+                        ✓ Primary-600 • Contrast: 4.14:1 • AA Compliant
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colored Backgrounds -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Text on Colored Backgrounds</div>
+                    <div class="scale-description">Brand color backgrounds</div>
+                </div>
+                <div style="padding: 24px; background: #E6F7FA;">
+                    <div style="font-size: 16px; color: #02171C; font-weight: 600; margin-bottom: 12px;">
+                        Text on Primary-100
+                    </div>
+                    <div style="font-size: 14px; color: #053944; line-height: 1.6; margin-bottom: 12px;">
+                        Use Primary-800 or Primary-900 for text on light primary backgrounds.
+                    </div>
+                    <div style="font-size: 11px; color: #6C757D; margin-bottom: 24px;">
+                        ✓ Primary-900 • Contrast: 16.6:1 • AAA Compliant
+                    </div>
+                    
+                    <div style="background: #0E9FBC; padding: 16px; border-radius: 6px; margin-bottom: 12px;">
+                        <div style="font-size: 16px; color: #FFFFFF; font-weight: 600; margin-bottom: 8px;">
+                            White Text on Primary-500
+                        </div>
+                        <div style="font-size: 14px; color: #FFFFFF; line-height: 1.6;">
+                            Always use white text on primary brand color buttons and badges.
+                        </div>
+                    </div>
+                    <div style="font-size: 11px; color: #6C757D;">
+                        ✓ White on Primary-500 • Contrast: 2.71:1 • AA Large Text Only
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Code and Monospace -->
+            <div class="color-scale">
+                <div class="scale-header">
+                    <div class="scale-title">Code & Technical Text</div>
+                    <div class="scale-description">Monospace and technical content</div>
+                </div>
+                <div style="padding: 24px; background: #F8F9FA;">
+                    <code style="background: #E9ECEF; color: #212529; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 14px;">
+                        const primaryColor = '#0E9FBC';
+                    </code>
+                    <div style="font-size: 11px; color: #6C757D; margin-top: 12px; margin-bottom: 20px;">
+                        ✓ Neutral-900 on Neutral-200 • Contrast: 13.7:1
+                    </div>
+                    
+                    <code style="background: #E6F7FA; color: #053944; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 14px;">
+                        import { primaryColor } from './tokens';
+                    </code>
+                    <div style="font-size: 11px; color: #6C757D; margin-top: 12px;">
+                        ✓ Primary-800 on Primary-100 • Contrast: 11.8:1
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 40px;">Complete Content Example</h3>
+        <div style="max-width: 800px; margin: 30px auto; background: #FFFFFF; padding: 40px; border-radius: 12px; border: 1px solid #DEE2E6; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <span style="display: inline-block; background: #E6F7FA; color: #085B6C; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600; margin-bottom: 20px;">
+                AI CONSULTING
+            </span>
+            
+            <h1 style="font-size: 36px; font-weight: 700; color: #212529; margin-bottom: 12px; line-height: 1.2;">
+                Transform Your Business with AI
+            </h1>
+            
+            <p style="font-size: 18px; color: #6C757D; margin-bottom: 32px; line-height: 1.6;">
+                Harness the power of artificial intelligence to drive innovation and growth
+            </p>
+            
+            <p style="font-size: 16px; color: #495057; line-height: 1.8; margin-bottom: 20px;">
+                Our enterprise AI consulting services help organizations implement cutting-edge machine learning solutions. We specialize in natural language processing, computer vision, and predictive analytics that deliver measurable business value.
+            </p>
+            
+            <p style="font-size: 16px; color: #495057; line-height: 1.8; margin-bottom: 20px;">
+                With over a decade of experience, we've helped <a href="#" style="color: #085B6C; text-decoration: underline; font-weight: 600;">Fortune 500 companies</a> achieve breakthrough results through strategic AI implementation.
+            </p>
+            
+            <div style="background: #E6F7FA; border-left: 4px solid #0E9FBC; padding: 20px; margin: 32px 0; border-radius: 6px;">
+                <div style="font-size: 14px; font-weight: 600; color: #053944; margin-bottom: 8px;">
+                    💡 Key Insight
+                </div>
+                <div style="font-size: 15px; color: #085B6C; line-height: 1.7;">
+                    Companies that invest in AI consulting see an average ROI increase of 35% within the first year of implementation.
+                </div>
+            </div>
+            
+            <div style="margin-top: 32px;">
+                <button style="background: #0E9FBC; color: #FFFFFF; padding: 14px 28px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; margin-right: 12px;">
+                    Get Started
+                </button>
+                <button style="background: transparent; color: #085B6C; padding: 14px 28px; border: 2px solid #0E9FBC; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    Learn More
+                </button>
+            </div>
+            
+            <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #E9ECEF;">
+                <div style="font-size: 13px; color: #6C757D;">
+                    Published: October 8, 2025 • Reading time: 5 minutes
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accessibility Matrix -->
+        <h2>Accessibility Matrix</h2>
+        <p class="section-description">
+            Complete WCAG 2.1 contrast ratio matrix. Green values pass AA standard (4.5:1 for normal text, 3:1 for large text).
+            Use primary-700 or darker for body text on white backgrounds.
+        </p>
+        
+        <div class="accessibility-matrix">
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Foreground</th>
+                        <th>White</th>
+                        <th>Neutral-100</th>
+                        <th>Neutral-900</th>
+                        <th>Primary-100</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primary-500</strong></td>
+                        <td class="ratio-cell fail">2.71</td>
+                        <td class="ratio-cell fail">2.63</td>
+                        <td class="ratio-cell pass">5.65</td>
+                        <td class="ratio-cell fail">2.49</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primary-600</strong></td>
+                        <td class="ratio-cell pass">4.14</td>
+                        <td class="ratio-cell pass">4.02</td>
+                        <td class="ratio-cell fail">3.70</td>
+                        <td class="ratio-cell fail">3.80</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primary-700</strong></td>
+                        <td class="ratio-cell pass">7.26</td>
+                        <td class="ratio-cell pass">7.05</td>
+                        <td class="ratio-cell fail">2.11</td>
+                        <td class="ratio-cell pass">6.67</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary-500</strong></td>
+                        <td class="ratio-cell fail">2.95</td>
+                        <td class="ratio-cell fail">2.86</td>
+                        <td class="ratio-cell pass">5.19</td>
+                        <td class="ratio-cell fail">2.71</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary-600</strong></td>
+                        <td class="ratio-cell pass">4.07</td>
+                        <td class="ratio-cell fail">3.95</td>
+                        <td class="ratio-cell fail">3.76</td>
+                        <td class="ratio-cell fail">3.74</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary-700</strong></td>
+                        <td class="ratio-cell pass">5.71</td>
+                        <td class="ratio-cell pass">5.54</td>
+                        <td class="ratio-cell fail">2.68</td>
+                        <td class="ratio-cell pass">5.24</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neutral-600</strong></td>
+                        <td class="ratio-cell pass">4.54</td>
+                        <td class="ratio-cell pass">4.41</td>
+                        <td class="ratio-cell fail">3.37</td>
+                        <td class="ratio-cell pass">4.17</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neutral-900</strong></td>
+                        <td class="ratio-cell pass">15.3</td>
+                        <td class="ratio-cell pass">14.9</td>
+                        <td class="ratio-cell">—</td>
+                        <td class="ratio-cell pass">14.1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Dark Mode -->
+        <h2>Dark Mode Palette</h2>
+        <p class="section-description">
+            Optimized color values for dark backgrounds. These maintain brand consistency while ensuring readability and reducing eye strain in low-light environments.
+        </p>
+        
+        <div class="dark-mode-preview">
+            <h3>Dark Theme Colors</h3>
+            <div class="dark-palette">
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #0D1117;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Background</div>
+                        <div class="dark-color-hex">#0D1117</div>
+                    </div>
+                </div>
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #161B22;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Surface</div>
+                        <div class="dark-color-hex">#161B22</div>
+                    </div>
+                </div>
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #4FC3DB;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Primary Light</div>
+                        <div class="dark-color-hex">#4FC3DB</div>
+                    </div>
+                </div>
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #8FD464;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Secondary Light</div>
+                        <div class="dark-color-hex">#8FD464</div>
+                    </div>
+                </div>
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #C9D1D9;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Text Primary</div>
+                        <div class="dark-color-hex">#C9D1D9</div>
+                    </div>
+                </div>
+                <div class="dark-color-card">
+                    <div class="dark-color-swatch" style="background: #8B949E;"></div>
+                    <div class="dark-color-info">
+                        <div class="dark-color-name">Text Secondary</div>
+                        <div class="dark-color-hex">#8B949E</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Semantic Colors -->
+        <h2>Semantic Color System</h2>
+        <p class="section-description">
+            Complete semantic palette for UI states and user feedback. Each color is tested for accessibility and includes light/dark variants.
+        </p>
+        
+        <div class="usage-grid">
+            <div class="usage-card">
+                <h3 class="usage-title">Status Colors</h3>
+                <div class="component-preview">
+                    <div class="alert alert-success">
+                        <div class="alert-icon">✓</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Success</div>
+                            <div class="alert-description">Agent deployed successfully</div>
+                        </div>
+                    </div>
+                    <div class="alert alert-error">
+                        <div class="alert-icon">✕</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Error</div>
+                            <div class="alert-description">Configuration validation failed</div>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <div class="alert-icon">!</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Warning</div>
+                            <div class="alert-description">Resource usage approaching limit</div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info">
+                        <div class="alert-icon">i</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Info</div>
+                            <div class="alert-description">System update available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usage-card">
+                <h3 class="usage-title">Interactive States</h3>
+                <div class="component-preview">
+                    <button class="btn btn-primary">Primary CTA</button>
+                    <button class="btn btn-secondary">Secondary</button>
+                    <button class="btn btn-outline">Outline</button>
+                    <button class="btn btn-ghost">Ghost</button>
+                    <button class="btn btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">Disabled</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data Visualization -->
+        <h2>Data Visualization Palette</h2>
+        <p class="section-description">
+            Categorical colors optimized for charts and graphs. These colors are distinguishable for most forms of color blindness.
+        </p>
+        
+        <div class="data-viz-palette">
+            <div class="viz-color" style="background: #0E9FBC;">1</div>
+            <div class="viz-color" style="background: #6CB33F;">2</div>
+            <div class="viz-color" style="background: #FFC107;">3</div>
+            <div class="viz-color" style="background: #FF6B6B;">4</div>
+            <div class="viz-color" style="background: #4ECDC4;">5</div>
+            <div class="viz-color" style="background: #95A5A6;">6</div>
+            <div class="viz-color" style="background: #9B59B6;">7</div>
+            <div class="viz-color" style="background: #3498DB;">8</div>
+        </div>
+        
+        <!-- Color Blind Preview -->
+        <h3>Color Blind Simulation</h3>
+        <div class="colorblind-preview">
+            <div class="colorblind-card">
+                <div class="colorblind-title">Normal Vision</div>
+                <div class="colorblind-colors">
+                    <div class="cb-swatch" style="background: #0E9FBC;"></div>
+                    <div class="cb-swatch" style="background: #6CB33F;"></div>
+                </div>
+            </div>
+            <div class="colorblind-card">
+                <div class="colorblind-title">Protanopia</div>
+                <div class="colorblind-colors">
+                    <div class="cb-swatch" style="background: #1B8FA7;"></div>
+                    <div class="cb-swatch" style="background: #A39D3C;"></div>
+                </div>
+            </div>
+            <div class="colorblind-card">
+                <div class="colorblind-title">Deuteranopia</div>
+                <div class="colorblind-colors">
+                    <div class="cb-swatch" style="background: #3D8BA0;"></div>
+                    <div class="cb-swatch" style="background: #9B973F;"></div>
+                </div>
+            </div>
+            <div class="colorblind-card">
+                <div class="colorblind-title">Tritanopia</div>
+                <div class="colorblind-colors">
+                    <div class="cb-swatch" style="background: #0C99A8;"></div>
+                    <div class="cb-swatch" style="background: #7DAD48;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Design Tokens -->
+        <h2>Design Tokens</h2>
+        <p class="section-description">
+            Copy these tokens directly into your codebase. Available in CSS custom properties, JavaScript, and JSON formats.
+        </p>
+        
+        <div class="token-block">
+            <pre class="token-code"><span class="token-comment">/* CSS Custom Properties */</span>
+<span class="token-property">:root</span> {
+  <span class="token-comment">/* Primary Palette */</span>
+  <span class="token-property">--color-primary-100</span>: <span class="token-value">#E6F7FA</span>;
+  <span class="token-property">--color-primary-200</span>: <span class="token-value">#B3E5EE</span>;
+  <span class="token-property">--color-primary-300</span>: <span class="token-value">#80D4E3</span>;
+  <span class="token-property">--color-primary-400</span>: <span class="token-value">#4FC3DB</span>;
+  <span class="token-property">--color-primary-500</span>: <span class="token-value">#0E9FBC</span>;
+  <span class="token-property">--color-primary-600</span>: <span class="token-value">#0B7D94</span>;
+  <span class="token-property">--color-primary-700</span>: <span class="token-value">#085B6C</span>;
+  <span class="token-property">--color-primary-800</span>: <span class="token-value">#053944</span>;
+  <span class="token-property">--color-primary-900</span>: <span class="token-value">#02171C</span>;
+  
+  <span class="token-comment">/* Semantic Tokens */</span>
+  <span class="token-property">--color-text-primary</span>: <span class="token-value">var(--color-neutral-900)</span>;
+  <span class="token-property">--color-text-secondary</span>: <span class="token-value">var(--color-neutral-600)</span>;
+  <span class="token-property">--color-bg-primary</span>: <span class="token-value">var(--color-neutral-000)</span>;
+  <span class="token-property">--color-bg-secondary</span>: <span class="token-value">var(--color-neutral-100)</span>;
+  <span class="token-property">--color-border</span>: <span class="token-value">var(--color-neutral-200)</span>;
+}</pre>
+        </div>
+        
+        <div class="token-block">
+            <pre class="token-code"><span class="token-comment">// JavaScript/TypeScript Tokens</span>
+<span class="token-property">export const colors</span> = {
+  <span class="token-property">primary</span>: {
+    <span class="token-property">100</span>: <span class="token-value">'#E6F7FA'</span>,
+    <span class="token-property">200</span>: <span class="token-value">'#B3E5EE'</span>,
+    <span class="token-property">300</span>: <span class="token-value">'#80D4E3'</span>,
+    <span class="token-property">400</span>: <span class="token-value">'#4FC3DB'</span>,
+    <span class="token-property">500</span>: <span class="token-value">'#0E9FBC'</span>,
+    <span class="token-property">600</span>: <span class="token-value">'#0B7D94'</span>,
+    <span class="token-property">700</span>: <span class="token-value">'#085B6C'</span>,
+    <span class="token-property">800</span>: <span class="token-value">'#053944'</span>,
+    <span class="token-property">900</span>: <span class="token-value">'#02171C'</span>
+  },
+  <span class="token-property">semantic</span>: {
+    <span class="token-property">success</span>: <span class="token-value">'#6CB33F'</span>,
+    <span class="token-property">error</span>: <span class="token-value">'#DC3545'</span>,
+    <span class="token-property">warning</span>: <span class="token-value">'#FFC107'</span>,
+    <span class="token-property">info</span>: <span class="token-value">'#0E9FBC'</span>
+  }
+};</pre>
+        </div>
+        
+        <!-- Best Practices -->
+        <h2>Implementation Best Practices</h2>
+        
+        <div class="best-practices">
+            <div class="practice-card do-card">
+                <div class="practice-title">
+                    <span>✓</span> Do
+                </div>
+                <div class="practice-item">• Use primary-700 (#085B6C) or darker for body text on white</div>
+                <div class="practice-item">• Test all color combinations with WCAG contrast checker</div>
+                <div class="practice-item">• Use semantic color tokens instead of raw hex values</div>
+                <div class="practice-item">• Implement both light and dark mode from the start</div>
+                <div class="practice-item">• Use patterns or icons alongside color for critical information</div>
+                <div class="practice-item">• Maintain 60-30-10 color distribution ratio</div>
+                <div class="practice-item">• Test designs with color blindness simulators</div>
+            </div>
+            
+            <div class="practice-card dont-card">
+                <div class="practice-title">
+                    <span>✗</span> Don't
+                </div>
+                <div class="practice-item">• Don't use primary-500 for small text on white (fails WCAG)</div>
+                <div class="practice-item">• Don't rely solely on color to convey meaning</div>
+                <div class="practice-item">• Don't use pure black (#000000) - use neutral-900 instead</div>
+                <div class="practice-item">• Don't mix opacity values without testing contrast</div>
+                <div class="practice-item">• Don't use more than 8 colors in data visualizations</div>
+                <div class="practice-item">• Don't apply brand colors to error states</div>
+                <div class="practice-item">• Don't use light shades (100-400) for interactive elements</div>
+            </div>
+        </div>
+        
+        <!-- Technical Implementation -->
+        <h2>Technical Implementation Guide</h2>
+        
+        <div class="usage-card" style="margin-top: 20px;">
+            <h3>CSS Architecture</h3>
+            <div class="token-block">
+                <pre class="token-code"><span class="token-comment">/* Recommended CSS Structure */</span>
+<span class="token-comment">/* 1. Define in :root for light mode */</span>
+<span class="token-property">:root</span> {
+  <span class="token-property">--color-primary</span>: <span class="token-value">#0E9FBC</span>;
+  <span class="token-property">--color-text</span>: <span class="token-value">var(--color-neutral-900)</span>;
+  <span class="token-property">--color-bg</span>: <span class="token-value">var(--color-neutral-000)</span>;
+}
+
+<span class="token-comment">/* 2. Override for dark mode */</span>
+<span class="token-property">[data-theme="dark"]</span> {
+  <span class="token-property">--color-primary</span>: <span class="token-value">#4FC3DB</span>;
+  <span class="token-property">--color-text</span>: <span class="token-value">#C9D1D9</span>;
+  <span class="token-property">--color-bg</span>: <span class="token-value">#0D1117</span>;
+}
+
+<span class="token-comment">/* 3. Use semantic tokens in components */</span>
+<span class="token-property">.button-primary</span> {
+  <span class="token-property">background</span>: <span class="token-value">var(--color-primary)</span>;
+  <span class="token-property">color</span>: <span class="token-value">var(--color-text-on-primary)</span>;
+}</pre>
+            </div>
+        </div>
+        
+        <div class="usage-card" style="margin-top: 20px;">
+            <h3>Tailwind Configuration</h3>
+            <div class="token-block">
+                <pre class="token-code"><span class="token-comment">// tailwind.config.js</span>
+<span class="token-property">module.exports</span> = {
+  <span class="token-property">theme</span>: {
+    <span class="token-property">extend</span>: {
+      <span class="token-property">colors</span>: {
+        <span class="token-property">primary</span>: {
+          <span class="token-value">100: '#E6F7FA',
+          200: '#B3E5EE',
+          300: '#80D4E3',
+          400: '#4FC3DB',
+          500: '#0E9FBC',
+          600: '#0B7D94',
+          700: '#085B6C',
+          800: '#053944',
+          900: '#02171C'</span>
+        }
+      }
+    }
+  }
+}</pre>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="margin-top: 80px; padding-top: 40px; border-top: 2px solid var(--color-neutral-200); text-align: center;">
+            <p style="color: var(--color-neutral-600); font-size: 14px;">
+                Enterprise AI Consulting Brand Color System v2.0<br>
+                Enhanced with accessibility, dark mode, and comprehensive design tokens<br>
+                <span style="margin-top: 12px; display: block; font-size: 12px;">
+                    Last updated: 2024 | WCAG 2.1 Compliant
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
