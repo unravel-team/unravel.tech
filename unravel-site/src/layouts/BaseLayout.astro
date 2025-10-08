@@ -163,20 +163,20 @@ const {
   footer {
     background: var(--color-neutral-900);
     color: var(--color-neutral-100);
-    padding: var(--spacing-3xl) 0 var(--spacing-xl);
-    margin-top: var(--spacing-3xl);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    margin-top: var(--spacing-2xl);
   }
 
   .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-2xl);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
   }
 
   .footer-section h4 {
     color: var(--color-neutral-000);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     font-size: var(--text-base);
   }
 
@@ -188,10 +188,21 @@ const {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
   }
 
   .footer-links li {
-    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .footer-links li:not(:last-child)::after {
+    content: '|';
+    color: var(--color-neutral-500);
   }
 
   .footer-links a {
@@ -205,7 +216,7 @@ const {
   }
 
   .footer-bottom {
-    padding-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
     border-top: 1px solid var(--color-neutral-700);
     text-align: center;
   }
