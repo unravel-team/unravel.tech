@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedSection from '../components/AnimatedSection';
 ---
 
 <BaseLayout 
@@ -7,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Expert AI consulting services for enterprises. Machine learning, NLP, computer vision, and predictive analytics solutions."
 >
   <!-- Hero Section -->
-  <section class="hero">
+  <AnimatedSection className="hero" animationType="fadeIn" client:load>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">AI CONSULTING</div>
@@ -24,10 +25,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+  </AnimatedSection>
 
   <!-- Services Section -->
-  <section id="services" class="services">
+  <AnimatedSection id="services" className="services" animationType="fadeUp" client:load>
     <div class="container">
       <div class="section-header">
         <h2 class="text-center">Our Services</h2>
@@ -92,10 +93,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+  </AnimatedSection>
 
   <!-- Stats Section -->
-  <section class="stats">
+  <AnimatedSection className="stats" animationType="scale" client:load>
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
@@ -116,10 +117,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+  </AnimatedSection>
 
   <!-- CTA Section -->
-  <section id="contact" class="cta">
+  <AnimatedSection id="contact" className="cta" animationType="fadeUp" client:load>
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Transform Your Business?</h2>
@@ -131,17 +132,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </a>
       </div>
     </div>
-  </section>
+  </AnimatedSection>
 </BaseLayout>
 
 <style>
+  /* Full height sections with perfect snap */
+  :global(.animated-section) {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    width: 100%;
+  }
+
   /* Hero Section */
   .hero {
     background: linear-gradient(135deg, rgba(230, 247, 250, 0.4) 0%, rgba(240, 248, 235, 0.4) 100%);
     padding: var(--spacing-3xl) 0;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
   }
 
   .hero-content {
@@ -193,6 +204,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Services Section */
   .services {
     padding: var(--spacing-3xl) 0;
+    background: var(--color-neutral-000);
   }
 
   .section-header {
@@ -256,7 +268,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--color-primary-500);
     color: var(--color-neutral-000);
     padding: var(--spacing-3xl) 0;
-    margin: var(--spacing-3xl) 0;
+    margin: 0;
     position: relative;
     overflow: hidden;
   }
@@ -285,7 +297,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cta {
     background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-secondary-100) 100%);
     padding: var(--spacing-3xl) 0;
-    margin-bottom: var(--spacing-3xl);
+    margin-bottom: 0;
   }
 
   .cta-content {
@@ -312,9 +324,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Responsive Design */
   @media (max-width: 768px) {
+    :global(.animated-section) {
+      min-height: auto;
+      height: auto;
+      padding: var(--spacing-2xl) 0;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+
     .hero {
       padding: var(--spacing-2xl) 0;
-      min-height: auto;
     }
 
     .hero-title {

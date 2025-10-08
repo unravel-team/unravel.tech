@@ -103,7 +103,8 @@
 /* Base Styles */
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -113,6 +114,24 @@ body {
   background: var(--color-bg-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Typography */
