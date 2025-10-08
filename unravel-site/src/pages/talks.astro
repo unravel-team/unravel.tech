@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Public Talks | AI Consulting"
+  description="Watch our public talks and presentations on AI, machine learning, and software development."
+>
+  <!-- Hero Section -->
+  <!-- Talks Section -->
+  <section class="talks-content">
+    <div class="container">
+      <div class="talks-grid">
+        <div class="card talk-card">
+          <div class="talk-video">
+            <iframe 
+              src="https://www.youtube.com/embed/uwEGj_OH1Xw" 
+              title="LLMs + Clojure = Who needs frameworks?"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="talk-content">
+            <h3>LLMs + Clojure = Who needs frameworks?</h3>
+            <p class="talk-speaker">by Kapil Reddy</p>
+            <p class="text-muted">
+              Exploring how Large Language Models combined with Clojure's simplicity 
+              can challenge traditional framework dependencies in modern development.
+            </p>
+            <div class="talk-meta">
+              <span class="talk-duration">21:15</span>
+              <span class="talk-venue">London Clojurians</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card talk-card">
+          <div class="talk-video">
+            <iframe 
+              src="https://www.youtube.com/embed/v43Kfc7fYT0" 
+              title="Writing Model Content Protocol (MCP) Servers in Clojure"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="talk-content">
+            <h3>Writing Model Content Protocol (MCP) Servers in Clojure</h3>
+            <p class="talk-speaker">by Vedang Manerikar</p>
+            <p class="text-muted">
+              A practical guide to implementing Model Content Protocol servers using 
+              Clojure's functional programming paradigms and ecosystem.
+            </p>
+            <div class="talk-meta">
+              <span class="talk-duration">30:38</span>
+              <span class="talk-venue">London Clojurians</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .talks-hero {
+    background: linear-gradient(135deg, rgba(240, 248, 235, 0.4) 0%, rgba(230, 247, 250, 0.4) 100%);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+  }
+
+  .hero-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Talks Content */
+  .talks-content {
+    padding: var(--spacing-lg) 0 var(--spacing-3xl);
+  }
+
+  .talks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+  }
+
+  .talk-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .talk-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .talk-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: var(--color-neutral-900);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+
+  .talk-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .talk-content {
+    padding: var(--spacing-xl);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .talk-content h3 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+    line-height: var(--leading-tight);
+  }
+
+  .talk-speaker {
+    font-size: var(--text-sm);
+    color: var(--color-primary-600);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .talk-content .text-muted {
+    flex: 1;
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--leading-relaxed);
+  }
+
+  .talk-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-neutral-200);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .talk-duration::before {
+    content: "⏱️ ";
+    margin-right: var(--spacing-xs);
+  }
+
+  .talk-venue::before {
+    content: "📍 ";
+    margin-right: var(--spacing-xs);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .talks-hero {
+      padding: var(--spacing-lg) 0;
+    }
+
+    .hero-title {
+      font-size: var(--text-3xl);
+    }
+
+    .talks-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+
+    .talk-content {
+      padding: var(--spacing-lg);
+    }
+
+    .talk-meta {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+</style>
