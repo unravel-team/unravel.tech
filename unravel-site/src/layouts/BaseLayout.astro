@@ -163,6 +163,19 @@ const {
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
+    padding-top: 80px; /* Space for fixed header */
+  }
+
+  @media (min-width: 768px) {
+    main {
+      padding-top: 88px; /* Larger header on tablets */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      padding-top: 92px; /* Larger header on desktop */
+    }
   }
 
   /* Footer - Minimal Strip at Bottom */

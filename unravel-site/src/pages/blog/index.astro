@@ -58,9 +58,21 @@ const sortedPosts = allPosts.sort((a, b) =>
 <style>
   /* Blog Hero */
   .blog-hero {
-    background: linear-gradient(135deg, rgba(230, 247, 250, 0.4) 0%, rgba(240, 248, 235, 0.4) 100%);
+    background: var(--color-bg-gradient-vibrant);
     padding: var(--spacing-3xl) 0;
     text-align: center;
+    position: relative;
+  }
+
+  .blog-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(at 50% 50%, rgba(14, 159, 188, 0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .blog-title {
@@ -78,6 +90,32 @@ const sortedPosts = allPosts.sort((a, b) =>
   /* Blog List */
   .blog-list {
     padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-gradient-soft);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .blog-list::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(108, 179, 63, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  .blog-list::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 159, 188, 0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .posts-grid {
@@ -90,6 +128,8 @@ const sortedPosts = allPosts.sort((a, b) =>
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   .post-card-content {

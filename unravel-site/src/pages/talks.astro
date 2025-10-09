@@ -66,9 +66,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* Hero Section */
   .talks-hero {
-    background: linear-gradient(135deg, rgba(240, 248, 235, 0.4) 0%, rgba(230, 247, 250, 0.4) 100%);
+    background: var(--color-bg-gradient-vibrant);
     padding: var(--spacing-xl) 0;
     text-align: center;
+    position: relative;
+  }
+
+  .talks-hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(108, 179, 63, 0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .hero-content {
@@ -92,6 +105,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Talks Content */
   .talks-content {
     padding: var(--spacing-lg) 0 var(--spacing-3xl);
+    background: var(--color-bg-gradient-soft);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .talks-content::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 159, 188, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .talks-content::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 179, 63, 0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .talks-grid {
@@ -105,16 +143,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
     overflow: hidden;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
   }
 
   .talk-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(14, 159, 188, 0.2);
+    box-shadow: var(--shadow-primary-lg);
     border-color: var(--color-primary-300);
   }
   
   .talk-card:nth-child(even):hover {
-    box-shadow: 0 8px 24px rgba(108, 179, 63, 0.2);
+    box-shadow: var(--shadow-secondary-lg);
     border-color: var(--color-secondary-300);
   }
 

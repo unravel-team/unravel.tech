@@ -160,8 +160,21 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Hero Section */
   .hero {
-    background: linear-gradient(135deg, rgba(230, 247, 250, 0.4) 0%, rgba(240, 248, 235, 0.4) 100%);
+    background: var(--color-bg-mesh), var(--color-bg-primary);
     padding: var(--spacing-3xl) 0;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg-gradient-vibrant);
+    opacity: 0.3;
+    pointer-events: none;
   }
 
   .hero-content {
@@ -213,7 +226,19 @@ import ScrollProgress from '../components/ScrollProgress';
   /* Services Section */
   .services {
     padding: var(--spacing-3xl) 0;
-    background: var(--color-neutral-000);
+    background: var(--color-bg-gradient-soft);
+    position: relative;
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(14, 159, 188, 0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .section-header {
@@ -304,9 +329,22 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* CTA Section */
   .cta {
-    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-secondary-100) 100%);
+    background: var(--color-bg-gradient-vibrant);
     padding: var(--spacing-3xl) 0;
     margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 179, 63, 0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .cta-content {
