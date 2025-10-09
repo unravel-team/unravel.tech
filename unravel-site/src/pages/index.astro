@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AnimatedSection from '../components/AnimatedSection';
+import ScrollProgress from '../components/ScrollProgress';
 ---
+
+<ScrollProgress client:load />
 
 <BaseLayout 
   title="AI Consulting | Transform Your Business with AI"
@@ -136,17 +139,23 @@ import AnimatedSection from '../components/AnimatedSection';
 </BaseLayout>
 
 <style>
-  /* Full height sections with perfect snap */
+  /* Landing page specific: Enable scroll-snap only on main */
+  :global(main) {
+    scroll-snap-type: y mandatory !important;
+    scroll-padding-top: 0;
+  }
+
+  /* Full height sections with scroll snap */
   :global(.animated-section) {
     min-height: 100vh;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     position: relative;
     width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   /* Hero Section */

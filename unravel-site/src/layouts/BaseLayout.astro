@@ -43,35 +43,35 @@ const {
 
   <main>
     <slot />
+    
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>AI Consulting</h4>
+            <p class="text-muted">Enterprise AI solutions for modern businesses</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/talks">Talks</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p class="text-muted">hello@aiconsulting.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-muted">&copy; 2025 AI Consulting. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>AI Consulting</h4>
-          <p class="text-muted">Enterprise AI solutions for modern businesses</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/talks">Talks</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p class="text-muted">hello@aiconsulting.com</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="text-muted">&copy; 2025 AI Consulting. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
 
@@ -156,34 +156,51 @@ const {
     }
   }
 
-  /* Main Content - Scroll Snap Container */
+  /* Main Content - Normal Scrolling */
   main {
-    scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Footer */
+  /* Footer - Minimal Strip at Bottom */
   footer {
-    display: none;
+    background: var(--color-neutral-950);
+    color: #C9D1D9;
+    padding: var(--spacing-md) 0;
+    min-height: auto;
+    height: auto;
+    margin-top: auto;
+  }
+  
+  footer .container {
+    width: 100%;
   }
 
   .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+  }
+
+  .footer-section {
+    flex: 0 1 auto;
   }
 
   .footer-section h4 {
-    color: var(--color-neutral-000);
-    margin-bottom: var(--spacing-sm);
-    font-size: var(--text-base);
+    color: #C9D1D9;
+    margin-bottom: 0;
+    font-size: var(--text-sm);
+    font-weight: 600;
   }
 
   .footer-section p {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0;
+    font-size: var(--text-xs);
   }
 
   .footer-links {
@@ -204,12 +221,13 @@ const {
 
   .footer-links li:not(:last-child)::after {
     content: '|';
-    color: var(--color-neutral-500);
+    color: #8B949E;
   }
 
   .footer-links a {
-    color: var(--color-neutral-300);
+    color: #C9D1D9;
     transition: color var(--transition-base);
+    font-size: var(--text-xs);
   }
 
   .footer-links a:hover {
@@ -218,12 +236,23 @@ const {
   }
 
   .footer-bottom {
-    padding-top: var(--spacing-md);
-    border-top: 1px solid var(--color-neutral-700);
-    text-align: center;
+    display: none;
   }
 
   footer .text-muted {
-    color: var(--color-neutral-400);
+    color: #8B949E;
+  }
+
+  /* Mobile Footer */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-md);
+    }
+    
+    .footer-section:nth-child(2) {
+      order: -1;
+    }
   }
 </style>
