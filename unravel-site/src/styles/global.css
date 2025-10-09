@@ -7,13 +7,22 @@
 
 /* CSS Custom Properties - Color System */
 :root {
+  /* Unravel Brand Colors */
+  --unravel-green: #6BC443;
+  --unravel-blue: #00A3CC;
+  --unravel-teal: #00B4CC;
+  --green-light: #8FD668;
+  --green-dark: #4FA52C;
+  --blue-light: #33B8DB;
+  --blue-dark: #0085A8;
+  
   /* Primary Colors - Teal */
   --color-primary-100: #E6F7FA;
   --color-primary-200: #B3E5EE;
   --color-primary-300: #80D4E3;
   --color-primary-400: #4FC3DB;
-  --color-primary-500: #0E9FBC; /* Main Teal */
-  --color-primary-600: #0B7D94;
+  --color-primary-500: #00A3CC; /* Main Teal - Unravel Blue */
+  --color-primary-600: #0085A8;
   --color-primary-700: #085B6C;
   --color-primary-800: #053944;
   --color-primary-900: #02171C;
@@ -22,8 +31,8 @@
   --color-secondary-100: #F0F8EB;
   --color-secondary-200: #D4E9C3;
   --color-secondary-300: #B8DA9B;
-  --color-secondary-400: #8FD464;
-  --color-secondary-500: #6CB33F; /* Main Green */
+  --color-secondary-400: #8FD668;
+  --color-secondary-500: #6BC443; /* Main Green - Unravel Green */
   --color-secondary-600: #5A9934;
   --color-secondary-700: #487F29;
   --color-secondary-800: #36651E;
