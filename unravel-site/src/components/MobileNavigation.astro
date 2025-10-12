@@ -15,6 +15,8 @@ const isActive = (path: string) => {
 
 // Check if Resources section is active (blog or talks)
 const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsWith('/talks');
+// Check if Services section is active
+const isServicesActive = currentPath.startsWith('/services');
 ---
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
@@ -37,6 +39,19 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
   </a>
 
   <button 
+    class={`mobile-nav-item ${isServicesActive ? 'active' : ''}`}
+    aria-label="Services"
+    aria-expanded="false"
+    data-menu-trigger="services"
+  >
+    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+    </svg>
+    <span class="nav-label">Services</span>
+  </button>
+
+  <button 
     class={`mobile-nav-item ${isResourcesActive ? 'active' : ''}`}
     aria-label="Resources"
     aria-expanded="false"
@@ -50,20 +65,8 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
   </button>
 
   <a 
-    href="#services" 
-    class={`mobile-nav-item ${isActive('#services') ? 'active' : ''}`}
-    aria-label="Services"
-  >
-    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-    </svg>
-    <span class="nav-label">Services</span>
-  </a>
-
-  <a 
-    href="#contact" 
-    class={`mobile-nav-item ${isActive('#contact') ? 'active' : ''}`}
+    href="mailto:hello@unravel.tech" 
+    class="mobile-nav-item"
     aria-label="Contact"
   >
     <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -72,6 +75,78 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
     <span class="nav-label">Contact</span>
   </a>
 </nav>
+
+<!-- Services Bottom Sheet -->
+<div class="bottom-sheet" id="services-menu" role="dialog" aria-labelledby="services-title" aria-hidden="true">
+  <div class="bottom-sheet-backdrop" data-close-menu></div>
+  <div class="bottom-sheet-content">
+    <div class="bottom-sheet-header">
+      <h3 id="services-title">Services</h3>
+      <button class="bottom-sheet-close" aria-label="Close menu" data-close-menu>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="bottom-sheet-menu">
+      <a 
+        href="/services" 
+        class={`submenu-item ${isActive('/services') && currentPath === '/services' ? 'active' : ''}`}
+        aria-current={isActive('/services') && currentPath === '/services' ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="9" y1="3" x2="9" y2="21"></line>
+        </svg>
+        <span class="submenu-label">All Services</span>
+      </a>
+      <a 
+        href="/services/prototype-to-production" 
+        class={`submenu-item ${currentPath === '/services/prototype-to-production' ? 'active' : ''}`}
+        aria-current={currentPath === '/services/prototype-to-production' ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+        <span class="submenu-label">Prototype to Production</span>
+      </a>
+      <a 
+        href="/services/ai-implementation" 
+        class={`submenu-item ${currentPath === '/services/ai-implementation' ? 'active' : ''}`}
+        aria-current={currentPath === '/services/ai-implementation' ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="submenu-label">AI Implementation</span>
+      </a>
+      <a 
+        href="/services/ai-consulting" 
+        class={`submenu-item ${currentPath === '/services/ai-consulting' ? 'active' : ''}`}
+        aria-current={currentPath === '/services/ai-consulting' ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="submenu-label">AI Consulting</span>
+      </a>
+      <a 
+        href="/services/cost-optimization" 
+        class={`submenu-item ${currentPath === '/services/cost-optimization' ? 'active' : ''}`}
+        aria-current={currentPath === '/services/cost-optimization' ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+        <span class="submenu-label">Cost Optimization</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- Resources Bottom Sheet -->
 <div class="bottom-sheet" id="resources-menu" role="dialog" aria-labelledby="resources-title" aria-hidden="true">
@@ -152,47 +227,63 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
 
   // Mobile navigation menu functionality
   function initMobileNav() {
-    const menuTrigger = document.querySelector('[data-menu-trigger="resources"]');
-    const bottomSheet = document.getElementById('resources-menu');
+    const menuTriggers = document.querySelectorAll('[data-menu-trigger]');
     const closeButtons = document.querySelectorAll('[data-close-menu]');
 
-    if (!menuTrigger || !bottomSheet) {
-      console.log('Mobile nav elements not found');
-      return;
-    }
+    menuTriggers.forEach(trigger => {
+      const menuId = trigger.getAttribute('data-menu-trigger') + '-menu';
+      const bottomSheet = document.getElementById(menuId);
 
-    console.log('Mobile nav initialized');
+      if (!bottomSheet) return;
 
-    // Open menu
-    menuTrigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('Opening bottom sheet');
-      bottomSheet.classList.add('open');
-      bottomSheet.setAttribute('aria-hidden', 'false');
-      menuTrigger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      // Open menu
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Close any other open menus first
+        document.querySelectorAll('.bottom-sheet.open').forEach(sheet => {
+          sheet.classList.remove('open');
+          sheet.setAttribute('aria-hidden', 'true');
+        });
+        document.querySelectorAll('[data-menu-trigger][aria-expanded="true"]').forEach(t => {
+          t.setAttribute('aria-expanded', 'false');
+        });
+
+        // Open this menu
+        bottomSheet.classList.add('open');
+        bottomSheet.setAttribute('aria-hidden', 'false');
+        trigger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      });
     });
 
     // Close menu
     closeButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('Closing bottom sheet');
-        bottomSheet.classList.remove('open');
-        bottomSheet.setAttribute('aria-hidden', 'true');
-        menuTrigger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = ''; // Restore scroll
+        const bottomSheet = button.closest('.bottom-sheet');
+        if (bottomSheet) {
+          bottomSheet.classList.remove('open');
+          bottomSheet.setAttribute('aria-hidden', 'true');
+          document.querySelectorAll('[data-menu-trigger]').forEach(t => {
+            t.setAttribute('aria-expanded', 'false');
+          });
+          document.body.style.overflow = '';
+        }
       });
     });
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && bottomSheet.classList.contains('open')) {
-        bottomSheet.classList.remove('open');
-        bottomSheet.setAttribute('aria-hidden', 'true');
-        menuTrigger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        menuTrigger.focus(); // Return focus to trigger
+      if (e.key === 'Escape') {
+        const openSheet = document.querySelector('.bottom-sheet.open');
+        if (openSheet) {
+          openSheet.classList.remove('open');
+          openSheet.setAttribute('aria-hidden', 'true');
+          document.querySelectorAll('[data-menu-trigger]').forEach(t => {
+            t.setAttribute('aria-expanded', 'false');
+          });
+          document.body.style.overflow = '';
+        }
       }
     });
   }

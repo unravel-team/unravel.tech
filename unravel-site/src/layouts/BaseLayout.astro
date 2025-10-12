@@ -35,10 +35,24 @@ const currentPath = Astro.url.pathname;
           </a>
           <ul class="nav-links">
             <li><a href="/">Home</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-trigger" aria-expanded="false">
+                Services
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu">
+                <a href="/services" class="dropdown-item">All Services</a>
+                <a href="/services/prototype-to-production" class="dropdown-item">Prototype to Production</a>
+                <a href="/services/ai-implementation" class="dropdown-item">AI Implementation</a>
+                <a href="/services/ai-consulting" class="dropdown-item">AI Consulting</a>
+                <a href="/services/cost-optimization" class="dropdown-item">Cost Optimization</a>
+              </div>
+            </li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/talks">Talks</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="mailto:hello@unravel.tech">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -62,10 +76,10 @@ const currentPath = Astro.url.pathname;
             <h4>Quick Links</h4>
             <ul class="footer-links">
               <li><a href="/">Home</a></li>
+              <li><a href="/services">Services</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/talks">Talks</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="mailto:hello@unravel.tech">Contact</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -139,20 +153,31 @@ const currentPath = Astro.url.pathname;
 
   .nav-links {
     display: flex;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
   }
 
   .nav-links a {
     color: var(--color-text-secondary);
     font-weight: 500;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
+    padding: 0.625rem 0.875rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .nav-links a:hover {
-    color: var(--color-primary-500);
+    color: var(--color-primary-600);
+    background: var(--color-primary-100);
     text-decoration: none;
   }
 
@@ -271,4 +296,215 @@ const currentPath = Astro.url.pathname;
       display: none;
     }
   }
+
+  /* Desktop Dropdown Menu - Enhanced for Larger Views */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.625rem 0.875rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown-trigger:hover {
+    color: var(--color-primary-600);
+    background: var(--color-primary-100);
+  }
+
+  .nav-dropdown-trigger:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-neutral-000), 0 0 0 4px var(--color-primary-500);
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] {
+    color: var(--color-primary-600);
+    background: var(--color-primary-100);
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.75rem;
+    min-width: 280px;
+    background: var(--color-neutral-000);
+    border: 1px solid rgba(14, 159, 188, 0.15);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(14, 159, 188, 0.08);
+    padding: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.875rem 1.125rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, var(--color-primary-500), var(--color-secondary-500));
+    border-radius: 0 2px 2px 0;
+    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dropdown-item:hover {
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-secondary-100) 100%);
+    color: var(--color-primary-700);
+    text-decoration: none;
+    transform: translateX(4px);
+    padding-left: 1.25rem;
+  }
+
+  .dropdown-item:hover::before {
+    height: 70%;
+  }
+
+  .dropdown-item:active {
+    transform: translateX(2px);
+  }
+
+  .dropdown-item:first-child {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.875rem;
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-secondary-100) 100%);
+  }
+
+  .dropdown-item:first-child:hover {
+    background: linear-gradient(135deg, var(--color-primary-200) 0%, var(--color-secondary-200) 100%);
+    color: var(--color-primary-700);
+  }
+
+  .dropdown-item:first-child::before {
+    height: 0;
+  }
+
+  /* Enhanced dropdown for larger screens */
+  @media (min-width: 1024px) {
+    .nav-dropdown-menu {
+      min-width: 320px;
+      padding: 1rem;
+    }
+
+    .dropdown-item {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+    }
+
+    .dropdown-item:first-child {
+      padding-bottom: 1rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  /* Smooth animation for dropdown appearance */
+  @keyframes dropdown-appear {
+    from {
+      opacity: 0;
+      transform: translateY(-12px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown-menu {
+    animation: dropdown-appear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 </style>
+
+<script>
+  // Desktop dropdown menu functionality
+  function initDesktopDropdown() {
+    const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
+    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+
+    if (!dropdownTrigger || !dropdownMenu) return;
+
+    // Toggle dropdown on click
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = dropdownTrigger.getAttribute('aria-expanded') === 'true';
+      dropdownTrigger.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      dropdownTrigger.setAttribute('aria-expanded', 'false');
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        dropdownTrigger.setAttribute('aria-expanded', 'false');
+        dropdownTrigger.focus();
+      }
+    });
+
+    // Prevent closing when clicking inside dropdown
+    dropdownMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDesktopDropdown);
+  } else {
+    initDesktopDropdown();
+  }
+
+  // Re-initialize after navigation
+  document.addEventListener('astro:page-load', initDesktopDropdown);
+</script>
