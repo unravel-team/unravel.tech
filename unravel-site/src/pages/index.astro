@@ -12,7 +12,7 @@ import ScrollProgress from '../components/ScrollProgress';
   description="Transform your business with cutting-edge AI solutions. Expert consulting in machine learning, NLP, and predictive analytics."
 >
   <!-- Hero Section with Parallax -->
-  <section class="hero-scroll">
+  <section class="hero-scroll snap-section">
     <div class="hero-background">
       <div class="hero-gradient"></div>
       <ParallaxSection speed={0.5} className="parallax-layer layer-1" client:load>
@@ -61,7 +61,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- Mission Statement -->
-  <section class="mission-section">
+  <section class="mission-section snap-section">
     <div class="container">
       <TextReveal client:load>
         <h2 class="section-title-large">
@@ -73,7 +73,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- Horizontal Scroll Services -->
-  <section class="services-horizontal">
+  <section class="services-horizontal snap-section">
     <div class="container-full">
       <TextReveal client:load>
         <div class="section-header">
@@ -149,7 +149,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- Stats with Parallax -->
-  <section class="stats-parallax">
+  <section class="stats-parallax snap-section">
     <ParallaxSection speed={0.2} client:load>
       <div class="container">
         <div class="stats-grid">
@@ -183,7 +183,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- Process Section -->
-  <section class="process-section">
+  <section class="process-section snap-section">
     <div class="container">
       <TextReveal client:load>
         <h2 class="section-title">Our Approach</h2>
@@ -227,7 +227,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- Testimonial Parallax -->
-  <section class="testimonial-section">
+  <section class="testimonial-section snap-section">
     <ParallaxSection speed={0.3} client:load>
       <div class="container">
         <TextReveal client:load>
@@ -248,7 +248,7 @@ import ScrollProgress from '../components/ScrollProgress';
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
+  <section class="cta-section snap-section">
     <div class="cta-background">
       <div class="cta-gradient"></div>
     </div>
@@ -271,6 +271,7 @@ import ScrollProgress from '../components/ScrollProgress';
   /* Hero with Parallax */
   .hero-scroll {
     min-height: 100vh;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -470,6 +471,10 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Mission Section */
   .mission-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: linear-gradient(180deg, 
       rgba(248, 250, 251, 0) 0%, 
@@ -499,6 +504,9 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Horizontal Scroll Services */
   .services-horizontal {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: var(--color-bg-primary);
     overflow: hidden;
@@ -613,6 +621,10 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Stats Parallax */
   .stats-parallax {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: linear-gradient(135deg, var(--unravel-green) 0%, var(--unravel-blue) 100%);
     color: white;
@@ -641,6 +653,9 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Process Section */
   .process-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: var(--color-bg-secondary);
   }
@@ -704,6 +719,10 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* Testimonial Section */
   .testimonial-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: var(--color-bg-primary);
   }
@@ -757,6 +776,10 @@ import ScrollProgress from '../components/ScrollProgress';
 
   /* CTA Section */
   .cta-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: clamp(6rem, 12vh, 10rem) 0;
     position: relative;
     overflow: hidden;
@@ -817,7 +840,8 @@ import ScrollProgress from '../components/ScrollProgress';
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .hero-scroll {
-      min-height: 90vh;
+      min-height: 100vh;
+      height: 100vh;
       padding: var(--spacing-2xl) 0;
     }
 
