@@ -269,6 +269,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-size: var(--text-3xl);
     }
 
+    /* Hide decorative elements on mobile to prevent overflow */
+    .talks-content::before,
+    .talks-content::after {
+      display: none;
+    }
+
     .talks-grid {
       grid-template-columns: 1fr;
       gap: var(--spacing-xl);

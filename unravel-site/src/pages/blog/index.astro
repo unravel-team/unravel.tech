@@ -225,6 +225,12 @@ const sortedPosts = allPosts.sort((a, b) =>
       font-size: var(--text-3xl);
     }
 
+    /* Hide decorative elements on mobile to prevent overflow */
+    .blog-list::before,
+    .blog-list::after {
+      display: none;
+    }
+
     .posts-grid {
       grid-template-columns: 1fr;
     }

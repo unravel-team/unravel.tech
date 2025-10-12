@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import MobileNavigation from '../components/MobileNavigation.astro';
 
 interface Props {
   title?: string;
@@ -10,6 +11,9 @@ const {
   title = 'AI Consulting | Enterprise Solutions', 
   description = 'Transform your business with cutting-edge AI consulting services. Expert guidance in machine learning, natural language processing, and predictive analytics.'
 } = Astro.props;
+
+// Get current path for active navigation state
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -43,6 +47,9 @@ const {
 
   <main>
     <slot />
+    
+    <!-- Mobile Navigation - Thumb-Friendly Bottom Bar -->
+    <MobileNavigation currentPath={currentPath} />
     
     <footer>
       <div class="container">
@@ -170,6 +177,13 @@ const {
   @media (min-width: 1024px) {
     main {
       padding-top: 92px; /* Larger header on desktop */
+    }
+  }
+
+  /* Mobile: Add bottom padding to account for mobile navigation */
+  @media (max-width: 768px) {
+    main {
+      padding-bottom: 80px; /* 60px nav + 20px breathing room */
     }
   }
 

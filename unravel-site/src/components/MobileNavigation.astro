@@ -1,0 +1,560 @@
+---
+// Mobile Navigation Component - Thumb-Friendly Bottom Bar with Multi-Level Menus
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+// Determine active state based on current path
+const isActive = (path: string) => {
+  if (path === '/' && currentPath === '/') return true;
+  if (path !== '/' && currentPath.startsWith(path)) return true;
+  return false;
+};
+
+// Check if Resources section is active (blog or talks)
+const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsWith('/talks');
+---
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a 
+    href="/" 
+    class={`mobile-nav-item ${isActive('/') && currentPath === '/' ? 'active' : ''}`}
+    aria-label="Home"
+    aria-current={isActive('/') && currentPath === '/' ? 'page' : undefined}
+  >
+    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
+    <span class="nav-label">Home</span>
+  </a>
+
+  <button 
+    class={`mobile-nav-item ${isResourcesActive ? 'active' : ''}`}
+    aria-label="Resources"
+    aria-expanded="false"
+    data-menu-trigger="resources"
+  >
+    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+    </svg>
+    <span class="nav-label">Resources</span>
+  </button>
+
+  <a 
+    href="#services" 
+    class={`mobile-nav-item ${isActive('#services') ? 'active' : ''}`}
+    aria-label="Services"
+  >
+    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+    </svg>
+    <span class="nav-label">Services</span>
+  </a>
+
+  <a 
+    href="#contact" 
+    class={`mobile-nav-item ${isActive('#contact') ? 'active' : ''}`}
+    aria-label="Contact"
+  >
+    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span class="nav-label">Contact</span>
+  </a>
+</nav>
+
+<!-- Resources Bottom Sheet -->
+<div class="bottom-sheet" id="resources-menu" role="dialog" aria-labelledby="resources-title" aria-hidden="true">
+  <div class="bottom-sheet-backdrop" data-close-menu></div>
+  <div class="bottom-sheet-content">
+    <div class="bottom-sheet-header">
+      <h3 id="resources-title">Resources</h3>
+      <button class="bottom-sheet-close" aria-label="Close menu" data-close-menu>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="bottom-sheet-menu">
+      <a 
+        href="/blog" 
+        class={`submenu-item ${isActive('/blog') ? 'active' : ''}`}
+        aria-current={isActive('/blog') ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span class="submenu-label">Blog</span>
+      </a>
+      <a 
+        href="/talks" 
+        class={`submenu-item ${isActive('/talks') ? 'active' : ''}`}
+        aria-current={isActive('/talks') ? 'page' : undefined}
+      >
+        <svg class="submenu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <span class="submenu-label">Talks</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Mobile navigation menu functionality
+  function initMobileNav() {
+    const menuTrigger = document.querySelector('[data-menu-trigger="resources"]');
+    const bottomSheet = document.getElementById('resources-menu');
+    const closeButtons = document.querySelectorAll('[data-close-menu]');
+
+    if (!menuTrigger || !bottomSheet) {
+      console.log('Mobile nav elements not found');
+      return;
+    }
+
+    console.log('Mobile nav initialized');
+
+    // Open menu
+    menuTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('Opening bottom sheet');
+      bottomSheet.classList.add('open');
+      bottomSheet.setAttribute('aria-hidden', 'false');
+      menuTrigger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+
+    // Close menu
+    closeButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Closing bottom sheet');
+        bottomSheet.classList.remove('open');
+        bottomSheet.setAttribute('aria-hidden', 'true');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = ''; // Restore scroll
+      });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bottomSheet.classList.contains('open')) {
+        bottomSheet.classList.remove('open');
+        bottomSheet.setAttribute('aria-hidden', 'true');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        menuTrigger.focus(); // Return focus to trigger
+      }
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileNav);
+  } else {
+    initMobileNav();
+  }
+
+  // Re-initialize after navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initMobileNav);
+</script>
+
+<style>
+  /* Mobile Navigation - Thumb-Friendly Bottom Bar */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--color-neutral-000);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    display: none; /* Hidden by default, shown on mobile */
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    z-index: 100;
+  }
+
+  /* Show only on mobile devices */
+  @media (max-width: 768px) {
+    .mobile-nav {
+      display: flex;
+    }
+  }
+
+  /* Individual Navigation Items */
+  .mobile-nav-item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 48px; /* WCAG minimum touch target */
+    min-height: 48px;
+    color: var(--color-neutral-600);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Icon Styling */
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Label Styling */
+  .nav-label {
+    font-size: 0.625rem; /* 10px */
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover State (for devices that support it) */
+  @media (hover: hover) {
+    .mobile-nav-item:hover {
+      color: var(--unravel-green);
+    }
+  }
+
+  /* Active State - Unravel Green */
+  .mobile-nav-item.active {
+    color: var(--unravel-green);
+  }
+
+  /* Active Indicator - Top Border with Gradient */
+  .mobile-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--unravel-green), var(--unravel-blue));
+    border-radius: 0 0 2px 2px;
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Touch/Press State */
+  .mobile-nav-item:active {
+    transform: scale(0.95);
+    color: var(--unravel-blue);
+  }
+
+  /* Focus State for Accessibility */
+  .mobile-nav-item:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--unravel-blue);
+  }
+
+  /* Slide-in Animation for Active Indicator */
+  @keyframes slideIn {
+    from {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  /* Respect Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav-item,
+    .nav-icon,
+    .nav-label,
+    .mobile-nav-item::before {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .mobile-nav-item:active {
+      transform: none;
+    }
+  }
+
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .mobile-nav {
+      background: var(--color-neutral-950);
+      border-top-color: var(--color-neutral-800);
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-nav-item {
+      color: var(--color-neutral-400);
+    }
+
+    .mobile-nav-item.active,
+    .mobile-nav-item:hover {
+      color: var(--green-light);
+    }
+
+    .mobile-nav-item:active {
+      color: var(--blue-light);
+    }
+  }
+
+  /* Larger screens - ensure it stays hidden */
+  @media (min-width: 769px) {
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  /* Bottom Sheet - Resources Menu */
+  .bottom-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bottom-sheet.open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .bottom-sheet-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+  }
+
+  .bottom-sheet-content {
+    position: relative;
+    width: 100%;
+    max-height: 60vh;
+    background: var(--color-neutral-000);
+    border-radius: 16px 16px 0 0;
+    padding: var(--spacing-lg);
+    padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bottom-sheet.open .bottom-sheet-content {
+    transform: translateY(0);
+  }
+
+  .bottom-sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .bottom-sheet-header h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-neutral-600);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+  }
+
+  .bottom-sheet-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: var(--color-neutral-600);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bottom-sheet-close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bottom-sheet-close:hover {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-900);
+  }
+
+  .bottom-sheet-close:active {
+    transform: scale(0.95);
+  }
+
+  /* Submenu Items - Compact & Consistent */
+  .bottom-sheet-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .submenu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 52px;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+
+  .submenu-item:hover {
+    background: var(--color-neutral-050);
+  }
+
+  .submenu-item:active {
+    transform: scale(0.98);
+    background: var(--color-neutral-100);
+  }
+
+  .submenu-item.active {
+    background: var(--color-neutral-050);
+  }
+
+  /* Active indicator - matching main nav */
+  .submenu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: linear-gradient(180deg, var(--unravel-green), var(--unravel-blue));
+    border-radius: 0 2px 2px 0;
+  }
+
+  .submenu-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    color: var(--color-neutral-700);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .submenu-item:hover .submenu-icon,
+  .submenu-item.active .submenu-icon {
+    color: var(--unravel-green);
+  }
+
+  .submenu-label {
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-neutral-900);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .submenu-item.active .submenu-label {
+    color: var(--unravel-green);
+    font-weight: 600;
+  }
+
+  /* Dark Mode for Bottom Sheet */
+  @media (prefers-color-scheme: dark) {
+    .bottom-sheet-content {
+      background: var(--color-neutral-950);
+      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .bottom-sheet-header h3 {
+      color: var(--color-neutral-400);
+    }
+
+    .bottom-sheet-close {
+      color: var(--color-neutral-400);
+    }
+
+    .bottom-sheet-close:hover {
+      background: var(--color-neutral-800);
+      color: var(--color-neutral-200);
+    }
+
+    .submenu-item:hover {
+      background: var(--color-neutral-900);
+    }
+
+    .submenu-item:active {
+      background: var(--color-neutral-800);
+    }
+
+    .submenu-item.active {
+      background: var(--color-neutral-900);
+    }
+
+    .submenu-icon {
+      color: var(--color-neutral-300);
+    }
+
+    .submenu-item:hover .submenu-icon,
+    .submenu-item.active .submenu-icon {
+      color: var(--green-light);
+    }
+
+    .submenu-label {
+      color: var(--color-neutral-100);
+    }
+
+    .submenu-item.active .submenu-label {
+      color: var(--green-light);
+    }
+  }
+
+  /* Respect Reduced Motion for Bottom Sheet */
+  @media (prefers-reduced-motion: reduce) {
+    .bottom-sheet,
+    .bottom-sheet-content,
+    .submenu-item {
+      transition: none !important;
+    }
+
+    .submenu-item:active {
+      transform: none;
+    }
+  }
+
+  /* Hide bottom sheet on larger screens */
+  @media (min-width: 769px) {
+    .bottom-sheet {
+      display: none !important;
+    }
+  }
+</style>
