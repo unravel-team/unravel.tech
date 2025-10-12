@@ -18,6 +18,11 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
 ---
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
+  <!-- Scroll Progress Bar -->
+  <div class="mobile-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="mobile-scroll-fill"></div>
+  </div>
+  
   <a 
     href="/" 
     class={`mobile-nav-item ${isActive('/') && currentPath === '/' ? 'active' : ''}`}
@@ -112,6 +117,39 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
 </div>
 
 <script is:inline>
+  // Mobile scroll progress bar
+  function initScrollProgress() {
+    const progressBar = document.querySelector('.mobile-scroll-fill');
+    if (!progressBar) return;
+
+    function updateScrollProgress() {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      
+      const scrollableHeight = documentHeight - windowHeight;
+      const scrollProgress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      
+      progressBar.style.width = Math.min(Math.max(scrollProgress, 0), 100) + '%';
+      progressBar.parentElement.setAttribute('aria-valuenow', Math.round(scrollProgress));
+    }
+
+    // Update on scroll with throttling for performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateScrollProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial update
+    updateScrollProgress();
+  }
+
   // Mobile navigation menu functionality
   function initMobileNav() {
     const menuTrigger = document.querySelector('[data-menu-trigger="resources"]');
@@ -161,13 +199,20 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
 
   // Initialize on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileNav);
+    document.addEventListener('DOMContentLoaded', () => {
+      initMobileNav();
+      initScrollProgress();
+    });
   } else {
     initMobileNav();
+    initScrollProgress();
   }
 
   // Re-initialize after navigation (for SPA-like behavior)
-  document.addEventListener('astro:page-load', initMobileNav);
+  document.addEventListener('astro:page-load', () => {
+    initMobileNav();
+    initScrollProgress();
+  });
 </script>
 
 <style>
@@ -186,6 +231,25 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
     align-items: center;
     padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     z-index: 100;
+  }
+
+  /* Mobile Scroll Progress Bar */
+  .mobile-scroll-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .mobile-scroll-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--unravel-green), var(--unravel-blue));
+    transition: width 0.1s ease-out;
+    border-radius: 0 2px 2px 0;
   }
 
   /* Show only on mobile devices */
@@ -287,7 +351,8 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
     .mobile-nav-item,
     .nav-icon,
     .nav-label,
-    .mobile-nav-item::before {
+    .mobile-nav-item::before,
+    .mobile-scroll-fill {
       animation: none !important;
       transition: none !important;
     }
@@ -316,6 +381,11 @@ const isResourcesActive = currentPath.startsWith('/blog') || currentPath.startsW
 
     .mobile-nav-item:active {
       color: var(--blue-light);
+    }
+
+    /* Lighter gradient for dark mode */
+    .mobile-scroll-fill {
+      background: linear-gradient(90deg, var(--green-light), var(--blue-light));
     }
   }
 
