@@ -1017,6 +1017,13 @@ import ScrollProgress from '../components/ScrollProgress';
     }
   }
 
+  /* Hide scroll indicator on large viewports */
+  @media (min-width: 1024px) {
+    .scroll-indicator {
+      display: none !important;
+    }
+  }
+
   /* Smooth Scroll */
   html {
     scroll-behavior: smooth;
