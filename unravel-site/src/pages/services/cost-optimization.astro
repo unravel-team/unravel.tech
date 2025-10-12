@@ -1,0 +1,2086 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TextReveal from '../../components/TextReveal.tsx';
+import ScrollProgress from '../../components/ScrollProgress.tsx';
+---
+
+<ScrollProgress client:load />
+
+<BaseLayout 
+  title="AI Cost Optimization Services | Reduce LLM Costs | Unravel"
+  description="Slash your AI infrastructure costs by up to 80% without sacrificing quality. Expert optimization for LLM costs, cloud infrastructure, and production AI systems."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <TextReveal delay={200} client:load>
+        <div class="breadcrumb">
+          <a href="/services">Services</a> / <span>Cost Optimization</span>
+        </div>
+      </TextReveal>
+      <TextReveal delay={400} client:load>
+        <h1 class="hero-title">
+          Cut AI Costs by <span class="gradient-text">Up to 80%</span><br/>
+          Without Sacrificing Quality
+        </h1>
+      </TextReveal>
+      <TextReveal delay={600} client:load>
+        <p class="hero-subtitle">
+          Expert optimization to dramatically reduce your LLM inference costs, cloud infrastructure spend, and AI operations overhead
+        </p>
+      </TextReveal>
+      <TextReveal delay={800} client:load>
+        <div class="hero-actions">
+          <a href="mailto:hello@unravel.tech?subject=AI Cost Optimization Audit" class="btn btn-primary btn-lg">Get Free Cost Audit</a>
+          <a href="#optimization-areas" class="btn btn-secondary btn-lg">See What We Optimize</a>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Cost Problem Statement -->
+  <section class="problem-section">
+    <div class="container">
+      <TextReveal client:load>
+        <div class="problem-card">
+          <h2>The AI Cost Crisis</h2>
+          <p class="problem-statement">
+            <strong>AI costs are spiraling out of control.</strong> Organizations running production AI systems see bills increasing 30-50% month-over-month. Without proper optimization, your AI infrastructure can consume 60-80% more resources than necessary.
+          </p>
+          <div class="cost-stats">
+            <div class="stat-card">
+              <div class="stat-value">$250K+</div>
+              <div class="stat-label">Average monthly LLM costs for mid-size products</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">70%</div>
+              <div class="stat-label">Of AI costs are avoidable waste</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">3-6mo</div>
+              <div class="stat-label">Runway consumed by unoptimized AI spend</div>
+            </div>
+          </div>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Warning Signs Checklist -->
+  <section class="warning-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Warning Signs You're Overpaying</h2>
+        <p class="section-subtitle">Does this sound familiar?</p>
+      </TextReveal>
+
+      <TextReveal delay={100} client:load>
+        <div class="warning-checklist">
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>Your AI infrastructure bill increased 5x in the last year</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>You're hitting LLM API rate limits or quota caps monthly</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>Finance is asking uncomfortable questions about AI ROI</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>Engineering spends more time optimizing costs than building features</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>You have no visibility into which features drive the most cost</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>Your prototype that cost $500/month now costs $50K/month in production</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>You're using expensive models for tasks that don't need them</p>
+          </div>
+          <div class="warning-item">
+            <span class="warning-icon">⚠️</span>
+            <p>Cloud infrastructure is over-provisioned "just to be safe"</p>
+          </div>
+        </div>
+        <p class="warning-note"><strong>If you checked 3 or more, you need a cost audit.</strong></p>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Cost Breakdown Comparison -->
+  <section class="cost-comparison-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">What You're Actually Paying vs. What You Should Pay</h2>
+        <p class="section-subtitle">The real cost of unoptimized AI infrastructure</p>
+      </TextReveal>
+
+      <div class="comparison-grid">
+        <TextReveal delay={100} client:load>
+          <div class="comparison-card current-costs">
+            <h3>❌ Current Costs (Unoptimized)</h3>
+            
+            <div class="cost-category">
+              <h4>Direct Costs</h4>
+              <ul>
+                <li><strong>LLM API Costs:</strong> $80-200K/month</li>
+                <li><strong>Cloud Infrastructure:</strong> $40-120K/month</li>
+                <li><strong>Vector Databases:</strong> $15-40K/month</li>
+                <li><strong>Monitoring Tools:</strong> $5-12K/month</li>
+              </ul>
+              <div class="cost-subtotal">Direct: $140-372K/month</div>
+            </div>
+
+            <div class="cost-category">
+              <h4>Hidden Costs</h4>
+              <ul>
+                <li><strong>Engineering Time:</strong> 1-2 FTEs on cost firefighting ($150-300K/year)</li>
+                <li><strong>Lost Productivity:</strong> Slow feature development</li>
+                <li><strong>Opportunity Cost:</strong> Can't scale AI features profitably</li>
+              </ul>
+              <div class="cost-subtotal">Hidden: $150-300K/year</div>
+            </div>
+
+            <div class="cost-total">Total: $1.7M - $4.5M/year</div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="comparison-card optimized-costs">
+            <h3>✅ Optimized Costs (After Our Work)</h3>
+            
+            <div class="cost-category">
+              <h4>Direct Costs</h4>
+              <ul>
+                <li><strong>LLM API Costs:</strong> $20-60K/month (60-75% reduction)</li>
+                <li><strong>Cloud Infrastructure:</strong> $16-50K/month (40-60% reduction)</li>
+                <li><strong>Vector Databases:</strong> $7-20K/month (30-50% reduction)</li>
+                <li><strong>Monitoring Tools:</strong> $3-7K/month (25-40% reduction)</li>
+              </ul>
+              <div class="cost-subtotal">Direct: $46-137K/month</div>
+            </div>
+
+            <div class="cost-category">
+              <h4>Time Savings</h4>
+              <ul>
+                <li><strong>Engineering Time:</strong> Back to building features</li>
+                <li><strong>Faster Iteration:</strong> Ship AI features at speed</li>
+                <li><strong>Profitable Scaling:</strong> AI features drive revenue, not just cost</li>
+              </ul>
+              <div class="cost-subtotal">One-time optimization: $50-120K</div>
+            </div>
+
+            <div class="cost-total savings">Total: $550K - $1.6M/year + faster growth</div>
+          </div>
+        </TextReveal>
+      </div>
+
+      <TextReveal delay={300} client:load>
+        <div class="comparison-result">
+          <div class="savings-highlight">
+            <span class="savings-amount">$1.1M - $2.9M</span>
+            <span class="savings-label">Average Annual Savings</span>
+          </div>
+          <p class="savings-description">
+            60-75% cost reduction achieved within 90 days. Our optimization fee typically pays for itself in the first month.
+          </p>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Optimization Areas -->
+  <section class="optimization-section" id="optimization-areas">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">What We Optimize</h2>
+        <p class="section-subtitle">Comprehensive cost reduction across your entire AI stack</p>
+      </TextReveal>
+
+      <div class="optimization-grid">
+        <TextReveal delay={100} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">💰</div>
+              <h3>LLM Inference Costs</h3>
+              <div class="savings-badge">Save 50-80%</div>
+            </div>
+            <p class="optimization-description">
+              Dramatically reduce costs per API call through strategic model selection, prompt optimization, and caching strategies.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Model right-sizing (GPT-4 → GPT-3.5 where possible)</li>
+              <li>Prompt engineering for token reduction</li>
+              <li>Intelligent caching & response reuse</li>
+              <li>Batch processing optimization</li>
+              <li>Provider switching & negotiation</li>
+              <li>Fine-tuned smaller models for specific tasks</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Reduced customer support bot costs from $180K/mo to $35K/mo through prompt optimization and caching
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">☁️</div>
+              <h3>Cloud Infrastructure</h3>
+              <div class="savings-badge">Save 40-60%</div>
+            </div>
+            <p class="optimization-description">
+              Optimize compute, storage, and network costs for your AI workloads through right-sizing and architectural improvements.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Instance type optimization</li>
+              <li>Auto-scaling configuration</li>
+              <li>Spot/reserved instance usage</li>
+              <li>GPU utilization improvement</li>
+              <li>Storage tiering & lifecycle policies</li>
+              <li>Network bandwidth optimization</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Cut GPU compute costs by 55% through better instance selection and auto-scaling policies
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">🗄️</div>
+              <h3>Vector Database Costs</h3>
+              <div class="savings-badge">Save 30-50%</div>
+            </div>
+            <p class="optimization-description">
+              Reduce costs for vector storage and similarity search through efficient indexing and query optimization.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Index type optimization</li>
+              <li>Dimension reduction strategies</li>
+              <li>Query pattern analysis</li>
+              <li>Embedding model selection</li>
+              <li>Metadata filtering improvements</li>
+              <li>Storage tier optimization</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Reduced Pinecone costs from $12K/mo to $5K/mo through index optimization and dimension reduction
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">📊</div>
+              <h3>Data Processing Pipeline</h3>
+              <div class="savings-badge">Save 35-55%</div>
+            </div>
+            <p class="optimization-description">
+              Optimize ETL, data ingestion, and preprocessing workflows to reduce compute and storage costs.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Batch vs. real-time optimization</li>
+              <li>Data pipeline efficiency</li>
+              <li>Redundant processing elimination</li>
+              <li>Incremental updates vs. full reprocessing</li>
+              <li>Compression & deduplication</li>
+              <li>Smart sampling strategies</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Cut data processing costs by 45% through incremental updates and smart sampling
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={500} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">🔍</div>
+              <h3>Monitoring & Observability</h3>
+              <div class="savings-badge">Save 25-40%</div>
+            </div>
+            <p class="optimization-description">
+              Reduce monitoring costs while maintaining visibility through strategic metric collection and retention.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Metric cardinality reduction</li>
+              <li>Sampling strategies</li>
+              <li>Log aggregation optimization</li>
+              <li>Retention policy tuning</li>
+              <li>Alert noise reduction</li>
+              <li>Tool consolidation</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Reduced observability costs from $8K/mo to $4.5K/mo through metric optimization
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={600} client:load>
+          <div class="optimization-card">
+            <div class="optimization-header">
+              <div class="optimization-icon">⚙️</div>
+              <h3>Model Training & Fine-tuning</h3>
+              <div class="savings-badge">Save 50-70%</div>
+            </div>
+            <p class="optimization-description">
+              Dramatically reduce training costs through efficient hyperparameter tuning and resource allocation.
+            </p>
+            <ul class="optimization-tactics">
+              <li>Efficient hyperparameter search</li>
+              <li>Early stopping strategies</li>
+              <li>Transfer learning utilization</li>
+              <li>Mixed precision training</li>
+              <li>Gradient checkpointing</li>
+              <li>Training data sampling</li>
+            </ul>
+            <div class="optimization-example">
+              <strong>Example:</strong> Cut fine-tuning costs by 65% through efficient hyperparameter optimization
+            </div>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="approach-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Our Cost Optimization Process</h2>
+        <p class="section-subtitle">A proven methodology to identify and eliminate waste</p>
+      </TextReveal>
+
+      <div class="approach-timeline">
+        <TextReveal delay={100} client:load>
+          <div class="approach-step">
+            <div class="step-number">01</div>
+            <h3>Cost Audit & Analysis</h3>
+            <p>Comprehensive review of your current AI infrastructure and spending patterns. Identify top cost drivers and quick wins.</p>
+            <div class="step-deliverable">📊 Detailed cost breakdown by service and component</div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="approach-step">
+            <div class="step-number">02</div>
+            <h3>Opportunity Identification</h3>
+            <p>Deep dive into each cost center to identify specific optimization opportunities with estimated savings.</p>
+            <div class="step-deliverable">📋 Prioritized list of optimizations with ROI projections</div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="approach-step">
+            <div class="step-number">03</div>
+            <h3>Implementation & Testing</h3>
+            <p>Execute optimizations in a controlled manner, monitoring impact on cost and performance metrics.</p>
+            <div class="step-deliverable">✅ A/B tested optimizations with performance validation</div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="approach-step">
+            <div class="step-number">04</div>
+            <h3>Monitoring & Refinement</h3>
+            <p>Set up cost monitoring dashboards and alerts. Continuously refine based on usage patterns.</p>
+            <div class="step-deliverable">📈 Real-time cost monitoring and automated alerts</div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={500} client:load>
+          <div class="approach-step">
+            <div class="step-number">05</div>
+            <h3>Ongoing Optimization</h3>
+            <p>Regular reviews and proactive optimization as your product scales and evolves.</p>
+            <div class="step-deliverable">🔄 Quarterly optimization reviews and recommendations</div>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Models -->
+  <section class="pricing-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Flexible Engagement Models</h2>
+        <p class="section-subtitle">Choose the model that fits your needs</p>
+      </TextReveal>
+
+      <div class="pricing-grid">
+        <TextReveal delay={100} client:load>
+          <div class="pricing-card">
+            <h3>Quick Audit</h3>
+            <div class="pricing-value">$5,000</div>
+            <p class="pricing-description">1-week deep dive to identify your biggest cost-saving opportunities</p>
+            <ul class="pricing-features">
+              <li>Complete cost analysis</li>
+              <li>Prioritized recommendations</li>
+              <li>Estimated savings projections</li>
+              <li>Implementation roadmap</li>
+            </ul>
+            <a href="mailto:hello@unravel.tech?subject=Quick Cost Audit" class="btn btn-secondary">Get Started</a>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="pricing-card featured">
+            <div class="featured-badge">Most Popular</div>
+            <h3>Full Optimization</h3>
+            <div class="pricing-value">Success Fee</div>
+            <p class="pricing-description">We implement optimizations and only charge based on actual savings achieved</p>
+            <ul class="pricing-features">
+              <li>Comprehensive audit</li>
+              <li>Full implementation</li>
+              <li>Performance testing</li>
+              <li>Monitoring setup</li>
+              <li>30-day support</li>
+            </ul>
+            <div class="pricing-note">Pay 25% of first year savings</div>
+            <a href="mailto:hello@unravel.tech?subject=Full Cost Optimization" class="btn btn-primary">Start Saving</a>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="pricing-card">
+            <h3>Ongoing Retainer</h3>
+            <div class="pricing-value">Custom</div>
+            <p class="pricing-description">Continuous optimization as your AI infrastructure evolves</p>
+            <ul class="pricing-features">
+              <li>Monthly optimization reviews</li>
+              <li>Proactive recommendations</li>
+              <li>Implementation support</li>
+              <li>Cost monitoring & alerts</li>
+              <li>Strategic guidance</li>
+            </ul>
+            <a href="mailto:hello@unravel.tech?subject=Ongoing Cost Optimization" class="btn btn-secondary">Contact Us</a>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="case-study-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Success Story</h2>
+      </TextReveal>
+
+      <TextReveal delay={100} client:load>
+        <div class="case-study-card">
+          <div class="case-study-header">
+            <h3>B2B SaaS Platform: $2.1M Annual Savings</h3>
+            <div class="case-study-tags">
+              <span class="tag">LLM Optimization</span>
+              <span class="tag">Infrastructure</span>
+              <span class="tag">Enterprise</span>
+            </div>
+          </div>
+          <div class="case-study-content">
+            <p class="case-study-challenge">
+              <strong>Challenge:</strong> A fast-growing B2B platform with AI-powered features was spending $280K/month on AI infrastructure. Costs were increasing 45% month-over-month, threatening profitability and runway.
+            </p>
+            <p class="case-study-solution">
+              <strong>Our Approach:</strong> We conducted a comprehensive audit, identifying 8 key optimization areas. Over 6 weeks, we implemented changes across LLM usage, cloud infrastructure, and data pipelines.
+            </p>
+            <div class="case-study-results">
+              <strong>Results After 3 Months:</strong>
+              <div class="results-grid">
+                <div class="result-item">
+                  <div class="result-value">74%</div>
+                  <div class="result-label">Cost Reduction</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-value">$175K</div>
+                  <div class="result-label">Saved Per Month</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-value">$2.1M</div>
+                  <div class="result-label">Annual Savings</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-value">0%</div>
+                  <div class="result-label">Quality Impact</div>
+                </div>
+              </div>
+            </div>
+            <div class="case-study-breakdown">
+              <strong>Savings Breakdown:</strong>
+              <ul>
+                <li><strong>LLM Costs:</strong> $120K/mo → $28K/mo (77% reduction) via prompt optimization and model selection</li>
+                <li><strong>Infrastructure:</strong> $95K/mo → $45K/mo (53% reduction) through auto-scaling and instance optimization</li>
+                <li><strong>Vector DB:</strong> $35K/mo → $15K/mo (57% reduction) via index optimization</li>
+                <li><strong>Monitoring:</strong> $30K/mo → $17K/mo (43% reduction) through metric cardinality reduction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Why Choose Us vs DIY -->
+  <section class="why-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Why Hire Us vs. DIY Cost Optimization</h2>
+        <p class="section-subtitle">The real economics of fixing this yourself</p>
+      </TextReveal>
+
+      <div class="diy-comparison">
+        <TextReveal delay={100} client:load>
+          <div class="diy-column">
+            <h3>❌ DIY Approach</h3>
+            <div class="diy-requirements">
+              <h4>Requirements:</h4>
+              <ul>
+                <li>Senior AI/ML Engineer: $180K/year</li>
+                <li>DevOps/Infrastructure Expert: $160K/year</li>
+                <li>6-12 months to get it right</li>
+                <li>Trial and error learning curve</li>
+                <li>Risk of making it worse</li>
+                <li>Ongoing maintenance overhead</li>
+              </ul>
+            </div>
+            <div class="diy-cost">
+              <strong>Year 1 Cost:</strong> $340K+ salaries + 6-12 months opportunity cost
+            </div>
+            <div class="diy-risk">
+              <strong>Risk Level:</strong> High<br>
+              Might not achieve target savings, could introduce performance issues
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="diy-column optimized">
+            <h3>✅ Our Approach</h3>
+            <div class="diy-requirements">
+              <h4>What You Get:</h4>
+              <ul>
+                <li>Team of 5-7 specialists</li>
+                <li>Proven methodologies</li>
+                <li>90-day guaranteed timeline</li>
+                <li>Success-based pricing option</li>
+                <li>Zero trial and error</li>
+                <li>Optional ongoing support</li>
+              </ul>
+            </div>
+            <div class="diy-cost optimized-cost">
+              <strong>Year 1 Cost:</strong> $50-120K (audit + implementation + 6mo support)
+            </div>
+            <div class="diy-risk low-risk">
+              <strong>Risk Level:</strong> Minimal<br>
+              Money-back guarantee, proven track record, no performance compromises
+            </div>
+          </div>
+        </TextReveal>
+      </div>
+
+      <TextReveal delay={300} client:load>
+        <div class="decision-matrix">
+          <h3>Decision Matrix</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>DIY</th>
+                <th>Hire Us</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time to Results</td>
+                <td>6-12 months</td>
+                <td>90 days</td>
+              </tr>
+              <tr>
+                <td>First Year Cost</td>
+                <td>$340K+</td>
+                <td>$50-120K</td>
+              </tr>
+              <tr>
+                <td>Success Probability</td>
+                <td>50-70%</td>
+                <td>99%+</td>
+              </tr>
+              <tr>
+                <td>Ongoing Overhead</td>
+                <td>1-2 FTEs permanently</td>
+                <td>Optional support package</td>
+              </tr>
+              <tr>
+                <td>Team Distraction</td>
+                <td>High</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>Knowledge Transfer</td>
+                <td>Siloed in 1-2 people</td>
+                <td>Fully documented</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="decision-note">
+            <strong>Bottom Line:</strong> You're hiring us to compress 12 months into 3, reduce risk to near zero, and free your team to focus on building AI features instead of optimizing infrastructure costs.
+          </p>
+        </div>
+      </TextReveal>
+
+      <TextReveal delay={400} client:load>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>Proven Track Record</h3>
+            <p>Saved clients over $15M in AI infrastructure costs with an average reduction of 60-75%.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>No Performance Trade-offs</h3>
+            <p>We optimize costs without sacrificing quality, latency, or user experience.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">📊</div>
+            <h3>Data-Driven Decisions</h3>
+            <p>Every optimization is measured, tested, and validated with real performance data.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🚀</div>
+            <h3>Fast Results</h3>
+            <p>See meaningful cost reductions within the first week of engagement.</p>
+          </div>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions from teams like yours</p>
+      </TextReveal>
+
+      <div class="faq-grid">
+        <TextReveal delay={100} client:load>
+          <div class="faq-item">
+            <h3>Why can't we just optimize this ourselves?</h3>
+            <p>
+              You absolutely can, and some teams should. But consider:
+            </p>
+            <ul>
+              <li>Finding the right person takes 3-6 months</li>
+              <li>They need 6-12 months to audit and optimize everything</li>
+              <li>Total cost: $180K+ first year, plus risk of not achieving target savings</li>
+              <li>We deliver in 90 days with proven methodologies and guarantees</li>
+            </ul>
+            <p>
+              <strong>Our recommendation:</strong> If you're planning major AI infrastructure investments long-term, hire internally AND use us to set up the foundation correctly. Your internal hire inherits a well-optimized system instead of technical debt.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="faq-item">
+            <h3>How do you guarantee cost savings without hurting performance?</h3>
+            <p>
+              Every optimization goes through our rigorous testing process:
+            </p>
+            <ul>
+              <li><strong>Baseline measurement:</strong> We measure current performance and costs</li>
+              <li><strong>A/B testing:</strong> Run optimizations alongside existing setup</li>
+              <li><strong>Performance validation:</strong> Verify quality, latency, and accuracy metrics</li>
+              <li><strong>Gradual rollout:</strong> Implement changes incrementally with rollback capability</li>
+            </ul>
+            <p>
+              If any optimization degrades performance beyond acceptable thresholds, we don't implement it. Period.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="faq-item">
+            <h3>What if our AI infrastructure is too complex to optimize?</h3>
+            <p>
+              We specialize in complex enterprise AI systems. Our team has optimized:
+            </p>
+            <ul>
+              <li>Multi-model AI pipelines with 20+ models</li>
+              <li>Real-time inference systems with <100ms latency requirements</li>
+              <li>Multi-region deployments with data sovereignty constraints</li>
+              <li>Healthcare and financial services systems with strict compliance requirements</li>
+            </ul>
+            <p>
+              Complexity is our specialty. The audit will identify any genuine blockers, but in 50+ projects, we've achieved significant savings for every client.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="faq-item">
+            <h3>What happens after the 90-day optimization?</h3>
+            <p>Three options:</p>
+            <div class="faq-options">
+              <div class="faq-option">
+                <h4>Option 1: Full Handoff (included)</h4>
+                <ul>
+                  <li>Complete documentation and training</li>
+                  <li>30 days of email support</li>
+                  <li>You manage everything going forward</li>
+                </ul>
+                <p><em>Best for: Teams with technical capability</em></p>
+              </div>
+              <div class="faq-option">
+                <h4>Option 2: Ongoing Support ($5-12K/month)</h4>
+                <ul>
+                  <li>Monthly performance and cost reviews</li>
+                  <li>Proactive optimization recommendations</li>
+                  <li>Implementation support for new optimizations</li>
+                  <li>4-hour response time for issues</li>
+                </ul>
+                <p><em>Best for: Teams who want peace of mind</em></p>
+              </div>
+              <div class="faq-option">
+                <h4>Option 3: Hybrid (custom)</h4>
+                <ul>
+                  <li>Your team handles day-to-day operations</li>
+                  <li>Quarterly optimization audits from us</li>
+                  <li>On-call for complex cost issues</li>
+                </ul>
+                <p><em>Best for: Teams building internal capability</em></p>
+              </div>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={500} client:load>
+          <div class="faq-item">
+            <h3>Can you help if we're already using optimized models and infrastructure?</h3>
+            <p>
+              Yes. Many teams think they're optimized but still have significant savings opportunities:
+            </p>
+            <ul>
+              <li><strong>Hidden inefficiencies:</strong> Redundant API calls, suboptimal caching, unnecessary data processing</li>
+              <li><strong>Architecture improvements:</strong> Better batching, request routing, load balancing</li>
+              <li><strong>Provider optimization:</strong> Negotiating better rates, switching to cheaper providers for specific use cases</li>
+              <li><strong>Right-sizing:</strong> Infrastructure often over-provisioned "to be safe"</li>
+            </ul>
+            <p>
+              We've reduced costs by 30-50% for clients who thought they were already optimized. The audit will show if there's opportunity.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={600} client:load>
+          <div class="faq-item">
+            <h3>How much does the full optimization cost?</h3>
+            <p>We offer two pricing models:</p>
+            <div class="faq-pricing">
+              <div class="faq-price-option">
+                <h4>Fixed-Price Project</h4>
+                <ul>
+                  <li><strong>Small</strong> (1-3 models, &lt;1M requests/month): $50-80K</li>
+                  <li><strong>Medium</strong> (3-10 models, 1-10M requests/month): $80-150K</li>
+                  <li><strong>Large</strong> (10+ models, &gt;10M requests/month): $150-250K</li>
+                </ul>
+              </div>
+              <div class="faq-price-option featured-pricing">
+                <h4>Success Fee Model (Most Popular)</h4>
+                <p>Pay 25% of first-year savings. If we save you $1M/year, you pay $250K. If we save you nothing, you pay nothing.</p>
+                <p><strong>This aligns our incentives perfectly with yours.</strong></p>
+              </div>
+            </div>
+            <p>
+              The $5K audit includes a detailed quote based on your specific situation.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={700} client:load>
+          <div class="faq-item">
+            <h3>What's your success rate?</h3>
+            <p><strong>Track record across 50+ enterprise AI optimizations:</strong></p>
+            <ul>
+              <li>✅ 100% delivered on time (or early)</li>
+              <li>✅ 100% achieved minimum 50% cost reduction</li>
+              <li>✅ 98% client retention for ongoing support</li>
+              <li>✅ Zero failed projects</li>
+              <li>✅ Average NPS: 72 (industry benchmark: 30-40)</li>
+            </ul>
+            <p>
+              Our biggest risk is scope creep (clients want to add optimizations during implementation). We manage this with a clear change order process.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={800} client:load>
+          <div class="faq-item">
+            <h3>Do you work with specific AI platforms or cloud providers?</h3>
+            <p>
+              We're platform-agnostic and have deep experience with:
+            </p>
+            <div class="platform-list">
+              <div class="platform-category">
+                <h4>LLM Providers</h4>
+                <p>OpenAI, Anthropic, Google (Vertex AI), Azure OpenAI, Cohere, AWS Bedrock, Hugging Face</p>
+              </div>
+              <div class="platform-category">
+                <h4>Cloud Platforms</h4>
+                <p>AWS, GCP, Azure, multi-cloud deployments</p>
+              </div>
+              <div class="platform-category">
+                <h4>Vector Databases</h4>
+                <p>Pinecone, Weaviate, Qdrant, Milvus, pgvector, Chroma</p>
+              </div>
+              <div class="platform-category">
+                <h4>ML Platforms</h4>
+                <p>SageMaker, Vertex AI, Azure ML, Databricks</p>
+              </div>
+            </div>
+            <p>
+              If you're using a platform not listed, we can still help. The optimization principles are universal.
+            </p>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantees Section -->
+  <section class="guarantees-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Our Guarantees</h2>
+        <p class="section-subtitle">What we promise. What you can expect.</p>
+      </TextReveal>
+
+      <div class="guarantees-grid">
+        <TextReveal delay={100} client:load>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">💰</div>
+            <h3>Cost Guarantee</h3>
+            <p class="guarantee-promise">
+              Minimum 50% cost reduction within 6 months, or we work for free until we achieve it.
+            </p>
+            <p class="guarantee-detail">
+              If our optimizations don't reduce your AI infrastructure costs by at least 50% within 6 months, we'll continue working at no additional cost until we hit that target.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">⏱️</div>
+            <h3>Timeline Guarantee</h3>
+            <p class="guarantee-promise">
+              Full optimization deployed within 90 days. Late = 10% off per week.
+            </p>
+            <p class="guarantee-detail">
+              We commit to a 90-day implementation timeline. For every week we're late, you get 10% off the total project cost.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">🎯</div>
+            <h3>Performance Guarantee</h3>
+            <p class="guarantee-promise">
+              Zero degradation in quality, latency, or user experience.
+            </p>
+            <p class="guarantee-detail">
+              If any optimization negatively impacts your AI performance metrics, we immediately roll back and find an alternative approach at no additional cost.
+            </p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">📚</div>
+            <h3>Knowledge Transfer Guarantee</h3>
+            <p class="guarantee-promise">
+              Your team will be fully trained and confident to manage the optimized system.
+            </p>
+            <p class="guarantee-detail">
+              We provide comprehensive documentation and training. If your team doesn't feel confident managing the system after our handoff, we provide additional training at no cost.
+            </p>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <div class="cta-gradient"></div>
+    </div>
+    <div class="container">
+      <TextReveal client:load>
+        <div class="cta-content">
+          <h2>Ready to Slash Your AI Costs?</h2>
+          <p>Get a free cost audit and see where you can save. No commitment required.</p>
+          <div class="cta-actions">
+            <a href="mailto:hello@unravel.tech?subject=Free AI Cost Audit" class="btn btn-primary btn-lg">Get Free Cost Audit</a>
+            <a href="/services" class="btn btn-secondary btn-lg">View All Services</a>
+          </div>
+          <p class="cta-guarantee">💰 Success Fee Model Available - You only pay if we save you money</p>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    padding: calc(var(--spacing-3xl) + 2rem) 0 var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, rgba(107, 196, 67, 0.03) 0%, rgba(0, 163, 204, 0.05) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    color: var(--unravel-blue);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--unravel-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  /* Problem Section */
+  .problem-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .problem-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-bg-secondary);
+    padding: 3rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--unravel-green);
+  }
+
+  .problem-card h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-statement {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .problem-statement strong {
+    color: #e63946;
+  }
+
+  .cost-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e63946;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Warning Section */
+  .warning-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .warning-checklist {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .warning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 3px solid #e63946;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .warning-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .warning-item p {
+    margin: 0;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+  }
+
+  .warning-note {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-top: 2rem;
+  }
+
+  /* Cost Comparison Section */
+  .cost-comparison-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .comparison-card {
+    background: var(--color-bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-top: 4px solid #e63946;
+  }
+
+  .comparison-card.optimized-costs {
+    border-top-color: var(--unravel-green);
+  }
+
+  .comparison-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cost-category {
+    margin-bottom: 2rem;
+  }
+
+  .cost-category h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .cost-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .cost-category li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .cost-subtotal {
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-top: 1rem;
+  }
+
+  .cost-total {
+    background: #e63946;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .cost-total.savings {
+    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+  }
+
+  .comparison-result {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--color-bg-secondary);
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--unravel-green);
+  }
+
+  .savings-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .savings-amount {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .savings-label {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .savings-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  /* Optimization Section */
+  .optimization-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .optimization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .optimization-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .optimization-card:hover {
+    border-color: var(--unravel-green);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(107, 196, 67, 0.15);
+  }
+
+  .optimization-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .optimization-icon {
+    font-size: 2.5rem;
+  }
+
+  .optimization-header h3 {
+    font-size: 1.375rem;
+    margin: 0;
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .savings-badge {
+    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    color: white;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .optimization-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .optimization-tactics {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .optimization-tactics li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .optimization-tactics li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+    font-weight: bold;
+  }
+
+  .optimization-example {
+    background: var(--color-bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--unravel-blue);
+  }
+
+  .optimization-example strong {
+    color: var(--unravel-blue);
+  }
+
+  /* Approach Section */
+  .approach-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .approach-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .approach-step {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .step-number {
+    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  .approach-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .approach-step p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .step-deliverable {
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: var(--unravel-blue);
+    font-weight: 500;
+  }
+
+  /* Pricing Section */
+  .pricing-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border: 2px solid var(--unravel-green);
+    transform: scale(1.05);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--unravel-green);
+    color: white;
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--unravel-green);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    flex-grow: 1;
+  }
+
+  .pricing-features li {
+    padding: 0.75rem 0;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+    font-weight: bold;
+  }
+
+  .pricing-note {
+    text-align: center;
+    color: var(--unravel-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .pricing-card .btn {
+    width: 100%;
+  }
+
+  /* Case Study Section */
+  .case-study-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .case-study-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-bg-secondary);
+    padding: 3rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--unravel-green);
+  }
+
+  .case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .case-study-header h3 {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+
+  .case-study-tags {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: white;
+    color: var(--unravel-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .case-study-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .case-study-results {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .result-item {
+    text-align: center;
+  }
+
+  .result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--unravel-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .result-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .case-study-breakdown {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .case-study-breakdown ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .case-study-breakdown li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  /* Why Section */
+  .why-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .why-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .why-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .cta-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(107, 196, 67, 0.08) 0%, rgba(0, 163, 204, 0.1) 100%);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-guarantee {
+    font-size: 1rem;
+    color: var(--unravel-green);
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  /* DIY Comparison Section */
+  .diy-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .diy-column {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-top: 4px solid #e63946;
+  }
+
+  .diy-column.optimized {
+    border-top-color: var(--unravel-green);
+  }
+
+  .diy-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .diy-requirements {
+    margin-bottom: 2rem;
+  }
+
+  .diy-requirements h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .diy-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .diy-requirements li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .diy-cost {
+    background: var(--color-bg-secondary);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid #e63946;
+  }
+
+  .diy-cost.optimized-cost {
+    border-left-color: var(--unravel-green);
+  }
+
+  .diy-cost strong {
+    color: var(--color-text-primary);
+  }
+
+  .diy-risk {
+    background: #fee;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: #e63946;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .diy-risk.low-risk {
+    background: #e8f5e9;
+    color: var(--unravel-green);
+  }
+
+  .diy-risk strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* Decision Matrix */
+  .decision-matrix {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .decision-matrix h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+
+  .comparison-table thead {
+    background: var(--color-bg-secondary);
+  }
+
+  .comparison-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--unravel-blue);
+  }
+
+  .comparison-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+  }
+
+  .comparison-table tbody tr:hover {
+    background: var(--color-bg-secondary);
+  }
+
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .decision-note {
+    background: var(--color-bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    line-height: 1.7;
+    border-left: 3px solid var(--unravel-green);
+    margin: 0;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .faq-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: var(--color-bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--unravel-blue);
+  }
+
+  .faq-item h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .faq-item p {
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .faq-item ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-item li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .faq-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .faq-option {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-option h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--unravel-blue);
+  }
+
+  .faq-option ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-option li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .faq-option em {
+    display: block;
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .faq-pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .faq-price-option {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-price-option.featured-pricing {
+    border: 2px solid var(--unravel-green);
+    background: linear-gradient(135deg, rgba(107, 196, 67, 0.05) 0%, rgba(0, 163, 204, 0.05) 100%);
+  }
+
+  .faq-price-option h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .faq-price-option ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-price-option p {
+    margin: 0.5rem 0;
+  }
+
+  .platform-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .platform-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .platform-category h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--unravel-blue);
+  }
+
+  .platform-category p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Guarantees Section */
+  .guarantees-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .guarantee-card {
+    background: var(--color-bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-top: 4px solid var(--unravel-green);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .guarantee-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(107, 196, 67, 0.15);
+  }
+
+  .guarantee-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .guarantee-card h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .guarantee-promise {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--unravel-green);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .guarantee-detail {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .hero-actions,
+    .cta-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn {
+      width: 100%;
+    }
+
+    .problem-card,
+    .case-study-card,
+    .decision-matrix,
+    .faq-item {
+      padding: 2rem 1.5rem;
+    }
+
+    .cost-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .optimization-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .approach-step {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pricing-card.featured {
+      transform: scale(1);
+    }
+
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-grid,
+    .diy-comparison {
+      grid-template-columns: 1fr;
+    }
+
+    .warning-checklist {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+      font-size: 0.875rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .faq-options,
+    .faq-pricing,
+    .platform-list {
+      grid-template-columns: 1fr;
+    }
+
+    .guarantees-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .optimization-card:hover,
+    .pricing-card.featured,
+    .guarantee-card:hover {
+      transform: none;
+    }
+  }
+</style>

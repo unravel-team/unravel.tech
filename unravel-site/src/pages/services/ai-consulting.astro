@@ -1,0 +1,807 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TextReveal from '../../components/TextReveal';
+import ScrollProgress from '../../components/ScrollProgress';
+---
+
+<ScrollProgress client:load />
+
+<BaseLayout 
+  title="AI Consulting Services | Strategic AI Advisory | Unravel"
+  description="Expert AI consulting to guide your strategy, validate ideas, and maximize ROI. From feasibility studies to AI roadmaps and vendor selection."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <TextReveal delay={200} client:load>
+        <div class="breadcrumb">
+          <a href="/services">Services</a> / <span>AI Consulting</span>
+        </div>
+      </TextReveal>
+      <TextReveal delay={400} client:load>
+        <h1 class="hero-title">
+          Strategic AI Guidance<br/>
+          <span class="gradient-text">From Idea to Execution</span>
+        </h1>
+      </TextReveal>
+      <TextReveal delay={600} client:load>
+        <p class="hero-subtitle">
+          Expert consulting to validate your AI strategy, identify opportunities, and build a roadmap that delivers measurable business value
+        </p>
+      </TextReveal>
+      <TextReveal delay={800} client:load>
+        <div class="hero-actions">
+          <a href="mailto:hello@unravel.tech?subject=AI Consulting Inquiry" class="btn btn-primary btn-lg">Book Consultation</a>
+          <a href="#services-offered" class="btn btn-secondary btn-lg">Explore Services</a>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Problem Statement -->
+  <section class="problem-section">
+    <div class="container">
+      <TextReveal client:load>
+        <div class="problem-card">
+          <h2>The AI Strategy Challenge</h2>
+          <p class="problem-statement">
+            <strong>67% of AI initiatives fail to deliver expected ROI.</strong> Organizations struggle with unclear use cases, unrealistic expectations, and choosing the wrong solutions. You need expert guidance to navigate the AI landscape and make informed decisions.
+          </p>
+          <div class="problem-points">
+            <div class="problem-point">
+              <span class="problem-icon">❓</span>
+              <p>Unsure where AI can add value to your business</p>
+            </div>
+            <div class="problem-point">
+              <span class="problem-icon">💸</span>
+              <p>Concerned about wasting budget on the wrong solution</p>
+            </div>
+            <div class="problem-point">
+              <span class="problem-icon">🔍</span>
+              <p>Need to validate feasibility before committing resources</p>
+            </div>
+            <div class="problem-point">
+              <span class="problem-icon">🎯</span>
+              <p>Require an actionable roadmap, not generic advice</p>
+            </div>
+          </div>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+
+  <!-- Consulting Services -->
+  <section class="services-section" id="services-offered">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Consulting Services</h2>
+        <p class="section-subtitle">Tailored advisory to guide your AI journey at every stage</p>
+      </TextReveal>
+
+      <div class="services-grid">
+        <TextReveal delay={100} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🎯</div>
+              <h3>AI Strategy & Roadmap</h3>
+            </div>
+            <p class="service-description">
+              Develop a comprehensive AI strategy aligned with your business objectives and create a phased implementation roadmap.
+            </p>
+            <ul class="service-deliverables">
+              <li>Business opportunity assessment</li>
+              <li>Use case prioritization matrix</li>
+              <li>3-12 month implementation roadmap</li>
+              <li>Resource & budget planning</li>
+              <li>Success metrics definition</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ 2-3 weeks</span>
+              <span class="service-format">📋 Workshop + Report</span>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🔬</div>
+              <h3>Feasibility Studies</h3>
+            </div>
+            <p class="service-description">
+              Validate your AI idea before investing significant resources. Get a clear technical and business feasibility assessment.
+            </p>
+            <ul class="service-deliverables">
+              <li>Technical feasibility analysis</li>
+              <li>Data requirements assessment</li>
+              <li>Cost-benefit analysis</li>
+              <li>Risk identification & mitigation</li>
+              <li>Go/No-go recommendation</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ 1-2 weeks</span>
+              <span class="service-format">📊 Detailed Report</span>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🏗️</div>
+              <h3>AI Architecture Review</h3>
+            </div>
+            <p class="service-description">
+              Expert review of your existing AI systems or proposed architecture to identify improvements and optimize performance.
+            </p>
+            <ul class="service-deliverables">
+              <li>Architecture assessment</li>
+              <li>Performance optimization recommendations</li>
+              <li>Cost reduction opportunities</li>
+              <li>Scalability evaluation</li>
+              <li>Best practices implementation</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ 1-2 weeks</span>
+              <span class="service-format">🔍 Technical Audit</span>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🤝</div>
+              <h3>Vendor Selection</h3>
+            </div>
+            <p class="service-description">
+              Navigate the complex AI vendor landscape with expert guidance to choose the right partners and solutions for your needs.
+            </p>
+            <ul class="service-deliverables">
+              <li>Requirements definition</li>
+              <li>Vendor evaluation criteria</li>
+              <li>RFP creation & management</li>
+              <li>Technical evaluation & comparison</li>
+              <li>Contract negotiation support</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ 2-4 weeks</span>
+              <span class="service-format">📝 Selection Process</span>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={500} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">📚</div>
+              <h3>AI Training & Workshops</h3>
+            </div>
+            <p class="service-description">
+              Upskill your team with practical AI knowledge tailored to your industry and use cases.
+            </p>
+            <ul class="service-deliverables">
+              <li>Custom curriculum design</li>
+              <li>Executive AI awareness sessions</li>
+              <li>Technical team workshops</li>
+              <li>Hands-on implementation labs</li>
+              <li>Ongoing knowledge transfer</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ 1-5 days</span>
+              <span class="service-format">🎓 Interactive Training</span>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={600} client:load>
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🎯</div>
+              <h3>Fractional AI Leadership</h3>
+            </div>
+            <p class="service-description">
+              Part-time AI leadership to guide your initiatives when you're not ready for a full-time hire.
+            </p>
+            <ul class="service-deliverables">
+              <li>Strategic AI guidance</li>
+              <li>Team leadership & mentorship</li>
+              <li>Vendor management</li>
+              <li>Technical decision-making</li>
+              <li>Quarterly roadmap reviews</li>
+            </ul>
+            <div class="service-meta">
+              <span class="service-duration">⏱️ Ongoing</span>
+              <span class="service-format">📅 Retainer Based</span>
+            </div>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consulting Process -->
+  <section class="process-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Our Consulting Process</h2>
+        <p class="section-subtitle">A structured approach to deliver actionable insights</p>
+      </TextReveal>
+
+      <div class="process-steps">
+        <TextReveal delay={100} client:load>
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Discovery Call</h3>
+              <p>Understand your business context, challenges, and objectives. Define scope and success criteria.</p>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Deep Dive Analysis</h3>
+              <p>Research your industry, analyze data, evaluate technical feasibility, and identify opportunities.</p>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Strategy Development</h3>
+              <p>Create recommendations, build roadmaps, and develop actionable implementation plans.</p>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3>Presentation & Handoff</h3>
+              <p>Present findings, answer questions, and provide documentation for your team to execute.</p>
+            </div>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={500} client:load>
+          <div class="process-step">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <h3>Implementation Support</h3>
+              <p>Optional ongoing advisory as you execute the strategy and navigate challenges.</p>
+            </div>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Help -->
+  <section class="audience-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Who We Help</h2>
+      </TextReveal>
+
+      <div class="audience-grid">
+        <TextReveal delay={100} client:load>
+          <div class="audience-card">
+            <h3>Executives & Decision Makers</h3>
+            <p>Get clarity on AI strategy and ROI to make informed investment decisions without technical jargon.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="audience-card">
+            <h3>Product Leaders</h3>
+            <p>Validate AI feature ideas and build product roadmaps that deliver customer value.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="audience-card">
+            <h3>Technical Teams</h3>
+            <p>Get expert guidance on architecture, technology choices, and implementation best practices.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="audience-card">
+            <h3>Startups & Scale-ups</h3>
+            <p>Make the right AI decisions early to avoid costly mistakes and build competitive advantages.</p>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Why Choose Unravel for AI Consulting</h2>
+      </TextReveal>
+
+      <div class="why-grid">
+        <TextReveal delay={100} client:load>
+          <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>Practitioner-Led Insights</h3>
+            <p>Advice from engineers who build production AI systems, not just theorists.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={200} client:load>
+          <div class="why-card">
+            <div class="why-icon">💼</div>
+            <h3>Business-First Approach</h3>
+            <p>We focus on ROI and business outcomes, not just technical possibilities.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={300} client:load>
+          <div class="why-card">
+            <div class="why-icon">🚀</div>
+            <h3>Actionable Recommendations</h3>
+            <p>Concrete next steps you can implement immediately, not generic advice.</p>
+          </div>
+        </TextReveal>
+
+        <TextReveal delay={400} client:load>
+          <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>Vendor-Agnostic</h3>
+            <p>Unbiased recommendations based on your needs, not vendor partnerships.</p>
+          </div>
+        </TextReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <div class="cta-gradient"></div>
+    </div>
+    <div class="container">
+      <TextReveal client:load>
+        <div class="cta-content">
+          <h2>Ready to Develop Your AI Strategy?</h2>
+          <p>Book a free 30-minute consultation to discuss your AI needs and how we can help</p>
+          <div class="cta-actions">
+            <a href="mailto:hello@unravel.tech?subject=AI Consulting - Free Consultation" class="btn btn-primary btn-lg">Book Free Consultation</a>
+            <a href="/services" class="btn btn-secondary btn-lg">View All Services</a>
+          </div>
+        </div>
+      </TextReveal>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    padding: calc(var(--spacing-3xl) + 2rem) 0 var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, rgba(107, 196, 67, 0.03) 0%, rgba(0, 163, 204, 0.05) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    color: var(--unravel-blue);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--unravel-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  /* Problem Section */
+  .problem-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .problem-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--color-bg-secondary);
+    padding: 3rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--unravel-green);
+  }
+
+  .problem-card h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-statement {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .problem-statement strong {
+    color: var(--unravel-green);
+  }
+
+  .problem-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .problem-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .problem-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .problem-point p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    border-color: var(--unravel-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 163, 204, 0.15);
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+  }
+
+  .service-header h3 {
+    font-size: 1.375rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  .service-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+  }
+
+  .service-deliverables li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-deliverables li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+    font-weight: bold;
+  }
+
+  .service-meta {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .service-duration,
+  .service-format {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* Process Section */
+  .process-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .process-steps {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .step-number {
+    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Audience Section */
+  .audience-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .audience-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .audience-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--unravel-blue);
+  }
+
+  .audience-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Why Section */
+  .why-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .why-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .why-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .cta-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(107, 196, 67, 0.08) 0%, rgba(0, 163, 204, 0.1) 100%);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .hero-actions,
+    .cta-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn {
+      width: 100%;
+    }
+
+    .problem-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .problem-points {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-step {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .service-card:hover {
+      transform: none;
+    }
+  }
+</style>
