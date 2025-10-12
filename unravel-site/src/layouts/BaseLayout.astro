@@ -265,16 +265,10 @@ const currentPath = Astro.url.pathname;
     color: #8B949E;
   }
 
-  /* Mobile Footer */
+  /* Mobile Footer - Hidden on mobile */
   @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--spacing-md);
-    }
-    
-    .footer-section:nth-child(2) {
-      order: -1;
+    footer {
+      display: none;
     }
   }
 </style>
