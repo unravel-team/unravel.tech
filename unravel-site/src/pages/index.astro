@@ -228,23 +228,75 @@ import ScrollProgress from '../components/ScrollProgress';
 
   <!-- Testimonial Parallax -->
   <section class="testimonial-section snap-section">
-    <ParallaxSection speed={0.3} client:load>
-      <div class="container">
-        <TextReveal client:load>
-          <div class="testimonial-card">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">
-              Unravel transformed our data chaos into actionable insights. Their AI solutions 
-              increased our operational efficiency by 40% in just six months.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-name">Sarah Johnson</div>
-              <div class="author-title">CTO, TechCorp Industries</div>
+    <div class="container-full">
+      <TextReveal client:load>
+        <div class="section-header">
+          <h2>What Our Clients Say</h2>
+          <p class="text-muted">Trusted by leading organizations and visionary leaders</p>
+        </div>
+      </TextReveal>
+      
+      <div class="horizontal-scroll-wrapper">
+        <div class="testimonials-cards-horizontal">
+          <TextReveal delay={100} client:load>
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                The Unravel team embodies a unique combination of leaders and hackers. They are seasoned developers and their work-product is fast, reliable and delightful!
+              </p>
+              <div class="testimonial-author">
+                <div class="author-name">Vishwesh Jirgale</div>
+                <div class="author-title">Head of Engineering, Modern Loop</div>
+                <a href="https://www.linkedin.com/in/vishweshji/" target="_blank" rel="noopener" class="author-linkedin">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
             </div>
-          </div>
-        </TextReveal>
+          </TextReveal>
+
+          <TextReveal delay={200} client:load>
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                Unravel.tech built our complete event-ingestion pipeline for Espressif chips, handling API servers, Kafka, and MongoDB. Their distributed systems expertise let me focus on business outcomes - a partnership we'll gladly continue.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-name">Kedar Sovani</div>
+                <div class="author-title">India Head, Espressif Systems</div>
+                <a href="https://www.linkedin.com/in/kedarsovani/" target="_blank" rel="noopener" class="author-linkedin">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </TextReveal>
+
+          <TextReveal delay={300} client:load>
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                I'm confident in Unravel's ability to effectively deliver any project they commit to. They are excellent product engineers and understand what solving a real customer pain-point and delivering business outcomes is.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-name">Akshay Vaidya</div>
+                <div class="author-title">Advisor to Startups, Angel Investor</div>
+                <a href="https://www.linkedin.com/in/akshay-vaidya-908702/" target="_blank" rel="noopener" class="author-linkedin">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </TextReveal>
+        </div>
       </div>
-    </ParallaxSection>
+    </div>
   </section>
 
   <!-- CTA Section -->
@@ -723,61 +775,99 @@ import ScrollProgress from '../components/ScrollProgress';
     margin: 0;
   }
 
-  /* Testimonial Section */
+  /* Testimonial Section - Same as Services */
   .testimonial-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
-    background: var(--color-bg-primary);
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+  }
+
+  .testimonials-cards-horizontal {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    min-width: min-content;
   }
 
   .testimonial-card {
-    max-width: 900px;
-    margin: 0 auto;
+    min-width: 350px;
+    max-width: 350px;
     background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-    position: relative;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(107, 196, 67, 0.15);
+    border-color: var(--unravel-green);
   }
 
   .quote-icon {
-    font-size: 6rem;
+    font-size: 3.5rem;
     color: var(--unravel-green);
     opacity: 0.1;
     position: absolute;
-    top: 1rem;
-    left: 2rem;
+    top: 0.75rem;
+    left: 1.25rem;
     line-height: 1;
   }
 
   .testimonial-text {
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--color-text-primary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     position: relative;
     z-index: 1;
+    flex: 1;
   }
 
   .testimonial-author {
     text-align: left;
     border-top: 2px solid rgba(107, 196, 67, 0.2);
-    padding-top: 1.5rem;
+    padding-top: 0.875rem;
   }
 
   .author-name {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--color-text-primary);
     margin-bottom: 0.25rem;
   }
 
   .author-title {
     color: var(--color-text-secondary);
-    font-size: 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .author-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--unravel-green);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .author-linkedin:hover {
+    color: var(--green-dark);
+    transform: translateX(2px);
+  }
+
+  .author-linkedin svg {
+    flex-shrink: 0;
   }
 
   /* CTA Section */
@@ -970,32 +1060,45 @@ import ScrollProgress from '../components/ScrollProgress';
       margin: 0;
     }
 
-    /* Testimonial Section - Compact content within viewport */
+    /* Testimonial Section - Compact (same as Services) */
+    .testimonials-cards-horizontal {
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+
     .testimonial-card {
+      min-width: 280px;
+      max-width: 280px;
       padding: 1.5rem;
     }
 
     .quote-icon {
-      font-size: 4rem;
+      font-size: 2.75rem;
       top: 0.5rem;
       left: 1rem;
     }
 
     .testimonial-text {
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
     }
 
     .testimonial-author {
-      padding-top: 1rem;
+      padding-top: 0.75rem;
     }
 
     .author-name {
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
 
     .author-title {
-      font-size: 0.9375rem;
+      font-size: 0.8125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .author-linkedin {
+      font-size: 0.75rem;
     }
 
     /* CTA Section - Compact content within viewport */
