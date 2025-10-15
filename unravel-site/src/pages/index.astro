@@ -64,10 +64,10 @@ import ScrollProgress from '../components/ScrollProgress';
   <section class="mission-section snap-section">
     <div class="container">
       <TextReveal client:load>
-        <h2 class="section-title-large">
-          We transform the <span class="highlight-green">tangled complexity</span> 
-          of AI into <span class="highlight-blue">clear, actionable solutions</span>
-        </h2>
+          <h2 class="section-title-large">
+            We transform the <span class="highlight-green">tangled complexity</span> 
+            of AI into <span class="highlight-black">clear, actionable solutions</span>
+          </h2>
       </TextReveal>
     </div>
   </section>
@@ -297,7 +297,7 @@ import ScrollProgress from '../components/ScrollProgress';
     height: 100%;
     background: linear-gradient(135deg, 
       rgba(107, 196, 67, 0.03) 0%, 
-      rgba(0, 163, 204, 0.05) 50%,
+      rgba(107, 196, 67, 0.05) 50%,
       rgba(107, 196, 67, 0.02) 100%
     );
   }
@@ -312,7 +312,6 @@ import ScrollProgress from '../components/ScrollProgress';
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
-    opacity: 0.4;
   }
 
   .shape-1 {
@@ -321,22 +320,25 @@ import ScrollProgress from '../components/ScrollProgress';
     background: var(--unravel-green);
     top: 10%;
     left: 10%;
+    opacity: 0.3;
   }
 
   .shape-2 {
     width: 300px;
     height: 300px;
-    background: var(--unravel-blue);
+    background: var(--unravel-green);
     bottom: 20%;
     right: 15%;
+    opacity: 0.15;
   }
 
   .shape-3 {
     width: 250px;
     height: 250px;
-    background: var(--unravel-teal);
+    background: var(--green-light);
     top: 50%;
     right: 30%;
+    opacity: 0.2;
   }
 
   .hero-content {
@@ -349,15 +351,15 @@ import ScrollProgress from '../components/ScrollProgress';
 
   .hero-badge {
     display: inline-block;
-    background: rgba(0, 163, 204, 0.1);
-    color: var(--unravel-blue);
+    background: rgba(107, 196, 67, 0.1);
+    color: var(--unravel-green);
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
-    border: 2px solid rgba(0, 163, 204, 0.2);
+    border: 2px solid rgba(107, 196, 67, 0.2);
   }
 
   .hero-title {
@@ -368,15 +370,15 @@ import ScrollProgress from '../components/ScrollProgress';
   }
 
   .hero-title .un {
-    color: var(--unravel-green);
+    color: var(--unravel-black);
   }
 
   .hero-title .ravel {
-    color: var(--unravel-blue);
+    color: var(--unravel-black);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--unravel-blue) 100%);
+    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--green-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -413,7 +415,7 @@ import ScrollProgress from '../components/ScrollProgress';
   .mouse {
     width: 30px;
     height: 50px;
-    border: 2px solid var(--unravel-blue);
+    border: 2px solid var(--unravel-green);
     border-radius: 15px;
     margin: 0 auto 0.5rem;
     position: relative;
@@ -422,7 +424,7 @@ import ScrollProgress from '../components/ScrollProgress';
   .wheel {
     width: 4px;
     height: 8px;
-    background: var(--unravel-blue);
+    background: var(--unravel-green);
     border-radius: 2px;
     position: absolute;
     top: 8px;
@@ -497,8 +499,8 @@ import ScrollProgress from '../components/ScrollProgress';
     position: relative;
   }
 
-  .highlight-blue {
-    color: var(--unravel-blue);
+  .highlight-black {
+    color: var(--unravel-black);
     position: relative;
   }
 
@@ -540,12 +542,12 @@ import ScrollProgress from '../components/ScrollProgress';
   }
 
   .horizontal-scroll-wrapper::-webkit-scrollbar-track {
-    background: rgba(0, 163, 204, 0.1);
+    background: rgba(107, 196, 67, 0.1);
     border-radius: 4px;
   }
 
   .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: var(--unravel-blue);
+    background: var(--unravel-green);
     border-radius: 4px;
   }
 
@@ -569,14 +571,14 @@ import ScrollProgress from '../components/ScrollProgress';
 
   .service-card-large:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 163, 204, 0.15);
-    border-color: var(--unravel-blue);
+    box-shadow: 0 8px 30px rgba(107, 196, 67, 0.15);
+    border-color: var(--unravel-green);
   }
 
   .service-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    background: linear-gradient(135deg, var(--unravel-green), var(--green-dark));
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -626,7 +628,7 @@ import ScrollProgress from '../components/ScrollProgress';
     align-items: center;
     justify-content: center;
     padding: clamp(4rem, 10vh, 8rem) 0;
-    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--unravel-blue) 100%);
+    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -701,7 +703,7 @@ import ScrollProgress from '../components/ScrollProgress';
   .step-number {
     font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--unravel-green), var(--unravel-blue));
+    background: linear-gradient(135deg, var(--unravel-green), var(--green-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -743,7 +745,7 @@ import ScrollProgress from '../components/ScrollProgress';
 
   .quote-icon {
     font-size: 6rem;
-    color: var(--unravel-blue);
+    color: var(--unravel-green);
     opacity: 0.1;
     position: absolute;
     top: 1rem;
@@ -762,7 +764,7 @@ import ScrollProgress from '../components/ScrollProgress';
 
   .testimonial-author {
     text-align: left;
-    border-top: 2px solid rgba(0, 163, 204, 0.1);
+    border-top: 2px solid rgba(107, 196, 67, 0.2);
     padding-top: 1.5rem;
   }
 
@@ -806,7 +808,7 @@ import ScrollProgress from '../components/ScrollProgress';
     height: 100%;
     background: linear-gradient(135deg, 
       rgba(107, 196, 67, 0.05) 0%, 
-      rgba(0, 163, 204, 0.08) 100%
+      rgba(107, 196, 67, 0.08) 100%
     );
   }
 
@@ -1049,3 +1051,89 @@ import ScrollProgress from '../components/ScrollProgress';
     }
   }
 </style>
+
+<script>
+  import { trackHeroInteraction, trackServiceCTAClick, trackContactAttempt } from '../lib/posthog';
+
+  function initHomepageTracking() {
+    // Track hero CTA clicks
+    const heroPrimaryCta = document.querySelector('.hero-actions .btn-primary');
+    const heroSecondaryCta = document.querySelector('.hero-actions .btn-secondary');
+
+    if (heroPrimaryCta) {
+      heroPrimaryCta.addEventListener('click', () => {
+        trackHeroInteraction('cta_click', 'Start Your Journey');
+      });
+    }
+
+    if (heroSecondaryCta) {
+      heroSecondaryCta.addEventListener('click', () => {
+        trackHeroInteraction('cta_click', 'Explore Solutions');
+      });
+    }
+
+    // Track service card interactions
+    const serviceCards = document.querySelectorAll('.service-card-large');
+    serviceCards.forEach((card, index) => {
+      const serviceName = card.querySelector('h3')?.textContent || `Service ${index + 1}`;
+      
+      // Track when service cards come into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            trackServiceCTAClick(serviceName, 'view', 'homepage_horizontal_scroll');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(card);
+
+      // Track clicks on service cards
+      card.addEventListener('click', () => {
+        trackServiceCTAClick(serviceName, 'card_click', 'homepage');
+      });
+    });
+
+    // Track CTA section clicks
+    const ctaPrimaryButton = document.querySelector('.cta-section .btn-primary');
+    const ctaSecondaryButton = document.querySelector('.cta-section .btn-secondary');
+
+    if (ctaPrimaryButton) {
+      ctaPrimaryButton.addEventListener('click', () => {
+        trackContactAttempt('email', 'homepage_cta');
+      });
+    }
+
+    if (ctaSecondaryButton) {
+      ctaSecondaryButton.addEventListener('click', () => {
+        trackServiceCTAClick('View Work', 'cta_click', 'homepage_bottom');
+      });
+    }
+
+    // Track scroll to services section (indicates interest)
+    const servicesSection = document.querySelector('.services-horizontal');
+    if (servicesSection) {
+      const servicesObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            trackHeroInteraction('scroll_to_services', 'Services Section');
+            servicesObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      servicesObserver.observe(servicesSection);
+    }
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomepageTracking);
+  } else {
+    initHomepageTracking();
+  }
+
+  // Re-initialize after navigation
+  document.addEventListener('astro:page-load', initHomepageTracking);
+</script>

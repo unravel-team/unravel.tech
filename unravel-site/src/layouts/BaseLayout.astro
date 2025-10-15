@@ -24,6 +24,27 @@ const currentPath = Astro.url.pathname;
   <meta name="description" content={description}>
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Google Fonts - Barlow & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PostHog Analytics -->
+  <script>
+    import { initPostHog, trackPageView } from '../lib/posthog';
+    
+    // Initialize PostHog on page load
+    initPostHog();
+    
+    // Track initial page view
+    trackPageView();
+    
+    // Track page views on route changes (for Astro's view transitions)
+    document.addEventListener('astro:page-load', () => {
+      trackPageView();
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -465,6 +486,8 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
+  import { trackNavigationClick, trackDropdownOpened, trackEmailClick, trackScrollDepth, trackTimeOnPage, trackExternalLinkClick } from '../lib/posthog';
+
   // Desktop dropdown menu functionality
   function initDesktopDropdown() {
     const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
@@ -477,6 +500,11 @@ const currentPath = Astro.url.pathname;
       e.stopPropagation();
       const isExpanded = dropdownTrigger.getAttribute('aria-expanded') === 'true';
       dropdownTrigger.setAttribute('aria-expanded', !isExpanded);
+      
+      // Track dropdown opened
+      if (!isExpanded) {
+        trackDropdownOpened('Services');
+      }
     });
 
     // Close dropdown when clicking outside
@@ -498,13 +526,110 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  // Track navigation clicks
+  function initNavigationTracking() {
+    // Track header navigation clicks
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLAnchorElement;
+        trackNavigationClick(target.textContent || '', target.href, 'header');
+      });
+    });
+
+    // Track dropdown menu clicks
+    document.querySelectorAll('.dropdown-item').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLAnchorElement;
+        trackNavigationClick(target.textContent || '', target.href, 'dropdown');
+      });
+    });
+
+    // Track footer navigation clicks
+    document.querySelectorAll('.footer-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLAnchorElement;
+        trackNavigationClick(target.textContent || '', target.href, 'footer');
+      });
+    });
+
+    // Track email clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLAnchorElement;
+        const email = target.href.replace('mailto:', '');
+        const location = target.closest('header') ? 'header' : 
+                        target.closest('footer') ? 'footer' : 'content';
+        trackEmailClick(email, location);
+      });
+    });
+
+    // Track external links
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      const target = link as HTMLAnchorElement;
+      if (!target.href.includes(window.location.hostname)) {
+        link.addEventListener('click', () => {
+          const location = target.closest('header') ? 'header' : 
+                          target.closest('footer') ? 'footer' : 'content';
+          trackExternalLinkClick(target.href, target.textContent || '', location);
+        });
+      }
+    });
+  }
+
+  // Track scroll depth
+  function initScrollTracking() {
+    const milestones = [25, 50, 75, 100];
+    const reached = new Set<number>();
+
+    function checkScrollDepth() {
+      const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+      
+      milestones.forEach(milestone => {
+        if (scrollPercent >= milestone && !reached.has(milestone)) {
+          reached.add(milestone);
+          trackScrollDepth(milestone as 25 | 50 | 75 | 100);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScrollDepth, { passive: true });
+  }
+
+  // Track time on page
+  function initTimeTracking() {
+    const startTime = Date.now();
+    
+    // Track time when user leaves or switches tabs
+    function trackTime() {
+      const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+      if (timeSpent >= 10) { // Only track if spent at least 10 seconds
+        trackTimeOnPage(timeSpent);
+      }
+    }
+
+    window.addEventListener('beforeunload', trackTime);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        trackTime();
+      }
+    });
+  }
+
+  // Initialize all tracking
+  function initTracking() {
+    initDesktopDropdown();
+    initNavigationTracking();
+    initScrollTracking();
+    initTimeTracking();
+  }
+
   // Initialize on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDesktopDropdown);
+    document.addEventListener('DOMContentLoaded', initTracking);
   } else {
-    initDesktopDropdown();
+    initTracking();
   }
 
   // Re-initialize after navigation
-  document.addEventListener('astro:page-load', initDesktopDropdown);
+  document.addEventListener('astro:page-load', initTracking);
 </script>

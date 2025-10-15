@@ -6,27 +6,27 @@
     <title>Brand Color System v3.0 - Enhanced Backgrounds</title>
     <style>
         :root {
-            /* Primary Colors */
-            --color-primary-100: #E6F7FA;
-            --color-primary-200: #B3E5EE;
-            --color-primary-300: #80D4E3;
-            --color-primary-400: #4FC3DB;
-            --color-primary-500: #0E9FBC; /* Main Teal */
-            --color-primary-600: #0B7D94;
-            --color-primary-700: #085B6C;
-            --color-primary-800: #053944;
-            --color-primary-900: #02171C;
+            /* Primary Colors - Green (Primary Accent) */
+            --color-primary-100: #F0F8EB;
+            --color-primary-200: #D4E9C3;
+            --color-primary-300: #B8DA9B;
+            --color-primary-400: #8FD464;
+            --color-primary-500: #6CB33F; /* Main Green - Unravel Green */
+            --color-primary-600: #5A9934;
+            --color-primary-700: #487F29;
+            --color-primary-800: #36651E;
+            --color-primary-900: #244B13;
             
-            /* Secondary Colors */
-            --color-secondary-100: #F0F8EB;
-            --color-secondary-200: #D4E9C3;
-            --color-secondary-300: #B8DA9B;
-            --color-secondary-400: #8FD464;
-            --color-secondary-500: #6CB33F; /* Main Green */
-            --color-secondary-600: #5A9934;
-            --color-secondary-700: #487F29;
-            --color-secondary-800: #36651E;
-            --color-secondary-900: #244B13;
+            /* Secondary Colors - Black/Neutral */
+            --color-secondary-100: #F8F9FA;
+            --color-secondary-200: #E9ECEF;
+            --color-secondary-300: #DEE2E6;
+            --color-secondary-400: #CED4DA;
+            --color-secondary-500: #212529; /* Main Black */
+            --color-secondary-600: #343A40;
+            --color-secondary-700: #495057;
+            --color-secondary-800: #6C757D;
+            --color-secondary-900: #ADB5BD;
             
             /* Neutral Colors */
             --color-neutral-000: #FFFFFF;
@@ -43,28 +43,28 @@
             --color-neutral-950: #0D1117;
             
             /* Enhanced Background Colors */
-            --color-bg-primary: #F4F9FA; /* Soft blue-tinted gray */
-            --color-bg-secondary: #F7FBFC; /* Very light cyan wash */
-            --color-bg-tertiary: #F0F7F9; /* Light teal tint */
-            --color-bg-surface: #FAFEFE; /* Off-white with cool undertone */
-            --color-bg-elevated: linear-gradient(135deg, #FCFDFE 0%, #F7FBFC 100%);
-            --color-bg-gradient-soft: linear-gradient(180deg, #F2F9FA 0%, #E8F5F7 100%);
-            --color-bg-gradient-vibrant: linear-gradient(135deg, #E6F7FA 0%, #F0F8EB 100%);
-            --color-bg-pattern: #EBF6F8;
-            --color-bg-accent: #E4F4F7; /* Stronger teal-tinted background */
+            --color-bg-primary: #F8F9FA; /* Soft neutral gray */
+            --color-bg-secondary: #FAFBFC; /* Very light gray */
+            --color-bg-tertiary: #F0F7F9; /* Light cool gray */
+            --color-bg-surface: #FFFFFF; /* Clean white */
+            --color-bg-elevated: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            --color-bg-gradient-soft: linear-gradient(180deg, #F8F9FA 0%, #F0F8EB 100%);
+            --color-bg-gradient-vibrant: linear-gradient(135deg, #F0F8EB 0%, #F8F9FA 100%);
+            --color-bg-pattern: #F8F9FA;
+            --color-bg-accent: #F0F8EB; /* Light green tinted background */
             --color-bg-warm: #FAFAF8; /* Warm off-white */
-            --color-bg-cool: #F5FAFB; /* Cool blue-tinted */
-            --color-bg-mesh: radial-gradient(at 40% 20%, #E6F7FA 0px, transparent 50%),
+            --color-bg-cool: #F8F9FA; /* Cool neutral */
+            --color-bg-mesh: radial-gradient(at 40% 20%, rgba(107, 196, 67, 0.05) 0px, transparent 50%),
                            radial-gradient(at 80% 0%, #F0F8EB 0px, transparent 50%),
-                           radial-gradient(at 10% 50%, #F7FBFC 0px, transparent 50%),
-                           radial-gradient(at 80% 80%, #EBF6F8 0px, transparent 50%),
-                           radial-gradient(at 0% 100%, #E4F4F7 0px, transparent 50%);
+                           radial-gradient(at 10% 50%, #F8F9FA 0px, transparent 50%),
+                           radial-gradient(at 80% 80%, rgba(107, 196, 67, 0.03) 0px, transparent 50%),
+                           radial-gradient(at 0% 100%, #F0F8EB 0px, transparent 50%);
             
             /* Semantic Colors */
             --color-success: #6CB33F;
             --color-error: #DC3545;
             --color-warning: #FFC107;
-            --color-info: #0E9FBC;
+            --color-info: #212529;
             
             /* Spacing */
             --spacing-xs: 4px;
@@ -82,11 +82,13 @@
             box-sizing: border-box;
         }
         
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--color-neutral-900);
-            background: linear-gradient(180deg, #F0F7F9 0%, #E8F5F7 50%, #F4F9FA 100%);
+            background: linear-gradient(180deg, #F8F9FA 0%, #F0F8EB 50%, #F8F9FA 100%);
             min-height: 100vh;
             padding: 40px 20px;
             position: relative;
@@ -131,10 +133,14 @@
             pointer-events: none;
         }
         
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
         h1 {
             font-size: 48px;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -144,14 +150,14 @@
         
         .version-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #E6F7FA 0%, #E4F4F7 100%);
+            background: linear-gradient(135deg, #F0F8EB 0%, #D4E9C3 100%);
             color: var(--color-primary-700);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(14, 159, 188, 0.15);
+            box-shadow: 0 2px 8px rgba(107, 196, 67, 0.15);
         }
         
         .subtitle {
@@ -168,13 +174,6 @@
             font-weight: 600;
             position: relative;
             z-index: 1;
-        }
-        
-        h3 {
-            font-size: 20px;
-            margin: 40px 0 20px 0;
-            color: var(--color-neutral-800);
-            font-weight: 600;
         }
         
         .section-description {
@@ -446,23 +445,26 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(14, 159, 188, 0.25);
+            box-shadow: 0 4px 12px rgba(107, 196, 67, 0.25);
         }
         
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(14, 159, 188, 0.35);
+            box-shadow: 0 6px 20px rgba(107, 196, 67, 0.35);
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, var(--color-secondary-500) 0%, var(--color-secondary-600) 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(108, 179, 63, 0.25);
+            background: transparent;
+            color: var(--color-secondary-500);
+            border: 2px solid var(--color-secondary-500);
+            box-shadow: 0 4px 12px rgba(33, 37, 41, 0.15);
         }
         
         .btn-secondary:hover {
+            background: var(--color-secondary-500);
+            color: white;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(108, 179, 63, 0.35);
+            box-shadow: 0 6px 20px rgba(33, 37, 41, 0.25);
         }
         
         /* Alert Components */
@@ -575,14 +577,26 @@
 </head>
 <body>
     <div class="container">
-        <span class="version-badge">Version 3.0 - Enhanced Backgrounds</span>
-        <h1>Brand Color System</h1>
-        <p class="subtitle">Enterprise AI Consulting | Advanced Background Design System</p>
+    <span class="version-badge">Version 4.0 - Green & Black Design System</span>
+    <h1>Brand Color System</h1>
+    <p class="subtitle">Enterprise AI Consulting | Green Accent with Black Typography</p>
         
         <!-- New Background Showcase Section -->
+        <h2>Updated Color Philosophy</h2>
+        <p class="section-description">
+            <strong>New Direction:</strong> We now use <strong>green (#6CB33F)</strong> as the only accent color with <strong>black (#212529)</strong> for text and neutral elements. This creates a cleaner, more focused design with enhanced readability. Blue colors have been completely replaced with neutral grays and black.
+        </p>
+        
+        <h2>Typography System</h2>
+        <p class="section-description">
+            <strong>Titles:</strong> Barlow font family (weights 400-800) for all headings<br>
+            <strong>Body Text:</strong> Inter font family (weights 300-700) for all regular text<br>
+            Both fonts are loaded from Google Fonts for optimal performance.
+        </p>
+        
         <h2>Enhanced Background Colors</h2>
         <p class="section-description">
-            Sophisticated background options that move beyond plain white, featuring subtle gradients, mesh patterns, and carefully crafted color combinations for visual depth and professional elegance.
+            Sophisticated background options featuring neutral grays and light green tints. Blue-tinted backgrounds have been replaced with neutral tones for better compatibility with the green accent color.
         </p>
         
         <div class="background-showcase">
@@ -733,12 +747,11 @@
             Complete color scales with 9 tints and shades for maximum flexibility. Each shade is carefully calibrated for optimal contrast ratios against our enhanced backgrounds.
         </p>
         
-        <div class="extended-palette">
-            <!-- Primary Scale -->
+        <div class="extended-palette">            <!-- Primary Scale -->
             <div class="color-scale">
                 <div class="scale-header">
-                    <div class="scale-title">Primary - Teal</div>
-                    <div class="scale-description">Trust, Technology & Innovation</div>
+                    <div class="scale-title">Primary - Green</div>
+                    <div class="scale-description">Growth, Energy & Innovation (Primary Accent)</div>
                 </div>
                 <div class="color-row">
                     <div class="color-square" style="background: #E6F7FA;"></div>
@@ -835,8 +848,8 @@
             <!-- Secondary Scale -->
             <div class="color-scale">
                 <div class="scale-header">
-                    <div class="scale-title">Secondary - Green</div>
-                    <div class="scale-description">Growth, Energy & Success</div>
+                    <div class="scale-title">Secondary - Black/Neutral</div>
+                    <div class="scale-description">Text & UI Elements</div>
                 </div>
                 <div class="color-row">
                     <div class="color-square" style="background: #F0F8EB;"></div>
