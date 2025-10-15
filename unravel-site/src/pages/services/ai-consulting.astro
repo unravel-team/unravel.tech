@@ -805,3 +805,99 @@ import ScrollProgress from '../../components/ScrollProgress';
     }
   }
 </style>
+
+<script>
+  import { trackServiceViewed, trackServiceCTAClick, trackContactAttempt } from '../../lib/posthog';
+
+  function initServicePageTracking() {
+    const serviceName = 'AI Consulting';
+    const serviceUrl = window.location.pathname;
+
+    // Track that user viewed this service page
+    trackServiceViewed(serviceName, serviceUrl);
+
+    // Track hero CTA clicks
+    const heroContactBtn = document.querySelector('.hero-actions .btn-primary');
+    const heroExploreBtn = document.querySelector('.hero-actions .btn-secondary');
+
+    if (heroContactBtn) {
+      heroContactBtn.addEventListener('click', () => {
+        trackContactAttempt('email', 'service_page_hero');
+        trackServiceCTAClick(serviceName, 'Book Consultation', 'hero');
+      });
+    }
+
+    if (heroExploreBtn) {
+      heroExploreBtn.addEventListener('click', () => {
+        trackServiceCTAClick(serviceName, 'Explore Services', 'hero');
+      });
+    }
+
+    // Track service card interactions
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card) => {
+      const cardTitle = card.querySelector('h3')?.textContent || 'Unknown Service';
+      
+      // Track when service cards come into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            trackServiceCTAClick(serviceName, `${cardTitle} - viewed`, 'service_details');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(card);
+
+      // Track clicks on service cards
+      card.addEventListener('click', () => {
+        trackServiceCTAClick(serviceName, `${cardTitle} - clicked`, 'service_details');
+      });
+    });
+
+    // Track bottom CTA clicks
+    const ctaContactBtn = document.querySelector('.cta-section .btn-primary');
+    const ctaServicesBtn = document.querySelector('.cta-section .btn-secondary');
+
+    if (ctaContactBtn) {
+      ctaContactBtn.addEventListener('click', () => {
+        trackContactAttempt('email', 'service_page_bottom_cta');
+        trackServiceCTAClick(serviceName, 'Book Free Consultation', 'bottom_cta');
+      });
+    }
+
+    if (ctaServicesBtn) {
+      ctaServicesBtn.addEventListener('click', () => {
+        trackServiceCTAClick(serviceName, 'View All Services', 'bottom_cta');
+      });
+    }
+
+    // Track engagement with "Who We Help" section
+    const audienceCards = document.querySelectorAll('.audience-card');
+    audienceCards.forEach((card) => {
+      const audienceType = card.querySelector('h3')?.textContent || 'Unknown';
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            trackServiceCTAClick(serviceName, `Audience: ${audienceType}`, 'who_we_help');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.7 });
+      
+      observer.observe(card);
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServicePageTracking);
+  } else {
+    initServicePageTracking();
+  }
+
+  // Re-initialize after navigation
+  document.addEventListener('astro:page-load', initServicePageTracking);
+</script>
