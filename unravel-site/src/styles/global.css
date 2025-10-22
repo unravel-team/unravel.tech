@@ -7,22 +7,36 @@
 
 /* CSS Custom Properties - Color System */
 :root {
-  /* Unravel Brand Colors */
-  --unravel-green: #6BC443;
+  /* Unravel Brand Colors - Updated 2025 */
+  --unravel-green: #6FBF3F;
+  --unravel-blue: #0E9FBC;
   --unravel-black: #212529;
-  --green-light: #8FD668;
-  --green-dark: #4FA52C;
+  --green-light: #8FD464;
+  --green-dark: #5A9934;
+  --blue-light: #5CCDE5;
+  --blue-dark: #0C85A0;
   
-  /* Primary Colors - Green (Now Primary) */
+  /* Primary Colors - Green Scale */
   --color-primary-100: #F0F8EB;
   --color-primary-200: #D4E9C3;
   --color-primary-300: #B8DA9B;
   --color-primary-400: #8FD464;
-  --color-primary-500: #6CB33F; /* Main Green - Unravel Green */
+  --color-primary-500: #6FBF3F; /* Main Green - Unravel Green */
   --color-primary-600: #5A9934;
   --color-primary-700: #487F29;
   --color-primary-800: #36651E;
   --color-primary-900: #244B13;
+  
+  /* Blue Scale - New 2025 */
+  --color-blue-100: #E6F7FA;
+  --color-blue-200: #B8E9F3;
+  --color-blue-300: #8ADBEC;
+  --color-blue-400: #5CCDE5;
+  --color-blue-500: #0E9FBC; /* Main Blue - Unravel Blue */
+  --color-blue-600: #0C85A0;
+  --color-blue-700: #096B84;
+  --color-blue-800: #075168;
+  --color-blue-900: #04374C;
   
   /* Secondary Colors - Black/Neutral */
   --color-secondary-100: #F8F9FA;
@@ -50,28 +64,30 @@
   --color-neutral-950: #0D1117;
   
   /* Semantic Colors */
-  --color-success: #6CB33F;
+  --color-success: #6FBF3F;
   --color-error: #DC3545;
   --color-warning: #FFC107;
-  --color-info: #212529;
+  --color-info: #0E9FBC;
   
-  /* Enhanced Background Colors */
-  --color-bg-primary: #F8F9FA; /* Soft neutral gray */
-  --color-bg-secondary: #FAFBFC; /* Very light gray */
-  --color-bg-tertiary: #F0F7F9; /* Light cool gray */
-  --color-bg-surface: #FFFFFF; /* Clean white */
-  --color-bg-elevated: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-  --color-bg-gradient-soft: linear-gradient(180deg, #F8F9FA 0%, #F0F8EB 100%);
-  --color-bg-gradient-vibrant: linear-gradient(135deg, #E6F7FA 0%, #F0F8EB 50%, #E4F4F7 100%);
-  --color-bg-pattern: #F8F9FA;
+  /* Background Colors - Solid (Preferred) */
+  --color-bg-cream: #F5F2ED; /* Main background - warm cream */
+  --color-bg-warm: #FAF8F5; /* Lighter warm background */
+  --color-bg-white: #FFFFFF; /* Pure white for cards */
+  --color-bg-primary: #F5F2ED; /* Alias for cream */
+  --color-bg-secondary: #FAF8F5; /* Alias for warm */
+  --color-bg-surface: #FFFFFF; /* Clean white surfaces */
   --color-bg-accent: #F0F8EB; /* Light green tinted background */
-  --color-bg-warm: #FAFAF8; /* Warm off-white */
-  --color-bg-cool: #F8F9FA; /* Cool neutral */
-  --color-bg-mesh: radial-gradient(at 40% 20%, rgba(107, 196, 67, 0.05) 0px, transparent 50%),
+  
+  /* Background Gradients - Subtle (Use Sparingly) */
+  --color-bg-elevated: linear-gradient(135deg, #F5F2ED 0%, #FAF8F5 100%);
+  --color-bg-gradient-soft: linear-gradient(180deg, #FFFFFF 0%, #F5F2ED 100%);
+  --color-bg-gradient-subtle: linear-gradient(135deg, #F0F8EB 0%, #E6F7FA 100%);
+  --color-bg-gradient-overlay: linear-gradient(135deg, rgba(111, 191, 63, 0.1) 0%, rgba(14, 159, 188, 0.1) 100%);
+  --color-bg-mesh: radial-gradient(at 40% 20%, rgba(111, 191, 63, 0.05) 0px, transparent 50%),
                    radial-gradient(at 80% 0%, #F0F8EB 0px, transparent 50%),
-                   radial-gradient(at 10% 50%, #F8F9FA 0px, transparent 50%),
-                   radial-gradient(at 80% 80%, rgba(107, 196, 67, 0.03) 0px, transparent 50%),
-                   radial-gradient(at 0% 100%, #F0F8EB 0px, transparent 50%);
+                   radial-gradient(at 10% 50%, #F5F2ED 0px, transparent 50%),
+                   radial-gradient(at 80% 80%, rgba(14, 159, 188, 0.03) 0px, transparent 50%),
+                   radial-gradient(at 0% 100%, #E6F7FA 0px, transparent 50%);
   
   /* Semantic Tokens */
   --color-text-primary: var(--color-neutral-900);
@@ -108,9 +124,12 @@
   --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
   --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
-  --shadow-primary-sm: 0 2px 8px rgba(107, 196, 67, 0.15);
-  --shadow-primary-md: 0 4px 16px rgba(107, 196, 67, 0.2);
-  --shadow-primary-lg: 0 10px 30px rgba(107, 196, 67, 0.25);
+  --shadow-primary-sm: 0 2px 8px rgba(111, 191, 63, 0.15);
+  --shadow-primary-md: 0 4px 16px rgba(111, 191, 63, 0.2);
+  --shadow-primary-lg: 0 10px 30px rgba(111, 191, 63, 0.25);
+  --shadow-blue-sm: 0 2px 8px rgba(14, 159, 188, 0.15);
+  --shadow-blue-md: 0 4px 16px rgba(14, 159, 188, 0.2);
+  --shadow-blue-lg: 0 10px 30px rgba(14, 159, 188, 0.25);
   --shadow-secondary-sm: 0 2px 8px rgba(33, 37, 41, 0.15);
   --shadow-secondary-md: 0 4px 16px rgba(33, 37, 41, 0.2);
   --shadow-secondary-lg: 0 10px 30px rgba(33, 37, 41, 0.25);
@@ -189,7 +208,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
-  background: var(--color-bg-gradient-soft);
+  background: var(--color-bg-gradient-soft); /* Subtle white to cream gradient */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -397,7 +416,7 @@ a:hover {
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
-  border: 1px solid rgba(107, 196, 67, 0.1);
+  border: 1px solid rgba(111, 191, 63, 0.1);
 }
 
 .card:hover {
@@ -440,28 +459,32 @@ a:hover {
 .bg-surface { background: var(--color-bg-surface); }
 .bg-elevated { background: var(--color-bg-elevated); }
 .bg-accent { background-color: var(--color-bg-accent); }
+.bg-cream { background-color: var(--color-bg-cream); }
+.bg-warm { background-color: var(--color-bg-warm); }
+.bg-white { background-color: var(--color-bg-white); }
 .bg-pattern { 
-  background-color: var(--color-bg-pattern);
+  background-color: var(--color-bg-cream);
   background-image: 
-    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(107, 196, 67, 0.03) 35px, rgba(107, 196, 67, 0.03) 70px),
-    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(107, 196, 67, 0.02) 35px, rgba(107, 196, 67, 0.02) 70px);
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(111, 191, 63, 0.03) 35px, rgba(111, 191, 63, 0.03) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(14, 159, 188, 0.02) 35px, rgba(14, 159, 188, 0.02) 70px);
 }
 .bg-mesh { 
-  background: var(--color-bg-mesh), var(--color-bg-primary);
+  background: var(--color-bg-mesh), var(--color-bg-cream);
 }
 
-/* Gradient Backgrounds */
+/* Gradient Backgrounds - Use Sparingly Per Brand Guidelines */
 .bg-gradient-soft { background: var(--color-bg-gradient-soft); }
-.bg-gradient-vibrant { background: var(--color-bg-gradient-vibrant); }
-.bg-gradient-subtle { background: var(--color-bg-elevated); }
+.bg-gradient-subtle { background: var(--color-bg-gradient-subtle); }
+.bg-gradient-elevated { background: var(--color-bg-elevated); }
+.bg-gradient-overlay { background: var(--color-bg-gradient-overlay); }
 .bg-gradient-primary {
   background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
 }
-.bg-gradient-light {
-  background: linear-gradient(135deg, var(--color-primary-100) 0%, rgba(255, 255, 255, 0.5) 100%);
+.bg-gradient-blue {
+  background: linear-gradient(135deg, var(--color-blue-500) 0%, var(--color-blue-600) 100%);
 }
-.bg-gradient-green {
-  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+.bg-gradient-light {
+  background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-blue-100) 100%);
 }
 
 /* Border Utilities */

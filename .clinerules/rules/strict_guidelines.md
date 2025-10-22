@@ -107,6 +107,25 @@
    --leading-relaxed: 1.75;
    ```
 
+### Copywriting & Content Philosophy
+**"Words that Unravel Complexity"** - Copy should mirror the UI: simple, human, transformative. Use concise, approachable language that explains technical concepts (e.g., AI implementation) like a trusted guide.
+
+1. **Core Principles**
+   - **Sentence case & friendly tone**: Avoid jargon; explain terms (e.g., "NLP" as "natural language processing that helps machines understand human speech").
+   - **Benefit-focused**: Highlight user outcomes (e.g., "Save 30% on AI costs" over "Optimize infrastructure").
+   - **Length guidelines**: Hero: 1-2 sentences; Sections: 50-100 words; Blog: 800-1500 words with subheadings.
+   - **Inclusivity**: Gender-neutral, global audience-friendly.
+
+2. **Backlog Integration**
+   - When generating BD backlogs for site improvements, always include [copy] labeled items for each major section (hero, services, blog, testimonials, etc.) to ensure content aligns with UI updates.
+   - Use split-color emphasis in headlines (e.g., "Unraveling AI for Business" with "Unraveling" in green, "AI for Business" in blue).
+   - SEO keywords: Incorporate naturally (e.g., "AI consulting services", "NLP applications").
+
+3. **Content Structure Examples**
+   - **Services Pages**: Start with problem-solution-benefit; include case study teasers.
+   - **Blog Posts**: Intro hook, step-by-step guide, conclusion with CTA; add social previews.
+   - **Global Updates**: Consistent mission voice across all pages.
+
 ## ✨ Subtle Animations & Micro-interactions
 
 ### Unravel Motion Principles
