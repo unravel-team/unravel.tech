@@ -176,11 +176,11 @@ import ScrollProgress from '../components/ScrollProgress';
     </ParallaxSection>
   </section>
 
-  <!-- Process Section -->
+  <!-- Process Section - Discovery & Validation -->
   <section class="process-section snap-section">
     <div class="container">
       <TextReveal client:load>
-        <h2 class="section-title">Our Approach</h2>
+        <h2 class="section-title">Discovery & Validation</h2>
         <p class="section-subtitle">Rapid experimentation without ceremony</p>
       </TextReveal>
 
@@ -189,9 +189,11 @@ import ScrollProgress from '../components/ScrollProgress';
           <div class="process-step">
             <div class="step-number">01</div>
             <h3>Discover and Align (1 week)</h3>
-            <p>Evaluate your current state and AI maturity</p>
-	    <p>Map opportunities to business impact</p>
-	    <p>Design proof-of-concept roadmap with clear success criteria</p>
+            <ul>
+              <li>Evaluate your current state and AI maturity</li>
+              <li>Map opportunities to business impact</li>
+              <li>Design proof-of-concept roadmap with clear success criteria</li>
+            </ul>
           </div>
         </TextReveal>
 
@@ -199,26 +201,45 @@ import ScrollProgress from '../components/ScrollProgress';
           <div class="process-step">
             <div class="step-number">02</div>
             <h3>Rapid Prototyping (2 weeks)</h3>
-            <p>Build lightweight experiments that test core assumptions</p>
-	    <p>Iterate quickly based on stakeholder feedback</p>
+            <ul>
+              <li>Build lightweight experiments that test core assumptions</li>
+              <li>Iterate quickly based on stakeholder feedback</li>
+            </ul>
           </div>
         </TextReveal>
+      </div>
+    </div>
+  </section>
 
-        <TextReveal delay={300} client:load>
+  <!-- Process Section - Development & Launch -->
+  <section class="process-section process-section-alt snap-section">
+    <div class="container">
+      <TextReveal client:load>
+        <h2 class="section-title">Development & Launch</h2>
+        <p class="section-subtitle">Building production-ready systems</p>
+      </TextReveal>
+
+      <div class="process-timeline">
+        <TextReveal delay={100} client:load>
           <div class="process-step">
             <div class="step-number">03</div>
             <h3>Design, Develop and De-risk (2 months)</h3>
-            <p>Assess feasibility and technical approaches
-</p><p>Identify architectural risks before they become expensive</p>
+            <ul>
+              <li>Assess feasibility and technical approaches</li>
+              <li>Identify architectural risks before they become expensive</li>
+            </ul>
           </div>
         </TextReveal>
 
-        <TextReveal delay={400} client:load>
+        <TextReveal delay={200} client:load>
           <div class="process-step">
             <div class="step-number">04</div>
             <h3>Deploy and Optimize</h3>
-            <p>Deploy robust, production-grade systems to either AWS, GCP, Azure or Fly.io</p>
-	    <p>Monitor, measure, and continuously improve</p><p>Adapt roadmap based on actual performance and ROI</p>
+            <ul>
+              <li>Deploy robust, production-grade systems to either AWS, GCP, Azure or Fly.io</li>
+              <li>Monitor, measure, and continuously improve</li>
+              <li>Adapt roadmap based on actual performance and ROI</li>
+            </ul>
           </div>
         </TextReveal>
       </div>
@@ -712,6 +733,10 @@ import ScrollProgress from '../components/ScrollProgress';
     padding: clamp(4rem, 10vh, 8rem) 0;
     background: var(--color-bg-secondary);
   }
+
+  .process-section-alt {
+    background: var(--color-bg-primary);
+  }
   
   .process-section .container {
     width: 100%;
@@ -744,6 +769,10 @@ import ScrollProgress from '../components/ScrollProgress';
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 320px;
   }
 
   .process-step:hover {
@@ -768,10 +797,27 @@ import ScrollProgress from '../components/ScrollProgress';
     color: var(--color-text-primary);
   }
 
-  .process-step p {
+  .process-step ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .process-step li {
     color: var(--color-text-secondary);
     line-height: 1.6;
-    margin: 0;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .process-step li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+    font-weight: bold;
   }
 
   /* Testimonial Section - Same as Services */
@@ -1040,27 +1086,38 @@ import ScrollProgress from '../components/ScrollProgress';
 
     .process-timeline {
       grid-template-columns: 1fr;
-      gap: 0.75rem;
+      gap: 1rem;
     }
 
     .process-step {
-      padding: 1rem;
+      padding: 1.25rem;
+      min-height: auto;
     }
 
     .step-number {
       font-size: 1.75rem;
-      margin-bottom: 0.375rem;
+      margin-bottom: 0.5rem;
     }
 
     .process-step h3 {
-      font-size: 1rem;
-      margin-bottom: 0.375rem;
+      font-size: 1.125rem;
+      margin-bottom: 0.625rem;
+      line-height: 1.3;
     }
 
-    .process-step p {
-      font-size: 0.8125rem;
-      line-height: 1.4;
-      margin: 0;
+    .process-step ul {
+      margin-top: 0.5rem;
+    }
+
+    .process-step li {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      padding: 0.375rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .process-step li::before {
+      font-size: 0.75rem;
     }
 
     /* Testimonial Section - Compact (same as Services) */
