@@ -36,21 +36,11 @@ const {
 
 <style>
   .bento-testimonial {
-    background: var(--color-bg-white);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    border: var(--border-width) solid var(--color-border);
-    transition: all var(--transition-base);
+    padding: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-  }
-
-  .bento-testimonial:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--unravel-blue);
   }
 
   .bento-quote {
@@ -117,7 +107,7 @@ const {
   /* Mobile Responsive */
   @media (max-width: 640px) {
     .bento-testimonial {
-      padding: var(--spacing-lg);
+      padding: var(--spacing-md);
     }
 
     .testimonial-quote {
@@ -127,10 +117,6 @@ const {
 
   /* Reduced Motion */
   @media (prefers-reduced-motion: reduce) {
-    .bento-testimonial:hover {
-      transform: none;
-    }
-
     .author-linkedin:hover {
       transform: none;
     }

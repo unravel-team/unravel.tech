@@ -55,37 +55,17 @@ const Component = href ? 'a' : 'div';
 
 <style>
   .bento-service {
-    background: var(--color-bg-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    border: var(--border-width) solid var(--color-border);
-    transition: all var(--transition-base);
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: var(--spacing-xl);
   }
 
   a.bento-service {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-  }
-
-  .bento-service:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--unravel-blue);
-  }
-
-  .bento-service.featured {
-    background: linear-gradient(135deg, #F0F8EB 0%, #E6F7FA 100%);
-    border-color: var(--unravel-green);
-  }
-
-  .bento-service.featured:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
   }
 
   .featured-badge {
@@ -164,7 +144,7 @@ const Component = href ? 'a' : 'div';
   /* Mobile Responsive */
   @media (max-width: 640px) {
     .bento-service {
-      padding: var(--spacing-lg);
+      padding: var(--spacing-md);
     }
 
     .service-title {
@@ -174,10 +154,6 @@ const Component = href ? 'a' : 'div';
 
   /* Reduced Motion */
   @media (prefers-reduced-motion: reduce) {
-    .bento-service:hover {
-      transform: none;
-    }
-
     a.bento-service:hover .service-link {
       gap: 0.5rem;
     }

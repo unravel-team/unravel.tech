@@ -21,21 +21,11 @@ const {
   .bento-stat {
     text-align: center;
     padding: 1.5rem;
-    border-radius: var(--radius-md);
-    background: var(--color-bg-white);
-    border: var(--border-width) solid var(--color-border);
-    transition: all var(--transition-base);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  .bento-stat:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--unravel-blue);
   }
 
   .bento-stat-number {
@@ -46,18 +36,6 @@ const {
     margin-bottom: 0.5rem;
   }
 
-  /* Optional Gradient Variant */
-  .bento-stat.stat-gradient {
-    background: linear-gradient(135deg, 
-      rgba(111, 191, 63, 0.05) 0%, 
-      rgba(14, 159, 188, 0.05) 100%
-    );
-    border-color: var(--unravel-green);
-  }
-
-  .bento-stat.stat-gradient:hover {
-    box-shadow: 0 4px 16px rgba(111, 191, 63, 0.2);
-  }
 
   .bento-stat-label {
     font-size: 0.9375rem;
@@ -69,18 +47,11 @@ const {
   /* Mobile Responsive */
   @media (max-width: 640px) {
     .bento-stat {
-      padding: 1.25rem;
+      padding: 1rem;
     }
 
     .bento-stat-number {
       font-size: 2.5rem;
-    }
-  }
-
-  /* Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    .bento-stat:hover {
-      transform: none;
     }
   }
 </style>

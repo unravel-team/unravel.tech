@@ -20,11 +20,6 @@ const isServicesActive = currentPath.startsWith('/services');
 ---
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  <!-- Scroll Progress Bar -->
-  <div class="mobile-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
-    <div class="mobile-scroll-fill"></div>
-  </div>
-  
   <a 
     href="/" 
     class={`mobile-nav-item ${isActive('/') && currentPath === '/' ? 'active' : ''}`}
@@ -74,6 +69,11 @@ const isServicesActive = currentPath.startsWith('/services');
     </svg>
     <span class="nav-label">Contact</span>
   </a>
+  
+  <!-- Scroll Progress Bar - Positioned Above Menu -->
+  <div class="mobile-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="mobile-scroll-fill"></div>
+  </div>
 </nav>
 
 <!-- Services Bottom Sheet -->
@@ -307,32 +307,34 @@ const isServicesActive = currentPath.startsWith('/services');
 </script>
 
 <style>
-  /* Mobile Navigation - Thumb-Friendly Bottom Bar */
+  /* Mobile Navigation - Thumb-Friendly Bottom Bar (Fully Opaque) */
   .mobile-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 60px;
-    background: var(--color-neutral-000);
-    border-top: 1px solid var(--color-border);
+    background: #FFFFFF !important;
+    border-top: 1px solid #E2E8F0;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     display: none; /* Hidden by default, shown on mobile */
     justify-content: space-around;
     align-items: center;
     padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     z-index: 100;
+    opacity: 1;
   }
 
-  /* Mobile Scroll Progress Bar */
+  /* Mobile Scroll Progress Bar - Positioned Above Menu */
   .mobile-scroll-progress {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
     height: 3px;
     background: transparent;
     overflow: hidden;
+    z-index: 101;
   }
 
   .mobile-scroll-fill {
@@ -456,9 +458,10 @@ const isServicesActive = currentPath.startsWith('/services');
   /* Dark Mode Support */
   @media (prefers-color-scheme: dark) {
     .mobile-nav {
-      background: var(--color-neutral-950);
-      border-top-color: var(--color-neutral-800);
+      background: #1A252F !important;
+      border-top-color: #2C3E50;
       box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+      opacity: 1;
     }
 
     .mobile-nav-item {

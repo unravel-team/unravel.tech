@@ -94,18 +94,32 @@ const Component = href ? 'a' : 'div';
   }
 
   .bento-variant-featured {
-    background: linear-gradient(135deg, #F0F8EB 0%, #E6F7FA 100%);
+    background: var(--color-green-100);
     border-color: var(--unravel-green);
+    border-width: 2px;
   }
 
   .bento-variant-gradient {
+    background: var(--color-bg-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-variant-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background: linear-gradient(135deg, 
-      var(--unravel-green) 0%, 
-      var(--unravel-blue) 100%
+      rgba(111, 191, 63, 0.1) 0%, 
+      rgba(14, 159, 188, 0.1) 100%
     );
-    color: white;
-    border: none;
-    box-shadow: 0 4px 16px rgba(111, 191, 63, 0.2);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .bento-variant-gradient > * {
+    position: relative;
+    z-index: 1;
   }
 
   .bento-variant-outlined {
@@ -134,8 +148,15 @@ const Component = href ? 'a' : 'div';
 
   /* Gradient Hover */
   .bento-variant-gradient:hover {
-    box-shadow: 0 12px 32px rgba(111, 191, 63, 0.3);
-    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .bento-variant-gradient:hover::before {
+    background: linear-gradient(135deg, 
+      rgba(111, 191, 63, 0.15) 0%, 
+      rgba(14, 159, 188, 0.15) 100%
+    );
   }
 
   .bento-interactive:active {

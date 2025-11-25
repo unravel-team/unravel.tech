@@ -18,78 +18,80 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
   <!-- Hero Section - Cream Background -->
   <BentoHero 
     title=""
-    subtitle="We build production-grade AI systems with engineering excellence. Our team combines 70+ years of experience to deliver robust distributed systems and delightful product engineering."
+    subtitle="We build AI agents that survive real users. Handle unhappy paths, save money, and scale with your business."
     ctaPrimary={{ text: "Start Your Project", href: "#contact" }}
     ctaSecondary={{ text: "See What We Do", href: "#services" }}
   />
 
-  <!-- Services Grid - Warm White Background -->
+  <!-- Services Grid - Warm White Background with Bento Layout -->
   <section class="section-warm" id="services">
     <div class="container">
       <div class="section-header text-center">
         <h2>What we build</h2>
-        <p>Production-ready AI systems that solve real business problems</p>
+        <p>Production-ready AI that handles the messy reality of real users</p>
       </div>
 
-      <BentoGrid columns="3" gap="md">
-        <!-- Featured Service -->
-        <BentoCard span="3" padding="none">
+      <!-- Bento Grid - Asymmetric Layout -->
+      <div class="bento-grid-custom">
+        <!-- Row 1: Large Feature + Stat -->
+        <BentoCard span="8" padding="none" class="featured-service">
           <BentoService 
             featured={true}
-            icon="AI"
-            title="AI Agents & Automation"
-            description="Intelligent systems that understand context, make decisions, and automate complex workflows. From customer service to data processing."
-            features={['Multi-agent systems', 'Workflow automation', 'Decision engines']}
+            icon="🤖"
+            title="AI Agents That Don't Break"
+            description="Production-grade agents that handle edge cases, recover from failures, and scale with your business. No demos that fall apart under real load."
+            features={['Multi-agent orchestration', 'Error recovery & fallbacks', 'Cost-optimized inference']}
           />
         </BentoCard>
 
-        <!-- Service Cards -->
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="NLP"
-            title="NLP & Language AI"
-            description="Extract insights from text, build chatbots that actually understand users, and process documents at scale."
-          />
-        </BentoCard>
-
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="DA"
-            title="Data & Analytics"
-            description="Turn messy data into actionable insights with ML-powered analytics and predictive models."
-          />
-        </BentoCard>
-
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="CV"
-            title="Computer Vision"
-            description="Image recognition, quality control, and visual inspection systems for manufacturing and operations."
-          />
-        </BentoCard>
-
-        <!-- Stats Row -->
-        <BentoCard span="1" padding="none">
+        <BentoCard span="4" padding="none" class="stat-highlight">
           <BentoStats 
             number="4mo"
-            label="Prototype → Production"
+            label="Average time from prototype to production"
+            variant="gradient"
           />
         </BentoCard>
 
-        <BentoCard span="1" padding="none">
+        <!-- Row 2: Two Medium Cards -->
+        <BentoCard span="6" padding="none">
+          <BentoService 
+            icon="💬"
+            title="NLP That Actually Works"
+            description="Build chatbots and document processors that understand context, not just keywords. Handle ambiguity, multiple languages, and domain jargon."
+          />
+        </BentoCard>
+
+        <BentoCard span="6" padding="none">
+          <BentoService 
+            icon="📊"
+            title="Smart Data Pipelines"
+            description="Turn unstructured data into insights. ML-powered classification, extraction, and anomaly detection that scales."
+          />
+        </BentoCard>
+
+        <!-- Row 3: Stat + Service + Stat -->
+        <BentoCard span="3" padding="none">
           <BentoStats 
             number="30%"
-            label="Average Cost Savings"
+            label="Average cost savings vs DIY approach"
           />
         </BentoCard>
 
-        <BentoCard span="1" padding="none">
-          <BentoStats 
-            number="70+"
-            label="Years Combined Experience"
+        <BentoCard span="6" padding="none">
+          <BentoService 
+            icon="👁️"
+            title="Computer Vision"
+            description="Visual inspection, quality control, and object detection. From manufacturing floors to retail shelves."
           />
         </BentoCard>
-      </BentoGrid>
+
+        <BentoCard span="3" padding="none">
+          <BentoStats 
+            number="70+"
+            label="Years combined engineering experience"
+          />
+        </BentoCard>
+      </div>
     </div>
   </section>
 
@@ -241,8 +243,74 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
-  /* Mobile Adjustments */
+  /* Custom Bento Grid - Asymmetric Magazine Layout */
+  .bento-grid-custom {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* Featured service gets more space */
+  .featured-service {
+    grid-column: span 8;
+  }
+
+  .stat-highlight {
+    grid-column: span 4;
+  }
+
+  /* Enhanced card styling */
+  .bento-grid-custom .bento-card {
+    min-height: 240px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .featured-service .bento-card {
+    min-height: 320px;
+  }
+
+  /* Tablet Layout - Adjust spans */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .bento-grid-custom {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .featured-service {
+      grid-column: span 8;
+    }
+
+    .stat-highlight {
+      grid-column: span 8;
+    }
+
+    .bento-grid-custom .bento-card[span="6"] {
+      grid-column: span 4;
+    }
+
+    .bento-grid-custom .bento-card[span="3"] {
+      grid-column: span 4;
+    }
+  }
+
+  /* Mobile Layout - Stack everything */
   @media (max-width: 640px) {
+    .bento-grid-custom {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .bento-grid-custom .bento-card {
+      grid-column: span 1 !important;
+      min-height: 200px;
+    }
+
+    .featured-service,
+    .stat-highlight {
+      grid-column: span 1 !important;
+    }
+
     .section-header {
       margin-bottom: 3rem;
     }
