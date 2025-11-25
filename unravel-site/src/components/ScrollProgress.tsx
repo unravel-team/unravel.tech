@@ -29,19 +29,6 @@ export default function ScrollProgress() {
     };
   }, []);
 
-  // Interpolate color from green to blue based on scroll progress
-  const getColor = () => {
-    const green = { r: 108, g: 179, b: 63 }; // --color-secondary-500
-    const blue = { r: 14, g: 159, b: 188 }; // --color-primary-500
-    
-    const factor = scrollProgress / 100;
-    const r = Math.round(green.r + (blue.r - green.r) * factor);
-    const g = Math.round(green.g + (blue.g - green.g) * factor);
-    const b = Math.round(green.b + (blue.b - blue.b) * factor);
-    
-    return `rgb(${r}, ${g}, ${b})`;
-  };
-
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const trackElement = e.currentTarget;
     const rect = trackElement.getBoundingClientRect();
@@ -73,25 +60,22 @@ export default function ScrollProgress() {
     position: 'relative',
     width: '4px',
     height: '300px',
-    background: 'linear-gradient(180deg, rgba(108, 179, 63, 0.2) 0%, rgba(14, 159, 188, 0.2) 100%)',
+    background: 'rgba(0, 0, 0, 0.1)',
     borderRadius: '2px',
     cursor: 'pointer',
-    transition: 'width 0.2s ease'
+    transition: 'width 0.2s ease',
+    overflow: 'hidden'
   };
 
-  const ballStyle: CSSProperties = {
+  const progressStyle: CSSProperties = {
     position: 'absolute',
-    left: '50%',
-    top: `${scrollProgress}%`,
-    width: '16px',
-    height: '16px',
-    borderRadius: '50%',
-    transform: 'translate(-50%, -50%)',
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-    cursor: 'pointer',
-    border: '2px solid white',
-    backgroundColor: getColor(),
-    boxShadow: `0 0 20px ${getColor()}40`
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: `${scrollProgress}%`,
+    background: 'var(--unravel-green)',
+    borderRadius: '2px',
+    transition: 'height 0.1s ease-out'
   };
 
   return (
@@ -107,10 +91,7 @@ export default function ScrollProgress() {
           aria-valuemax={100}
           aria-label="Page scroll progress"
         >
-          <div 
-            className="scroll-ball"
-            style={ballStyle}
-          />
+          <div style={progressStyle} />
         </div>
       </div>
       
@@ -118,10 +99,6 @@ export default function ScrollProgress() {
         @media (hover: hover) {
           .scroll-track:hover {
             width: 6px !important;
-          }
-          
-          .scroll-ball:hover {
-            transform: translate(-50%, -50%) scale(1.2) !important;
           }
         }
 
@@ -134,7 +111,6 @@ export default function ScrollProgress() {
 
         /* Reduce motion for accessibility */
         @media (prefers-reduced-motion: reduce) {
-          .scroll-ball,
           .scroll-track {
             transition: none !important;
           }
