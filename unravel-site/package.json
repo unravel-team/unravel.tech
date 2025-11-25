@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
+    "@iconify-json/lucide": "^1.2.75",
     "@react-spring/web": "^10.0.3",
     "astro": "^5.14.1",
+    "astro-icon": "^1.1.5",
     "posthog-js": "^1.275.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
