@@ -357,13 +357,10 @@ import { Icon } from 'astro-icon/components';
           <h4>LLM Frameworks</h4>
           <div class="tech-tags">
             <span class="tech-tag">
-              <img src="/logos/tech/dspy.png" alt="DSPy" class="tech-logo" />
-              DSPy
+              <img src="/logos/tech/dspy.png" alt="DSPy" class="tech-logo" title="DSPy" />
             </span>
-            <span class="tech-tag">Custom Build</span>
             <span class="tech-tag">
-              <img src="/logos/tech/langchain.svg" alt="LangChain" class="tech-logo" />
-              LangChain
+              <img src="/logos/tech/langchain.svg" alt="LangChain" class="tech-logo" title="LangChain" />
             </span>
           </div>
         </div>
@@ -372,20 +369,16 @@ import { Icon } from 'astro-icon/components';
           <h4>Observability & Evals</h4>
           <div class="tech-tags">
             <span class="tech-tag">
-              <img src="/logos/tech/langfuse.svg" alt="LangFuse" class="tech-logo" />
-              LangFuse
+              <img src="/logos/tech/langfuse.svg" alt="LangFuse" class="tech-logo" title="LangFuse" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/braintrust.svg" alt="Braintrust" class="tech-logo" />
-              Braintrust
+              <img src="/logos/tech/braintrust.svg" alt="Braintrust" class="tech-logo" title="Braintrust" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/arize.png" alt="Arize" class="tech-logo" />
-              Arize
+              <img src="/logos/tech/arize.png" alt="Arize" class="tech-logo" title="Arize" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/wandb.svg" alt="Weights & Biases" class="tech-logo" />
-              W&B
+              <img src="/logos/tech/wandb.svg" alt="Weights & Biases" class="tech-logo" title="W&B" />
             </span>
           </div>
         </div>
@@ -394,20 +387,16 @@ import { Icon } from 'astro-icon/components';
           <h4>Deployment</h4>
           <div class="tech-tags">
             <span class="tech-tag">
-              <img src="/logos/tech/pinecone.png" alt="Pinecone" class="tech-logo" />
-              Pinecone
+              <img src="/logos/tech/pinecone.png" alt="Pinecone" class="tech-logo" title="Pinecone" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/baseten.png" alt="Baseten" class="tech-logo" />
-              Baseten
+              <img src="/logos/tech/baseten.png" alt="Baseten" class="tech-logo" title="Baseten" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/modal.svg" alt="Modal" class="tech-logo" />
-              Modal
+              <img src="/logos/tech/modal.svg" alt="Modal" class="tech-logo" title="Modal" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/aws.svg" alt="AWS" class="tech-logo" />
-              AWS
+              <img src="/logos/tech/aws.svg" alt="AWS" class="tech-logo" title="AWS" />
             </span>
           </div>
         </div>
@@ -416,18 +405,14 @@ import { Icon } from 'astro-icon/components';
           <h4>Models</h4>
           <div class="tech-tags">
             <span class="tech-tag">
-              <img src="/logos/tech/anthropic.svg" alt="Anthropic" class="tech-logo" />
-              Claude Sonnet
+              <img src="/logos/tech/anthropic.svg" alt="Anthropic" class="tech-logo" title="Claude Sonnet" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/openai.svg" alt="OpenAI" class="tech-logo" />
-              GPT-4
+              <img src="/logos/tech/openai.svg" alt="OpenAI" class="tech-logo" title="GPT-4" />
             </span>
             <span class="tech-tag">
-              <img src="/logos/tech/google.svg" alt="Google" class="tech-logo" />
-              Gemini 2.5
+              <img src="/logos/tech/google.svg" alt="Google" class="tech-logo" title="Gemini 2.5" />
             </span>
-            <span class="tech-tag">Open Source</span>
           </div>
         </div>
       </div>
@@ -934,20 +919,25 @@ import { Icon } from 'astro-icon/components';
   }
 
   .tech-tag {
-    font-size: 0.875rem;
-    color: var(--color-text-primary);
     background: var(--color-bg-white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.75rem;
+    border-radius: 12px;
     border: 1px solid var(--color-border);
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    transition: all var(--transition-base);
+  }
+
+  .tech-tag:hover {
+    border-color: var(--unravel-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
   }
 
   .tech-logo {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
   }
 
