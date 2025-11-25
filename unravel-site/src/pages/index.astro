@@ -179,14 +179,24 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
 </BaseLayout>
 
 <style>
-  /* Section Styles using Brand Colors */
+  /* Section Styles using Brand Colors with Grid Background */
   .section-cream {
     background-color: var(--color-bg-cream);
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
     padding: var(--spacing-3xl) 0;
   }
 
   .section-warm {
     background-color: var(--color-bg-warm);
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
     padding: var(--spacing-3xl) 0;
   }
 
