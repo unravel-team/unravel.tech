@@ -117,7 +117,22 @@ body {
   background: var(--color-bg-cream); /* Cream background default */
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  
+  /* Subtle Grid Background for Bento Aesthetic */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
 }
+
+/* Option: Dot grid alternative (uncomment to use instead of lines) */
+/*
+body.dot-grid {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+*/
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
