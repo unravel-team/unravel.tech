@@ -1,1303 +1,292 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ParallaxSection from '../components/ParallaxSection';
-import TextReveal from '../components/TextReveal';
 import ScrollProgress from '../components/ScrollProgress';
+import BentoHero from '../components/BentoHero.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import BentoService from '../components/BentoService.astro';
+import BentoStats from '../components/BentoStats.astro';
+import BentoCard from '../components/BentoCard.astro';
+import BentoTestimonial from '../components/BentoTestimonial.astro';
 ---
 
 <ScrollProgress client:load />
 
 <BaseLayout 
   title="Unravel | Enterprise AI Agents"
-  description=""
+  description="AI agents that survive real users. Handle unhappy paths, save money and scale with your business."
 >
-  <!-- Hero Section with Parallax -->
-  <section class="hero-scroll snap-section">
-    <div class="hero-background">
-      <div class="hero-gradient"></div>
-      <ParallaxSection speed={0.5} className="parallax-layer layer-1" client:load>
-        <div class="floating-shape shape-1"></div>
-      </ParallaxSection>
-      <ParallaxSection speed={0.3} className="parallax-layer layer-2" client:load>
-        <div class="floating-shape shape-2"></div>
-      </ParallaxSection>
-      <ParallaxSection speed={0.7} className="parallax-layer layer-3" client:load>
-        <div class="floating-shape shape-3"></div>
-      </ParallaxSection>
-    </div>
-    
-    <div class="hero-content">
-      <div class="container">
-        <TextReveal delay={400} client:load>
-          <h1 class="hero-title">
-            AI agents that survive real users
-          </h1>
-        </TextReveal>
-        <TextReveal delay={600} client:load>
-          <p class="hero-subtitle">
-            Handle unhappy paths too, save money and scale with your business
-          </p>
-        </TextReveal>
-        <TextReveal delay={800} client:load>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Contact us</a>
-            <a href="#services" class="btn btn-secondary">Case studies</a>
-          </div>
-        </TextReveal>
-      </div>
-    </div>
-    
-    <div class="scroll-indicator">
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
-      <p>Scroll to explore</p>
-    </div>
-  </section>
+  <!-- Hero Section - Cream Background -->
+  <BentoHero 
+    title=""
+    subtitle="We build production-grade AI systems with engineering excellence. Our team combines 70+ years of experience to deliver robust distributed systems and delightful product engineering."
+    ctaPrimary={{ text: "Start Your Project", href: "#contact" }}
+    ctaSecondary={{ text: "See What We Do", href: "#services" }}
+  />
 
-  <!-- Mission Statement -->
-  <section class="mission-section snap-section">
+  <!-- Services Grid - Warm White Background -->
+  <section class="section-warm" id="services">
     <div class="container">
-      <TextReveal client:load>
-          <h2 class="section-title-large">
-            Don't take our word for it. Try our demos to see if AI agents are actually useful for you.
-          </h2>
-      </TextReveal>
+      <div class="section-header text-center">
+        <h2>What we build</h2>
+        <p>Production-ready AI systems that solve real business problems</p>
+      </div>
+
+      <BentoGrid columns="3" gap="md">
+        <!-- Featured Service -->
+        <BentoCard span="3" padding="none">
+          <BentoService 
+            featured={true}
+            icon="AI"
+            title="AI Agents & Automation"
+            description="Intelligent systems that understand context, make decisions, and automate complex workflows. From customer service to data processing."
+            features={['Multi-agent systems', 'Workflow automation', 'Decision engines']}
+          />
+        </BentoCard>
+
+        <!-- Service Cards -->
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="NLP"
+            title="NLP & Language AI"
+            description="Extract insights from text, build chatbots that actually understand users, and process documents at scale."
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="DA"
+            title="Data & Analytics"
+            description="Turn messy data into actionable insights with ML-powered analytics and predictive models."
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="CV"
+            title="Computer Vision"
+            description="Image recognition, quality control, and visual inspection systems for manufacturing and operations."
+          />
+        </BentoCard>
+
+        <!-- Stats Row -->
+        <BentoCard span="1" padding="none">
+          <BentoStats 
+            number="4mo"
+            label="Prototype → Production"
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoStats 
+            number="30%"
+            label="Average Cost Savings"
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoStats 
+            number="70+"
+            label="Years Combined Experience"
+          />
+        </BentoCard>
+      </BentoGrid>
     </div>
   </section>
 
-  <!-- Horizontal Scroll Services -->
-  <section class="services-horizontal snap-section">
-    <div class="container-full">
-      <TextReveal client:load>
-        <div class="section-header">
-          <h2>Our expertise</h2>
-          <p class="text-muted">Agentic AI and multi-agent systems that automate work and deliver instant insights</p>
-        </div>
-      </TextReveal>
-      
-      <div class="horizontal-scroll-wrapper">
-        <div class="service-cards-horizontal">
-          <div class="service-card-large">
-            <div class="service-icon">🤖</div>
-            <h3>Machine Learning</h3>
-            <p>Build intelligent systems that learn and adapt. From predictive models to recommendation engines that drive business value.</p>
-            <ul class="service-features">
-              <li>Predictive Analytics</li>
-              <li>Recommendation Systems</li>
-              <li>Anomaly Detection</li>
-              <li>Time Series Forecasting</li>
-            </ul>
-          </div>
-
-          <div class="service-card-large">
-            <div class="service-icon">💬</div>
-            <h3>Natural Language Processing</h3>
-            <p>Extract insights from text, automate customer interactions, and understand human language at scale.</p>
-            <ul class="service-features">
-              <li>Chatbots & Virtual Assistants</li>
-              <li>Sentiment Analysis</li>
-              <li>Document Processing</li>
-              <li>Language Translation</li>
-            </ul>
-          </div>
-
-          <div class="service-card-large">
-            <div class="service-icon">👁️</div>
-            <h3>Computer Vision</h3>
-            <p>Enable machines to see, understand, and process visual information with cutting-edge deep learning.</p>
-            <ul class="service-features">
-              <li>Object Detection</li>
-              <li>Image Classification</li>
-              <li>Facial Recognition</li>
-              <li>Quality Control</li>
-            </ul>
-          </div>
-
-          <div class="service-card-large">
-            <div class="service-icon">📊</div>
-            <h3>Data Analytics</h3>
-            <p>Turn raw data into actionable insights with advanced analytics and visualization solutions.</p>
-            <ul class="service-features">
-              <li>Business Intelligence</li>
-              <li>Real-time Analytics</li>
-              <li>Data Visualization</li>
-              <li>Performance Metrics</li>
-            </ul>
-          </div>
-
-          <div class="service-card-large">
-            <div class="service-icon">🎯</div>
-            <h3>AI Strategy</h3>
-            <p>Develop comprehensive AI roadmaps aligned with your business goals and technical capabilities.</p>
-            <ul class="service-features">
-              <li>AI Readiness Assessment</li>
-              <li>Technology Selection</li>
-              <li>ROI Planning</li>
-              <li>Change Management</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats with Parallax -->
-  <section class="stats-parallax snap-section">
-    <ParallaxSection speed={0.2} client:load>
-      <div class="container">
-        <div class="stats-grid">
-          <TextReveal delay={100} client:load>
-            <div class="stat-item">
-              <div class="stat-number">4 months</div>
-              <div class="stat-label">From concept to production</div>
-            </div>
-          </TextReveal>
-          <TextReveal delay={200} client:load>
-            <div class="stat-item">
-              <div class="stat-number">30%</div>
-              <div class="stat-label">Average cost reduction</div>
-            </div>
-          </TextReveal>
-          <TextReveal delay={300} client:load>
-            <div class="stat-item">
-              <div class="stat-number">100s of hours</div>
-              <div class="stat-label">Saved through automation</div>
-            </div>
-          </TextReveal>
-          <TextReveal delay={400} client:load>
-            <div class="stat-item">
-              <div class="stat-number">Instant</div>
-              <div class="stat-label">Insights from complex data</div>
-            </div>
-          </TextReveal>
-        </div>
-      </div>
-    </ParallaxSection>
-  </section>
-
-  <!-- Process Section - Discovery & Validation -->
-  <section class="process-section snap-section">
+  <!-- Why Us - Cream Background -->
+  <section class="section-cream">
     <div class="container">
-      <TextReveal client:load>
-        <h2 class="section-title">Discovery & Validation</h2>
-        <p class="section-subtitle">Rapid experimentation without ceremony</p>
-      </TextReveal>
-
-      <div class="process-timeline">
-        <TextReveal delay={100} client:load>
-          <div class="process-step">
-            <div class="step-number">01</div>
-            <h3>Discover and Align (1 week)</h3>
-            <ul>
-              <li>Evaluate your current state and AI maturity</li>
-              <li>Map opportunities to business impact</li>
-              <li>Design proof-of-concept roadmap with clear success criteria</li>
-            </ul>
-          </div>
-        </TextReveal>
-
-        <TextReveal delay={200} client:load>
-          <div class="process-step">
-            <div class="step-number">02</div>
-            <h3>Rapid Prototyping (2 weeks)</h3>
-            <ul>
-              <li>Build lightweight experiments that test core assumptions</li>
-              <li>Iterate quickly based on stakeholder feedback</li>
-            </ul>
-          </div>
-        </TextReveal>
+      <div class="section-header text-center">
+        <h2>Why teams choose Unravel</h2>
+        <p>We're not just consultants—we're your AI engineering team</p>
       </div>
+
+      <BentoGrid columns="2" gap="lg">
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="2W"
+            title="Fast iteration"
+            description="Working prototype in 2 weeks. Full production system in 4 months. No endless consulting cycles."
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="PRO"
+            title="Production-grade"
+            description="We handle the boring stuff: error handling, monitoring, scaling, and all the edge cases that break demos."
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="30%"
+            title="Cost-conscious"
+            description="We optimize for your wallet. Smart model selection, caching, and infrastructure choices that cut costs by 30%+."
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoService 
+            icon="ROI"
+            title="Business outcomes"
+            description="We measure success by your metrics: cost savings, time saved, revenue generated—not lines of code."
+          />
+        </BentoCard>
+      </BentoGrid>
     </div>
   </section>
 
-  <!-- Process Section - Development & Launch -->
-  <section class="process-section process-section-alt snap-section">
+  <!-- Testimonials - Warm White Background -->
+  <section class="section-warm">
     <div class="container">
-      <TextReveal client:load>
-        <h2 class="section-title">Development & Launch</h2>
-        <p class="section-subtitle">Building production-ready systems</p>
-      </TextReveal>
-
-      <div class="process-timeline">
-        <TextReveal delay={100} client:load>
-          <div class="process-step">
-            <div class="step-number">03</div>
-            <h3>Design, Develop and De-risk (2 months)</h3>
-            <ul>
-              <li>Assess feasibility and technical approaches</li>
-              <li>Identify architectural risks before they become expensive</li>
-            </ul>
-          </div>
-        </TextReveal>
-
-        <TextReveal delay={200} client:load>
-          <div class="process-step">
-            <div class="step-number">04</div>
-            <h3>Deploy and Optimize</h3>
-            <ul>
-              <li>Deploy robust, production-grade systems to either AWS, GCP, Azure or Fly.io</li>
-              <li>Monitor, measure, and continuously improve</li>
-              <li>Adapt roadmap based on actual performance and ROI</li>
-            </ul>
-          </div>
-        </TextReveal>
+      <div class="section-header text-center">
+        <h2>Trusted by Engineering Leaders</h2>
       </div>
+
+      <BentoGrid columns="2" gap="lg">
+        <BentoCard span="1" padding="none">
+          <BentoTestimonial 
+            quote="The Unravel team embodies a unique combination of leaders and hackers. They are seasoned developers and their work-product is fast, reliable and delightful!"
+            authorName="Vishwesh Jirgale"
+            authorTitle="Head of Engineering, Modern Loop"
+          />
+        </BentoCard>
+
+        <BentoCard span="1" padding="none">
+          <BentoTestimonial 
+            quote="Unravel built our complete event-ingestion pipeline. Their distributed systems expertise let me focus on business outcomes—a partnership we'll gladly continue."
+            authorName="Kedar Sovani"
+            authorTitle="India Head, Espressif Systems"
+          />
+        </BentoCard>
+      </BentoGrid>
     </div>
   </section>
 
-  <!-- Testimonial Parallax -->
-  <section class="testimonial-section snap-section">
-    <div class="container-full">
-      <TextReveal client:load>
-        <div class="section-header">
-          <h2>What Our Clients Say</h2>
-          <p class="text-muted">Trusted by leading organizations and visionary leaders</p>
-        </div>
-      </TextReveal>
-      
-      <div class="horizontal-scroll-wrapper">
-        <div class="testimonials-cards-horizontal">
-          <TextReveal delay={100} client:load>
-            <div class="testimonial-card">
-              <div class="quote-icon">"</div>
-              <p class="testimonial-text">
-                The Unravel team embodies a unique combination of leaders and hackers. They are seasoned developers and their work-product is fast, reliable and delightful!
-              </p>
-              <div class="testimonial-author">
-                <div class="author-name">Vishwesh Jirgale</div>
-                <div class="author-title">Head of Engineering, Modern Loop</div>
-                <a href="https://www.linkedin.com/in/vishweshji/" target="_blank" rel="noopener" class="author-linkedin">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </TextReveal>
-
-          <TextReveal delay={200} client:load>
-            <div class="testimonial-card">
-              <div class="quote-icon">"</div>
-              <p class="testimonial-text">
-                Unravel.tech built our complete event-ingestion pipeline for Espressif chips, handling API servers, Kafka, and MongoDB. Their distributed systems expertise let me focus on business outcomes - a partnership we'll gladly continue.
-              </p>
-              <div class="testimonial-author">
-                <div class="author-name">Kedar Sovani</div>
-                <div class="author-title">India Head, Espressif Systems</div>
-                <a href="https://www.linkedin.com/in/kedarsovani/" target="_blank" rel="noopener" class="author-linkedin">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </TextReveal>
-
-          <TextReveal delay={300} client:load>
-            <div class="testimonial-card">
-              <div class="quote-icon">"</div>
-              <p class="testimonial-text">
-                I'm confident in Unravel's ability to effectively deliver any project they commit to. They are excellent product engineers and understand what solving a real customer pain-point and delivering business outcomes is.
-              </p>
-              <div class="testimonial-author">
-                <div class="author-name">Akshay Vaidya</div>
-                <div class="author-title">Advisor to Startups, Angel Investor</div>
-                <a href="https://www.linkedin.com/in/akshay-vaidya-908702/" target="_blank" rel="noopener" class="author-linkedin">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </TextReveal>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section snap-section">
-    <div class="cta-background">
-      <div class="cta-gradient"></div>
-    </div>
+  <!-- CTA - Cream Background -->
+  <section class="section-cream" id="contact">
     <div class="container">
-        <TextReveal client:load>
-          <div class="cta-content">
-            <h2><span class="un">Unravel</span> your AI challenges today</h2>
-            <p>Get started with AI consulting services that transform complex systems into efficient, results-driven solutions for your business.</p>
-            <div class="cta-actions">
-              <a href="mailto:hello@unravel.tech" class="btn btn-primary btn-lg">Get in Touch</a>
-              <a href="/talks" class="btn btn-secondary btn-lg">View Our Work</a>
-            </div>
-          </div>
-        </TextReveal>
+      <div class="cta-card text-center">
+        <h2>Ready to build something real?</h2>
+        <p>Let's talk about your AI project. No sales pitch—just an honest conversation about what's possible.</p>
+        <a href="mailto:hello@unravel.tech" class="btn btn-primary btn-lg bg-white text-green">hello@unravel.tech</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Hero with Parallax */
-  .hero-scroll {
-    min-height: 100vh;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  /* Section Styles using Brand Colors */
+  .section-cream {
+    background-color: var(--color-bg-cream);
     padding: var(--spacing-3xl) 0;
   }
 
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  .section-warm {
+    background-color: var(--color-bg-warm);
+    padding: var(--spacing-3xl) 0;
   }
 
-  .hero-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-      rgba(111, 191, 63, 0.03) 0%, 
-      rgba(111, 191, 63, 0.05) 50%,
-      rgba(14, 159, 188, 0.02) 100%
-    );
-  }
-
-  .parallax-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .floating-shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-  }
-
-  .shape-1 {
-    width: 400px;
-    height: 400px;
-    background: var(--unravel-green);
-    top: 10%;
-    left: 10%;
-    opacity: 0.3;
-  }
-
-  .shape-2 {
-    width: 300px;
-    height: 300px;
-    background: var(--unravel-green);
-    bottom: 20%;
-    right: 15%;
-    opacity: 0.15;
-  }
-
-  .shape-3 {
-    width: 250px;
-    height: 250px;
-    background: var(--green-light);
-    top: 50%;
-    right: 30%;
-    opacity: 0.2;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(111, 191, 63, 0.1);
-    color: var(--unravel-green);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    margin-bottom: 2rem;
-    border: 2px solid rgba(111, 191, 63, 0.2);
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title .un {
-    color: var(--unravel-green);
-  }
-
-  .hero-title .ravel {
-    color: var(--unravel-blue);
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, var(--unravel-green) 0%, var(--green-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: 2.5rem;
-    max-width: 700px;
+  .section-header {
+    margin-bottom: 4rem;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Scroll Indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 2;
-    animation: bounce 2s infinite;
-  }
-
-  .mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--unravel-green);
-    border-radius: 15px;
-    margin: 0 auto 0.5rem;
-    position: relative;
-  }
-
-  .wheel {
-    width: 4px;
-    height: 8px;
-    background: var(--unravel-green);
-    border-radius: 2px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll-wheel 2s infinite;
-  }
-
-  @keyframes scroll-wheel {
-    0%, 100% {
-      top: 8px;
-      opacity: 1;
-    }
-    50% {
-      top: 20px;
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-  }
-
-  .scroll-indicator p {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin: 0;
-  }
-
-  /* Text Reveal Animation */
-  :global(.text-reveal) {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  :global(.text-reveal.visible) {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Mission Section */
-  .mission-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(4rem, 10vh, 8rem) 0;
-    background: linear-gradient(180deg, 
-      rgba(248, 250, 251, 0) 0%, 
-      rgba(248, 250, 251, 1) 50%,
-      rgba(248, 250, 251, 0) 100%
-    );
-  }
-
-  .section-title-large {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    line-height: 1.3;
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    font-weight: 600;
-  }
-
-  .highlight-green {
-    color: var(--unravel-green);
-    position: relative;
-  }
-
-  .highlight-black {
-    color: var(--unravel-black);
-    position: relative;
-  }
-
-  /* Horizontal Scroll Services */
-  .services-horizontal {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: clamp(4rem, 10vh, 8rem) 0;
-    background: var(--color-bg-primary);
-    overflow: hidden;
-  }
-
-  .container-full {
-    width: 100%;
-    padding: 0 var(--spacing-lg);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
   .section-header h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1rem;
-  }
-
-  .horizontal-scroll-wrapper {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--unravel-blue) transparent;
-  }
-
-  .horizontal-scroll-wrapper::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .horizontal-scroll-wrapper::-webkit-scrollbar-track {
-    background: rgba(111, 191, 63, 0.1);
-    border-radius: 4px;
-  }
-
-  .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: var(--unravel-blue);
-    border-radius: 4px;
-  }
-
-  .service-cards-horizontal {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    min-width: min-content;
-  }
-
-  .service-card-large {
-    min-width: 350px;
-    max-width: 350px;
-    background: white;
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-  }
-
-  .service-card-large:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(111, 191, 63, 0.15);
-    border-color: var(--unravel-blue);
-  }
-
-  .service-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--unravel-green), var(--green-dark));
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .service-card-large h3 {
-    font-size: 1.5rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
     margin-bottom: 1rem;
     color: var(--color-text-primary);
   }
 
-  .service-card-large p {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .service-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .service-features li {
-    padding: 0.5rem 0;
-    color: var(--color-text-secondary);
-    font-size: 0.9375rem;
-    position: relative;
-    padding-left: 1.5rem;
-  }
-
-  .service-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--unravel-green);
-    font-weight: bold;
-  }
-
-  /* Stats Parallax */
-  .stats-parallax {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(4rem, 10vh, 8rem) 0;
-    background: var(--color-bg-gradient-vibrant);
-    color: var(--color-text-primary);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    text-align: center;
-  }
-
-  .stat-number {
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-  }
-
-  /* Process Section */
-  .process-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: clamp(4rem, 10vh, 8rem) 0;
-    background: var(--color-bg-secondary);
-  }
-
-  .process-section-alt {
-    background: var(--color-bg-primary);
-  }
-  
-  .process-section .container {
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: var(--color-text-secondary);
-    font-size: 1.125rem;
-    margin-bottom: 4rem;
-  }
-
-  .process-timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .process-step {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 320px;
-  }
-
-  .process-step:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(111, 191, 63, 0.15);
-  }
-
-  .step-number {
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--unravel-green), var(--green-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .process-step h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-text-primary);
-  }
-
-  .process-step ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex: 1;
-  }
-
-  .process-step li {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    padding: 0.5rem 0;
-    position: relative;
-    padding-left: 1.5rem;
-  }
-
-  .process-step li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--unravel-green);
-    font-weight: bold;
-  }
-
-  /* Testimonial Section - Same as Services */
-  .testimonial-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: clamp(4rem, 10vh, 8rem) 0;
-    background: var(--color-bg-secondary);
-    overflow: hidden;
-  }
-
-  .testimonials-cards-horizontal {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    min-width: min-content;
-  }
-
-  .testimonial-card {
-    min-width: 350px;
-    max-width: 350px;
-    background: white;
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(111, 191, 63, 0.15);
-    border-color: var(--unravel-blue);
-  }
-
-  .quote-icon {
-    font-size: 3.5rem;
-    color: var(--unravel-green);
-    opacity: 0.1;
-    position: absolute;
-    top: 0.75rem;
-    left: 1.25rem;
-    line-height: 1;
-  }
-
-  .testimonial-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--color-text-primary);
-    margin-bottom: 1.25rem;
-    position: relative;
-    z-index: 1;
-    flex: 1;
-  }
-
-  .testimonial-author {
-    text-align: left;
-    border-top: 2px solid rgba(111, 191, 63, 0.2);
-    padding-top: 0.875rem;
-  }
-
-  .author-name {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--color-text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .author-title {
-    color: var(--color-text-secondary);
-    font-size: 0.875rem;
-    margin-bottom: 0.625rem;
-  }
-
-  .author-linkedin {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    color: var(--unravel-green);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .author-linkedin:hover {
-    color: var(--green-dark);
-    transform: translateX(2px);
-  }
-
-  .author-linkedin svg {
-    flex-shrink: 0;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(6rem, 12vh, 10rem) 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-
-  .cta-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-      rgba(111, 191, 63, 0.05) 0%, 
-      rgba(14, 159, 188, 0.05) 100%
-    );
-  }
-
-  .cta-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-content h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-content .un {
-    color: var(--unravel-green);
-  }
-
-  .cta-content p {
+  .section-header p {
     font-size: 1.25rem;
     color: var(--color-text-secondary);
+  }
+
+  /* CTA Card */
+  .cta-card {
+    background: var(--unravel-green);
+    color: white;
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(111, 191, 63, 0.2);
+  }
+
+  .cta-card h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-card p {
+    font-size: 1.25rem;
     margin-bottom: 2.5rem;
+    opacity: 0.95;
+    color: white;
   }
 
-  .cta-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  .cta-card .btn {
+    background: white;
+    color: var(--unravel-green);
+    border: none;
   }
 
-  .btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1.125rem;
+  .cta-card .btn:hover {
+    background: #F0FDF4;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .hero-scroll {
-      min-height: 100vh;
-      height: 100vh;
-      padding: var(--spacing-2xl) 0;
-    }
-
-    .floating-shape {
-      filter: blur(40px);
-    }
-
-    .shape-1 {
-      width: 250px;
-      height: 250px;
-    }
-
-    .shape-2 {
-      width: 200px;
-      height: 200px;
-    }
-
-    .shape-3 {
-      width: 150px;
-      height: 150px;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hero-actions .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .scroll-indicator {
-      display: none;
-    }
-
-    /* Services Section - Compact content within viewport */
+  /* Mobile Adjustments */
+  @media (max-width: 640px) {
     .section-header {
-      margin-bottom: 2rem;
-    }
-
-    .service-card-large {
-      min-width: 280px;
-      max-width: 280px;
-      padding: 1.5rem;
-    }
-
-    .service-icon {
-      width: 56px;
-      height: 56px;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .service-card-large h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .service-card-large p {
-      font-size: 0.9375rem;
-      margin-bottom: 1rem;
-    }
-
-    .service-features li {
-      padding: 0.375rem 0;
-      font-size: 0.875rem;
-    }
-
-    /* Stats Section - Larger fonts for mobile readability */
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .stat-number {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1.125rem;
-      font-weight: 500;
-    }
-
-    /* Process Section - Compact content within viewport */
-    .section-title {
-      margin-bottom: 0.25rem;
-      font-size: 1.5rem;
+      margin-bottom: 3rem;
     }
     
-    .section-subtitle {
-      margin-bottom: 1rem;
-      font-size: 0.9375rem;
-    }
-
-    .process-timeline {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .process-step {
-      padding: 1.25rem;
-      min-height: auto;
-    }
-
-    .step-number {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .process-step h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.625rem;
-      line-height: 1.3;
-    }
-
-    .process-step ul {
-      margin-top: 0.5rem;
-    }
-
-    .process-step li {
-      font-size: 0.875rem;
-      line-height: 1.5;
-      padding: 0.375rem 0;
-      padding-left: 1.25rem;
-    }
-
-    .process-step li::before {
-      font-size: 0.75rem;
-    }
-
-    /* Testimonial Section - Compact (same as Services) */
-    .testimonials-cards-horizontal {
-      gap: 1.5rem;
-      padding: 1.5rem 0;
-    }
-
-    .testimonial-card {
-      min-width: 280px;
-      max-width: 280px;
-      padding: 1.5rem;
-    }
-
-    .quote-icon {
-      font-size: 2.75rem;
-      top: 0.5rem;
-      left: 1rem;
-    }
-
-    .testimonial-text {
-      font-size: 0.9375rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-
-    .testimonial-author {
-      padding-top: 0.75rem;
-    }
-
-    .author-name {
-      font-size: 0.875rem;
-    }
-
-    .author-title {
-      font-size: 0.8125rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .author-linkedin {
-      font-size: 0.75rem;
-    }
-
-    /* CTA Section - Compact content within viewport */
-    .cta-content p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .cta-actions .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .btn-lg {
-      padding: 0.875rem 2rem;
-      font-size: 1rem;
-    }
-  }
-
-  /* Hide scroll indicator on large viewports */
-  @media (min-width: 1024px) {
-    .scroll-indicator {
-      display: none !important;
-    }
-  }
-
-  /* Smooth Scroll */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-    
-    .scroll-indicator {
-      animation: none;
-    }
-
-    :global(.text-reveal) {
-      opacity: 1;
-      transform: none;
+    .cta-card {
+      padding: 3rem 1.5rem;
     }
   }
 </style>
 
 <script>
-  import { trackHeroInteraction, trackServiceCTAClick, trackContactAttempt } from '../lib/posthog';
+  import { trackHeroInteraction, trackContactAttempt } from '../lib/posthog';
 
-  function initHomepageTracking() {
-    // Track hero CTA clicks
-    const heroPrimaryCta = document.querySelector('.hero-actions .btn-primary');
-    const heroSecondaryCta = document.querySelector('.hero-actions .btn-secondary');
+  // Re-attach listeners since DOM structure changed slightly
+  function initTracking() {
+    // Selectors might need to be more robust if structure changes
+    const heroPrimaryCta = document.querySelector('.bento-hero-actions .btn-primary');
+    const heroSecondaryCta = document.querySelector('.bento-hero-actions .btn-secondary');
 
     if (heroPrimaryCta) {
       heroPrimaryCta.addEventListener('click', () => {
-        trackHeroInteraction('cta_click', 'Start Your Journey');
+        trackHeroInteraction('cta_click', 'Start Your Project');
       });
     }
 
     if (heroSecondaryCta) {
       heroSecondaryCta.addEventListener('click', () => {
-        trackHeroInteraction('cta_click', 'Explore Solutions');
+        trackHeroInteraction('cta_click', 'See What We Do');
       });
     }
 
-    // Track service card interactions
-    const serviceCards = document.querySelectorAll('.service-card-large');
-    serviceCards.forEach((card, index) => {
-      const serviceName = card.querySelector('h3')?.textContent || `Service ${index + 1}`;
-      
-      // Track when service cards come into view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            trackServiceCTAClick(serviceName, 'view', 'homepage_horizontal_scroll');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      observer.observe(card);
-
-      // Track clicks on service cards
-      card.addEventListener('click', () => {
-        trackServiceCTAClick(serviceName, 'card_click', 'homepage');
+    const ctaButton = document.querySelector('.cta-card .btn');
+    if (ctaButton) {
+      ctaButton.addEventListener('click', () => {
+        trackContactAttempt('email', 'cta_card');
       });
-    });
-
-    // Track CTA section clicks
-    const ctaPrimaryButton = document.querySelector('.cta-section .btn-primary');
-    const ctaSecondaryButton = document.querySelector('.cta-section .btn-secondary');
-
-    if (ctaPrimaryButton) {
-      ctaPrimaryButton.addEventListener('click', () => {
-        trackContactAttempt('email', 'homepage_cta');
-      });
-    }
-
-    if (ctaSecondaryButton) {
-      ctaSecondaryButton.addEventListener('click', () => {
-        trackServiceCTAClick('View Work', 'cta_click', 'homepage_bottom');
-      });
-    }
-
-    // Track scroll to services section (indicates interest)
-    const servicesSection = document.querySelector('.services-horizontal');
-    if (servicesSection) {
-      const servicesObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            trackHeroInteraction('scroll_to_services', 'Services Section');
-            servicesObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-      
-      servicesObserver.observe(servicesSection);
     }
   }
 
-  // Initialize on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHomepageTracking);
+    document.addEventListener('DOMContentLoaded', initTracking);
   } else {
-    initHomepageTracking();
+    initTracking();
   }
 
-  // Re-initialize after navigation
-  document.addEventListener('astro:page-load', initHomepageTracking);
+  document.addEventListener('astro:page-load', initTracking);
 </script>

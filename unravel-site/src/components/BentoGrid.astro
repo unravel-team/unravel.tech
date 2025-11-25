@@ -1,0 +1,91 @@
+---
+interface Props {
+  class?: string;
+  gap?: 'sm' | 'md' | 'lg';
+  columns?: '2' | '3' | '4' | '6' | '12';
+}
+
+const { 
+  class: className = '',
+  gap = 'md',
+  columns = '12'
+} = Astro.props;
+
+const gapClasses = {
+  sm: 'bento-gap-sm',
+  md: 'bento-gap-md',
+  lg: 'bento-gap-lg'
+};
+
+const columnClasses = {
+  '2': 'bento-cols-2',
+  '3': 'bento-cols-3',
+  '4': 'bento-cols-4',
+  '6': 'bento-cols-6',
+  '12': 'bento-cols-12'
+};
+---
+
+<div class={`bento-grid ${gapClasses[gap]} ${columnClasses[columns]} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  .bento-grid {
+    display: grid;
+    width: 100%;
+  }
+
+  /* Grid Column Variants */
+  .bento-cols-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .bento-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .bento-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .bento-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bento-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Gap Variants */
+  .bento-gap-sm {
+    gap: 1rem;
+  }
+
+  .bento-gap-md {
+    gap: 1.5rem;
+  }
+
+  .bento-gap-lg {
+    gap: 2rem;
+  }
+
+  /* Mobile: Stack everything */
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+  }
+
+  /* Tablet: Reduce columns */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .bento-cols-12 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .bento-cols-6 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

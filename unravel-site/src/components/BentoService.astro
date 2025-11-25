@@ -1,0 +1,185 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  features?: string[];
+  href?: string;
+  featured?: boolean;
+}
+
+const { 
+  icon,
+  title,
+  description,
+  features = [],
+  href,
+  featured = false
+} = Astro.props;
+
+const Component = href ? 'a' : 'div';
+---
+
+<Component 
+  href={href}
+  class={`bento-service ${featured ? 'featured' : ''}`}
+>
+  {featured && (
+    <div class="featured-badge">FEATURED</div>
+  )}
+  
+  <div class="bento-icon-container">
+    <div class={`icon-circle ${featured ? 'icon-green' : 'icon-blue'}`}>
+      {icon}
+    </div>
+  </div>
+  
+  <h3 class="service-title">{title}</h3>
+  
+  <p class="service-description">{description}</p>
+  
+  {features.length > 0 && (
+    <ul class="bento-feature-list">
+      {features.map(feature => (
+        <li>{feature}</li>
+      ))}
+    </ul>
+  )}
+  
+  {href && (
+    <div class="service-link">
+      Learn more →
+    </div>
+  )}
+</Component>
+
+<style>
+  .bento-service {
+    background: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: var(--border-width) solid var(--color-border);
+    transition: all var(--transition-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  a.bento-service {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .bento-service:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--unravel-blue);
+  }
+
+  .bento-service.featured {
+    background: linear-gradient(135deg, #F0F8EB 0%, #E6F7FA 100%);
+    border-color: var(--unravel-green);
+  }
+
+  .bento-service.featured:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--unravel-green);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .bento-icon-container {
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Use global icon styles, just positioning here */
+  
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .service-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  /* List Styles */
+  .bento-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .bento-feature-list li {
+    padding: 0.25rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .bento-feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+    font-weight: 700;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--unravel-blue);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-top: auto;
+    transition: all 0.2s ease;
+  }
+
+  a.bento-service:hover .service-link {
+    gap: 0.75rem;
+    color: var(--unravel-green);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    .bento-service {
+      padding: var(--spacing-lg);
+    }
+
+    .service-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .bento-service:hover {
+      transform: none;
+    }
+
+    a.bento-service:hover .service-link {
+      gap: 0.5rem;
+    }
+  }
+</style>

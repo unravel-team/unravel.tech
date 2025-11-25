@@ -1,0 +1,138 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+  ctaPrimary?: { text: string; href: string };
+  ctaSecondary?: { text: string; href: string };
+}
+
+const { 
+  title,
+  subtitle,
+  badge,
+  ctaPrimary,
+  ctaSecondary
+} = Astro.props;
+---
+
+<div class="bento-hero">
+  <div class="bento-hero-content">
+    
+    <div class="tagline">
+      YOUR <span class="underline-green">ELITE</span> ENGINEERING SQUAD
+    </div>
+
+    <!-- Optional Title Override if provided, otherwise uses the tagline as main -->
+    {title && <h1 class="bento-hero-title" set:html={title} />}
+    
+    {subtitle && (
+      <p class="bento-hero-subtitle">{subtitle}</p>
+    )}
+    
+    {(ctaPrimary || ctaSecondary) && (
+      <div class="bento-hero-actions">
+        {ctaPrimary && (
+          <a href={ctaPrimary.href} class="btn btn-primary btn-lg">
+            {ctaPrimary.text}
+          </a>
+        )}
+        {ctaSecondary && (
+          <a href={ctaSecondary.href} class="btn btn-secondary btn-lg">
+            {ctaSecondary.text}
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .bento-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-3xl) 0;
+    overflow: hidden;
+    background: var(--color-bg-cream);
+  }
+
+  .bento-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .tagline {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  /* Specific green underline for the ELITE typography */
+  .underline-green {
+    display: inline-block;
+    position: relative;
+    color: var(--color-text-primary);
+  }
+  
+  .underline-green::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--unravel-green);
+    z-index: -1;
+  }
+
+  .bento-hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bento-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    .bento-hero {
+      min-height: 50vh;
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .bento-hero-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .bento-hero-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .tagline {
+      font-size: 2.5rem;
+    }
+  }
+</style>
