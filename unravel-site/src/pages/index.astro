@@ -1,10 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScrollProgress from '../components/ScrollProgress';
-import BentoHero from '../components/BentoHero.astro';
 import BentoGrid from '../components/BentoGrid.astro';
-import BentoService from '../components/BentoService.astro';
-import BentoStats from '../components/BentoStats.astro';
 import BentoCard from '../components/BentoCard.astro';
 import BentoTestimonial from '../components/BentoTestimonial.astro';
 ---
@@ -12,138 +9,392 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
 <ScrollProgress client:load />
 
 <BaseLayout 
-  title="Unravel | Enterprise AI Agents"
-  description="AI agents that survive real users. Handle unhappy paths, save money and scale with your business."
+  title="Unravel | Production-Grade AI Systems"
+  description="Real-world AI systems need engineering beyond vibe-coding. We build AI that scales—not demos that break."
 >
-  <!-- Hero Section - Cream Background -->
-  <BentoHero 
-    title=""
-    subtitle="We build AI agents that survive real users. Handle unhappy paths, save money, and scale with your business."
-    ctaPrimary={{ text: "Start Your Project", href: "#contact" }}
-    ctaSecondary={{ text: "See What We Do", href: "#services" }}
-  />
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">YOUR ELITE ENGINEERING SQUAD</p>
+        <h1 class="hero-title">
+          Real-world AI systems need<br/>
+          <span class="text-green">engineering beyond vibe-coding</span>
+        </h1>
+        <p class="hero-subtitle">
+          We don't build demos. We build systems that scale. Production-grade AI engineering 
+          with the technical depth that prevents expensive mistakes.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">Let's Talk</a>
+          <a href="#approach" class="btn btn-secondary btn-lg">Explore Our Approach</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">70+</span>
+            <span class="stat-label">Years collective experience</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">4mo</span>
+            <span class="stat-label">Average time to production</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">6x</span>
+            <span class="stat-label">Typical efficiency gains</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Services Grid - Warm White Background with Bento Layout -->
-  <section class="section-warm" id="services">
+  <!-- Problem Section -->
+  <section class="section-warm" id="problem">
     <div class="container">
       <div class="section-header text-center">
-        <h2>What we build</h2>
-        <p>Production-ready AI that handles the messy reality of real users</p>
+        <h2>Most AI projects fail silently</h2>
+        <p class="section-subtitle">And it's not because of the models</p>
       </div>
 
-      <!-- Bento Grid - Asymmetric Layout -->
-      <div class="bento-grid-custom">
-        <!-- Row 1: Large Feature + Stat -->
-        <BentoCard span="8" padding="none" class="featured-service">
-          <BentoService 
-            featured={true}
-            icon="🤖"
-            title="AI Agents That Don't Break"
-            description="Production-grade agents that handle edge cases, recover from failures, and scale with your business. No demos that fall apart under real load."
-            features={['Multi-agent orchestration', 'Error recovery & fallbacks', 'Cost-optimized inference']}
-          />
+      <div class="problem-grid">
+        <BentoCard span="1">
+          <div class="problem-card">
+            <div class="problem-icon">💸</div>
+            <h3>Demos don't scale</h3>
+            <p>That impressive POC? It breaks under real load. Technical debt compounds. Costs spiral.</p>
+          </div>
         </BentoCard>
 
-        <BentoCard span="4" padding="none" class="stat-highlight">
-          <BentoStats 
-            number="4mo"
-            label="Average time from prototype to production"
-            variant="gradient"
-          />
+        <BentoCard span="1">
+          <div class="problem-card">
+            <div class="problem-icon">🕳️</div>
+            <h3>Mistakes surface late</h3>
+            <p>Architectural decisions made in week 1 become million-dollar problems at scale.</p>
+          </div>
         </BentoCard>
 
-        <!-- Row 2: Two Medium Cards -->
-        <BentoCard span="6" padding="none">
-          <BentoService 
-            icon="💬"
-            title="NLP That Actually Works"
-            description="Build chatbots and document processors that understand context, not just keywords. Handle ambiguity, multiple languages, and domain jargon."
-          />
+        <BentoCard span="1">
+          <div class="problem-card">
+            <div class="problem-icon">♾️</div>
+            <h3>Projects never end</h3>
+            <p>Unlike traditional software, AI can consume resources indefinitely with no clear ROI.</p>
+          </div>
         </BentoCard>
 
-        <BentoCard span="6" padding="none">
-          <BentoService 
-            icon="📊"
-            title="Smart Data Pipelines"
-            description="Turn unstructured data into insights. ML-powered classification, extraction, and anomaly detection that scales."
-          />
-        </BentoCard>
-
-        <!-- Row 3: Stat + Service + Stat -->
-        <BentoCard span="3" padding="none">
-          <BentoStats 
-            number="30%"
-            label="Average cost savings vs DIY approach"
-          />
-        </BentoCard>
-
-        <BentoCard span="6" padding="none">
-          <BentoService 
-            icon="👁️"
-            title="Computer Vision"
-            description="Visual inspection, quality control, and object detection. From manufacturing floors to retail shelves."
-          />
-        </BentoCard>
-
-        <BentoCard span="3" padding="none">
-          <BentoStats 
-            number="70+"
-            label="Years combined engineering experience"
-          />
+        <BentoCard span="1">
+          <div class="problem-card">
+            <div class="problem-icon">🎲</div>
+            <h3>AI is uncertain</h3>
+            <p>Fixed plans become outdated monthly. You need a team that embraces—not ignores—this reality.</p>
+          </div>
         </BentoCard>
       </div>
     </div>
   </section>
 
-  <!-- Why Us - Cream Background -->
+  <!-- The Unravel Difference -->
   <section class="section-cream">
     <div class="container">
       <div class="section-header text-center">
-        <h2>Why teams choose Unravel</h2>
-        <p>We're not just consultants—we're your AI engineering team</p>
+        <h2>The Unravel Difference</h2>
+        <p class="section-subtitle">Technical depth meets practical engineering</p>
       </div>
 
-      <BentoGrid columns="2" gap="lg">
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="2W"
-            title="Fast iteration"
-            description="Working prototype in 2 weeks. Full production system in 4 months. No endless consulting cycles."
-          />
+      <div class="difference-grid">
+        <BentoCard span="1" variant="featured">
+          <div class="difference-card">
+            <div class="difference-number">01</div>
+            <h3>Production AI Engineering</h3>
+            <p>Building AI systems that work reliably in production, not just in notebooks. We handle the edge cases, failure modes, and scale challenges that demos ignore.</p>
+          </div>
         </BentoCard>
 
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="PRO"
-            title="Production-grade"
-            description="We handle the boring stuff: error handling, monitoring, scaling, and all the edge cases that break demos."
-          />
+        <BentoCard span="1">
+          <div class="difference-card">
+            <div class="difference-number">02</div>
+            <h3>Robust Distributed Systems</h3>
+            <p>Enterprise-scale infrastructure that handles complexity. Real observability, real monitoring, real resilience.</p>
+          </div>
         </BentoCard>
 
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="30%"
-            title="Cost-conscious"
-            description="We optimize for your wallet. Smart model selection, caching, and infrastructure choices that cut costs by 30%+."
-          />
+        <BentoCard span="1">
+          <div class="difference-card">
+            <div class="difference-number">03</div>
+            <h3>Delightful Product Engineering</h3>
+            <p>Making powerful systems feel simple to use. Because the best AI is invisible—it just works.</p>
+          </div>
         </BentoCard>
-
-        <BentoCard span="1" padding="none">
-          <BentoService 
-            icon="ROI"
-            title="Business outcomes"
-            description="We measure success by your metrics: cost savings, time saved, revenue generated—not lines of code."
-          />
-        </BentoCard>
-      </BentoGrid>
+      </div>
     </div>
   </section>
 
-  <!-- Testimonials - Warm White Background -->
+  <!-- Our Mindset -->
   <section class="section-warm">
     <div class="container">
       <div class="section-header text-center">
-        <h2>Trusted by Engineering Leaders</h2>
+        <h2>Our Mindset</h2>
+        <p class="section-subtitle">AI requires a different approach than traditional software</p>
+      </div>
+
+      <div class="mindset-grid">
+        <div class="mindset-card">
+          <div class="mindset-icon">⚡</div>
+          <h3>Rapid Experimentation Without Ceremony</h3>
+          <p>AI outcomes are uncertain. We iterate quickly to discover what works—not document what might.</p>
+        </div>
+
+        <div class="mindset-card">
+          <div class="mindset-icon">🔬</div>
+          <h3>Technical Depth That Prevents Expensive Mistakes</h3>
+          <p>AI systems can fail in costly ways. We identify risks before they become six-figure problems.</p>
+        </div>
+
+        <div class="mindset-card">
+          <div class="mindset-icon">🎯</div>
+          <h3>Honesty to Kill Ideas That Don't Work</h3>
+          <p>Unlike traditional software, AI projects can consume resources indefinitely. We know when to stop.</p>
+        </div>
+
+        <div class="mindset-card">
+          <div class="mindset-icon">🔄</div>
+          <h3>Adaptive Planning That Embraces Uncertainty</h3>
+          <p>AI capabilities evolve monthly. Fixed plans become outdated quickly. We stay nimble.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="section-cream" id="approach">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>How We Work</h2>
+        <p class="section-subtitle">Four stages from assessment to production</p>
+      </div>
+
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-stage">Stage 1</div>
+          <h3>Strategic Assessment</h3>
+          <p class="approach-subtitle">Identify & Prioritize</p>
+          <ul>
+            <li>Evaluate current state and AI maturity</li>
+            <li>Map opportunities to business impact</li>
+            <li>Design POC roadmap with clear success criteria</li>
+          </ul>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-stage">Stage 2</div>
+          <h3>Rapid Prototyping</h3>
+          <p class="approach-subtitle">Validate & Learn</p>
+          <ul>
+            <li>Build lightweight experiments</li>
+            <li>Test core assumptions quickly</li>
+            <li>Iterate based on real user feedback</li>
+          </ul>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-stage">Stage 3</div>
+          <h3>Technical Architecture</h3>
+          <p class="approach-subtitle">Design & De-Risk</p>
+          <ul>
+            <li>Assess feasibility and approaches</li>
+            <li>Identify risks before they're expensive</li>
+            <li>Establish observability frameworks</li>
+          </ul>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-stage">Stage 4</div>
+          <h3>Production Engineering</h3>
+          <p class="approach-subtitle">Scale & Optimize</p>
+          <ul>
+            <li>Deploy robust, production-grade systems</li>
+            <li>Monitor, measure, continuously improve</li>
+            <li>Adapt based on actual performance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results/Proof Section -->
+  <section class="section-warm" id="results">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Real Results, Real Fast</h2>
+        <p class="section-subtitle">From concept to production in months, not years</p>
+      </div>
+
+      <div class="results-grid">
+        <BentoCard span="1" variant="featured">
+          <div class="result-card">
+            <div class="result-badge">Wealth Management</div>
+            <h3>Multi-Agent Orchestration for HNI Clients</h3>
+            <div class="result-metrics">
+              <div class="metric">
+                <span class="metric-value">4 months</span>
+                <span class="metric-label">Concept to monetizable feature</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">Only feature</span>
+                <span class="metric-label">Users willing to pay for</span>
+              </div>
+            </div>
+            <p>Built a Research Bot that eliminated the need for expensive financial advisors. High adoption—became the only feature users would pay for.</p>
+          </div>
+        </BentoCard>
+
+        <BentoCard span="1">
+          <div class="result-card">
+            <div class="result-badge">Sales Intelligence</div>
+            <h3>Autonomous Sales Intelligence Agents</h3>
+            <div class="result-metrics">
+              <div class="metric">
+                <span class="metric-value">100%</span>
+                <span class="metric-label">Adoption among onboarded AEs</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">"External memory"</span>
+                <span class="metric-label">Customer quote</span>
+              </div>
+            </div>
+            <p>Transforms hours of research into instant intelligence. Pilots receiving "rave reviews" from account executives.</p>
+          </div>
+        </BentoCard>
+
+        <BentoCard span="1">
+          <div class="result-card">
+            <div class="result-badge">Legal Tech</div>
+            <h3>Intelligent Document Analysis for E-Discovery</h3>
+            <div class="result-metrics">
+              <div class="metric">
+                <span class="metric-value">6x faster</span>
+                <span class="metric-label">2 days → 20 minutes</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">~2M pages</span>
+                <span class="metric-label">Per case with full traceability</span>
+              </div>
+            </div>
+            <p>Zero-hallucination architecture ensures legal defensibility. Directly translates to billable hour savings.</p>
+          </div>
+        </BentoCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section-cream" id="team">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Built by Engineers, for Engineers</h2>
+        <p class="section-subtitle">70+ years of collective experience shipping production systems</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">VM</div>
+          <h4>Vedang Manerikar</h4>
+          <p class="team-role">Engineering Architect</p>
+          <p class="team-bio">Deep systems expertise from Veritas and Helpshift. Scales complex infrastructure with precision.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">KK</div>
+          <h4>Kiran Kulkarni</h4>
+          <p class="team-role">AI & Data Lead</p>
+          <p class="team-bio">AI pioneer. Led transformative projects at Cisco and Helpshift. Built AI teams before it was cool.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">KR</div>
+          <h4>Kapil Reddy</h4>
+          <p class="team-role">Tech & Business Strategy</p>
+          <p class="team-bio">Technology generalist with business acumen. Built critical systems at Helpshift. Creates thriving technical communities.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">PB</div>
+          <h4>Prajwalit Bhopale</h4>
+          <p class="team-role">Product Engineering</p>
+          <p class="team-bio">Product engineering virtuoso. Architected modern web applications at Cleartrip and Helpshift.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="section-warm" id="tech">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Enterprise-Grade Stack</h2>
+        <p class="section-subtitle">We use the best tools—and build custom when needed</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-category">
+          <h4>LLM Frameworks</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">DSPy</span>
+            <span class="tech-tag">Custom Build</span>
+            <span class="tech-tag">LangChain</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h4>Observability & Evals</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">LangFuse</span>
+            <span class="tech-tag">Braintrust</span>
+            <span class="tech-tag">Arize</span>
+            <span class="tech-tag">W&B</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h4>Deployment</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">Pinecone</span>
+            <span class="tech-tag">Baseten</span>
+            <span class="tech-tag">Modal</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <h4>Models</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">Claude Sonnet</span>
+            <span class="tech-tag">GPT-4</span>
+            <span class="tech-tag">Gemini 2.5</span>
+            <span class="tech-tag">Open Source</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clients-section">
+        <p class="clients-label">Trusted by teams at</p>
+        <div class="clients-logos">
+          <span>OneStudyTeam</span>
+          <span>TeamOhana</span>
+          <span>MaxIO</span>
+          <span>Famli</span>
+          <span>Caizin</span>
+          <span>SalaryBox</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>What Leaders Say</h2>
       </div>
 
       <BentoGrid columns="2" gap="lg">
@@ -166,20 +417,22 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
     </div>
   </section>
 
-  <!-- CTA - Cream Background -->
-  <section class="section-cream" id="contact">
+  <!-- CTA Section -->
+  <section class="section-warm" id="contact">
     <div class="container">
       <div class="cta-card text-center">
-        <h2>Ready to build something real?</h2>
-        <p>Let's talk about your AI project. No sales pitch—just an honest conversation about what's possible.</p>
-        <a href="mailto:hello@unravel.tech" class="btn btn-primary btn-lg bg-white text-green">hello@unravel.tech</a>
+        <h2>Let's assess your AI opportunity</h2>
+        <p>No pitch decks. No lengthy proposals. Just an honest conversation about what's possible—and what isn't.</p>
+        <div class="cta-actions">
+          <a href="mailto:hello@unravel.tech" class="btn btn-white btn-lg">hello@unravel.tech</a>
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Section Styles using Brand Colors with Grid Background */
+  /* Section Styles with Grid Background */
   .section-cream {
     background-color: var(--color-bg-cream);
     background-image: 
@@ -213,9 +466,436 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
     color: var(--color-text-primary);
   }
 
-  .section-header p {
+  .section-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-secondary);
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background-color: var(--color-bg-cream);
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    padding: 8rem 0 6rem;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--unravel-blue);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .text-green {
+    color: var(--unravel-green);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--unravel-green);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--color-border);
+  }
+
+  /* Problem Grid */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .problem-card {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .problem-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .problem-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Difference Grid */
+  .difference-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .difference-card {
+    padding: 2rem;
+  }
+
+  .difference-number {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--unravel-blue);
+    margin-bottom: 1rem;
+  }
+
+  .difference-card h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .difference-card p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Mindset Grid */
+  .mindset-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .mindset-card {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition-base);
+  }
+
+  .mindset-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--unravel-blue);
+  }
+
+  .mindset-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .mindset-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .mindset-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Approach Grid */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .approach-card {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition-base);
+  }
+
+  .approach-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--unravel-green);
+  }
+
+  .approach-stage {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--unravel-green);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .approach-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .approach-subtitle {
+    font-size: 0.875rem;
+    color: var(--unravel-blue);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .approach-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .approach-card li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding: 0.375rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .approach-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--unravel-green);
+  }
+
+  /* Results Grid */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .result-card {
+    padding: 2rem;
+  }
+
+  .result-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--unravel-blue);
+    background: var(--color-blue-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .result-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+  }
+
+  .result-metrics {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .metric {
+    flex: 1;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--unravel-green);
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .result-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Team Grid */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team-card {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    transition: all var(--transition-base);
+  }
+
+  .team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--unravel-blue);
+  }
+
+  .team-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--unravel-green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+  }
+
+  .team-card h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text-primary);
+  }
+
+  .team-role {
+    font-size: 0.875rem;
+    color: var(--unravel-blue);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-bio {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Tech Grid */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .tech-category h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    font-size: 0.875rem;
+    color: var(--color-text-primary);
+    background: var(--color-bg-white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+  }
+
+  .clients-section {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .clients-label {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+
+  .clients-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .clients-logos span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
   }
 
   /* CTA Card */
@@ -231,102 +911,82 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
 
   .cta-card h2 {
     color: white;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .cta-card p {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
     opacity: 0.95;
     color: white;
   }
 
-  .cta-card .btn {
+  .btn-white {
     background: white;
     color: var(--unravel-green);
-    border: none;
+    font-weight: 600;
   }
 
-  .cta-card .btn:hover {
+  .btn-white:hover {
     background: #F0FDF4;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
-  /* Custom Bento Grid - Asymmetric Magazine Layout */
-  .bento-grid-custom {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-  }
-
-  /* Featured service gets more space */
-  .featured-service {
-    grid-column: span 8;
-  }
-
-  .stat-highlight {
-    grid-column: span 4;
-  }
-
-  /* Enhanced card styling */
-  .bento-grid-custom .bento-card {
-    min-height: 240px;
-    display: flex;
-    align-items: stretch;
-  }
-
-  .featured-service .bento-card {
-    min-height: 320px;
-  }
-
-  /* Tablet Layout - Adjust spans */
-  @media (min-width: 641px) and (max-width: 1024px) {
-    .bento-grid-custom {
-      grid-template-columns: repeat(8, 1fr);
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .problem-grid,
+    .approach-grid,
+    .team-grid,
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .featured-service {
-      grid-column: span 8;
-    }
-
-    .stat-highlight {
-      grid-column: span 8;
-    }
-
-    .bento-grid-custom .bento-card[span="6"] {
-      grid-column: span 4;
-    }
-
-    .bento-grid-custom .bento-card[span="3"] {
-      grid-column: span 4;
-    }
-  }
-
-  /* Mobile Layout - Stack everything */
-  @media (max-width: 640px) {
-    .bento-grid-custom {
+    .results-grid,
+    .difference-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-section {
+      padding: 6rem 0 4rem;
+      min-height: auto;
     }
 
-    .bento-grid-custom .bento-card {
-      grid-column: span 1 !important;
-      min-height: 200px;
+    .hero-stats {
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .featured-service,
-    .stat-highlight {
-      grid-column: span 1 !important;
+    .stat-divider {
+      display: none;
+    }
+
+    .problem-grid,
+    .approach-grid,
+    .team-grid,
+    .tech-grid,
+    .mindset-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .cta-card {
+      padding: 3rem 1.5rem;
     }
 
     .section-header {
-      margin-bottom: 3rem;
-    }
-    
-    .cta-card {
-      padding: 3rem 1.5rem;
+      margin-bottom: 2.5rem;
     }
   }
 </style>
@@ -334,21 +994,19 @@ import BentoTestimonial from '../components/BentoTestimonial.astro';
 <script>
   import { trackHeroInteraction, trackContactAttempt } from '../lib/posthog';
 
-  // Re-attach listeners since DOM structure changed slightly
   function initTracking() {
-    // Selectors might need to be more robust if structure changes
-    const heroPrimaryCta = document.querySelector('.bento-hero-actions .btn-primary');
-    const heroSecondaryCta = document.querySelector('.bento-hero-actions .btn-secondary');
+    const heroPrimaryCta = document.querySelector('.hero-actions .btn-primary');
+    const heroSecondaryCta = document.querySelector('.hero-actions .btn-secondary');
 
     if (heroPrimaryCta) {
       heroPrimaryCta.addEventListener('click', () => {
-        trackHeroInteraction('cta_click', 'Start Your Project');
+        trackHeroInteraction('cta_click', "Let's Talk");
       });
     }
 
     if (heroSecondaryCta) {
       heroSecondaryCta.addEventListener('click', () => {
-        trackHeroInteraction('cta_click', 'See What We Do');
+        trackHeroInteraction('cta_click', 'Explore Our Approach');
       });
     }
 
