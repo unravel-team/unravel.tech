@@ -356,38 +356,77 @@ import { Icon } from 'astro-icon/components';
         <div class="tech-category">
           <h4>LLM Frameworks</h4>
           <div class="tech-tags">
-            <span class="tech-tag">DSPy</span>
+            <span class="tech-tag">
+              <img src="/logos/tech/dspy.png" alt="DSPy" class="tech-logo" />
+              DSPy
+            </span>
             <span class="tech-tag">Custom Build</span>
-            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">
+              <img src="/logos/tech/langchain.svg" alt="LangChain" class="tech-logo" />
+              LangChain
+            </span>
           </div>
         </div>
 
         <div class="tech-category">
           <h4>Observability & Evals</h4>
           <div class="tech-tags">
-            <span class="tech-tag">LangFuse</span>
-            <span class="tech-tag">Braintrust</span>
-            <span class="tech-tag">Arize</span>
-            <span class="tech-tag">W&B</span>
+            <span class="tech-tag">
+              <img src="/logos/tech/langfuse.svg" alt="LangFuse" class="tech-logo" />
+              LangFuse
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/braintrust.svg" alt="Braintrust" class="tech-logo" />
+              Braintrust
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/arize.png" alt="Arize" class="tech-logo" />
+              Arize
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/wandb.svg" alt="Weights & Biases" class="tech-logo" />
+              W&B
+            </span>
           </div>
         </div>
 
         <div class="tech-category">
           <h4>Deployment</h4>
           <div class="tech-tags">
-            <span class="tech-tag">Pinecone</span>
-            <span class="tech-tag">Baseten</span>
-            <span class="tech-tag">Modal</span>
-            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">
+              <img src="/logos/tech/pinecone.png" alt="Pinecone" class="tech-logo" />
+              Pinecone
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/baseten.png" alt="Baseten" class="tech-logo" />
+              Baseten
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/modal.svg" alt="Modal" class="tech-logo" />
+              Modal
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/aws.svg" alt="AWS" class="tech-logo" />
+              AWS
+            </span>
           </div>
         </div>
 
         <div class="tech-category">
           <h4>Models</h4>
           <div class="tech-tags">
-            <span class="tech-tag">Claude Sonnet</span>
-            <span class="tech-tag">GPT-4</span>
-            <span class="tech-tag">Gemini 2.5</span>
+            <span class="tech-tag">
+              <img src="/logos/tech/anthropic.svg" alt="Anthropic" class="tech-logo" />
+              Claude Sonnet
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/openai.svg" alt="OpenAI" class="tech-logo" />
+              GPT-4
+            </span>
+            <span class="tech-tag">
+              <img src="/logos/tech/google.svg" alt="Google" class="tech-logo" />
+              Gemini 2.5
+            </span>
             <span class="tech-tag">Open Source</span>
           </div>
         </div>
@@ -901,6 +940,15 @@ import { Icon } from 'astro-icon/components';
     padding: 0.5rem 1rem;
     border-radius: 20px;
     border: 1px solid var(--color-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tech-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
   }
 
   .clients-section {
