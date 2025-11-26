@@ -1,0 +1,23 @@
+{
+  "name": "Unravel - AI Consulting",
+  "short_name": "Unravel",
+  "description": "Transform your business with cutting-edge AI consulting services. Expert guidance in machine learning, natural language processing, and predictive analytics.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#6BC443",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

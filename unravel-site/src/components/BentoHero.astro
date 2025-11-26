@@ -19,12 +19,14 @@ const {
 <div class="bento-hero">
   <div class="bento-hero-content">
     
-    <div class="tagline">
-      YOUR <span class="underline-green">ELITE</span> ENGINEERING SQUAD
-    </div>
-
-    <!-- Optional Title Override if provided, otherwise uses the tagline as main -->
-    {title && <h1 class="bento-hero-title" set:html={title} />}
+    <!-- Main Hero Heading - Always H1 -->
+    {title ? (
+      <h1 class="bento-hero-title" set:html={title} />
+    ) : (
+      <h1 class="tagline">
+        YOUR <span class="underline-green">ELITE</span> ENGINEERING SQUAD
+      </h1>
+    )}
     
     {subtitle && (
       <p class="bento-hero-subtitle">{subtitle}</p>
