@@ -69,12 +69,12 @@ const isServicesActive = currentPath.startsWith('/services');
     </svg>
     <span class="nav-label">Contact</span>
   </a>
-  
-  <!-- Scroll Progress Bar - Positioned Above Menu -->
-  <div class="mobile-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
-    <div class="mobile-scroll-fill"></div>
-  </div>
 </nav>
+
+<!-- Scroll Progress Bar - Positioned Above Menu (Outside Nav) -->
+<div class="mobile-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100">
+  <div class="mobile-scroll-fill"></div>
+</div>
 
 <!-- Services Bottom Sheet -->
 <div class="bottom-sheet" id="services-menu" role="dialog" aria-labelledby="services-title" aria-hidden="true">
@@ -314,8 +314,8 @@ const isServicesActive = currentPath.startsWith('/services');
     left: 0;
     right: 0;
     height: 60px;
-    background: #FFFFFF !important;
-    border-top: 1px solid #E2E8F0;
+    background: var(--color-bg-white) !important;
+    border-top: 1px solid var(--color-border);
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     display: none; /* Hidden by default, shown on mobile */
     justify-content: space-around;
@@ -327,22 +327,30 @@ const isServicesActive = currentPath.startsWith('/services');
 
   /* Mobile Scroll Progress Bar - Positioned Above Menu */
   .mobile-scroll-progress {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    bottom: 60px; /* Just above the 60px mobile nav bar */
     left: 0;
     right: 0;
-    height: 3px;
-    background: transparent;
+    height: 6px;
+    background: var(--color-border); /* More visible track background */
     overflow: hidden;
-    z-index: 101;
+    z-index: 101; /* Above nav bar for visibility */
   }
 
   .mobile-scroll-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--unravel-green), var(--unravel-blue));
+    background: linear-gradient(90deg, var(--unravel-green), var(--unravel-blue)) !important; /* Unravel brand colors */
     transition: width 0.1s ease-out;
-    border-radius: 0 2px 2px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: block !important; /* Ensure it renders */
+  }
+
+  /* Hide scroll progress bar on desktop */
+  @media (min-width: 769px) {
+    .mobile-scroll-progress {
+      display: none;
+    }
   }
 
   /* Show only on mobile devices */
@@ -458,8 +466,8 @@ const isServicesActive = currentPath.startsWith('/services');
   /* Dark Mode Support */
   @media (prefers-color-scheme: dark) {
     .mobile-nav {
-      background: #1A252F !important;
-      border-top-color: #2C3E50;
+      background: var(--color-neutral-950) !important;
+      border-top-color: var(--color-neutral-800);
       box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
       opacity: 1;
     }
@@ -470,16 +478,16 @@ const isServicesActive = currentPath.startsWith('/services');
 
     .mobile-nav-item.active,
     .mobile-nav-item:hover {
-      color: var(--green-light);
+      color: var(--color-green-400);
     }
 
     .mobile-nav-item:active {
-      color: var(--blue-light);
+      color: var(--color-blue-400);
     }
 
     /* Lighter gradient for dark mode */
     .mobile-scroll-fill {
-      background: linear-gradient(90deg, var(--green-light), var(--blue-light));
+      background: linear-gradient(90deg, var(--color-green-400), var(--color-blue-400)) !important;
     }
   }
 
@@ -585,6 +593,42 @@ const isServicesActive = currentPath.startsWith('/services');
     display: flex;
     flex-direction: column;
     gap: 4px;
+    overflow-y: auto;
+    max-height: calc(60vh - 100px); /* Account for header and padding */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    overscroll-behavior: contain; /* Prevent scroll chaining */
+  }
+
+  /* Scrollbar styling for WebKit browsers - Portrait mode only */
+  @media (orientation: portrait) {
+    .bottom-sheet-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .bottom-sheet-menu::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .bottom-sheet-menu::-webkit-scrollbar-thumb {
+      background: var(--color-neutral-300);
+      border-radius: 3px;
+    }
+
+    .bottom-sheet-menu::-webkit-scrollbar-thumb:hover {
+      background: var(--color-neutral-400);
+    }
+  }
+
+  /* Hide scrollbar in landscape mode */
+  @media (orientation: landscape) {
+    .bottom-sheet-menu::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bottom-sheet-menu {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
   }
 
   .submenu-item {
@@ -690,7 +734,7 @@ const isServicesActive = currentPath.startsWith('/services');
 
     .submenu-item:hover .submenu-icon,
     .submenu-item.active .submenu-icon {
-      color: var(--green-light);
+      color: var(--color-green-400);
     }
 
     .submenu-label {
@@ -698,7 +742,7 @@ const isServicesActive = currentPath.startsWith('/services');
     }
 
     .submenu-item.active .submenu-label {
-      color: var(--green-light);
+      color: var(--color-green-400);
     }
   }
 
