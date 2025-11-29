@@ -1,0 +1,13 @@
+# Robots.txt for unravel.tech
+# This file controls crawler access to the site
+
+User-agent: *
+Allow: /
+
+# Block crawlers from services pages when disabled
+# Remove or comment out these lines when ENABLE_SERVICES=true
+Disallow: /services/
+Disallow: /services
+
+# Sitemap location (update with actual URL when available)
+# Sitemap: https://unravel.tech/sitemap.xml

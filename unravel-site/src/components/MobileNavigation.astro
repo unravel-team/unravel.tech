@@ -2,9 +2,10 @@
 // Mobile Navigation Component - Thumb-Friendly Bottom Bar with Multi-Level Menus
 interface Props {
   currentPath?: string;
+  enableServices?: boolean;
 }
 
-const { currentPath = '/' } = Astro.props;
+const { currentPath = '/', enableServices = true } = Astro.props;
 
 // Determine active state based on current path
 const isActive = (path: string) => {
@@ -33,18 +34,20 @@ const isServicesActive = currentPath.startsWith('/services');
     <span class="nav-label">Home</span>
   </a>
 
-  <button 
-    class={`mobile-nav-item ${isServicesActive ? 'active' : ''}`}
-    aria-label="Services"
-    aria-expanded="false"
-    data-menu-trigger="services"
-  >
-    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-    </svg>
-    <span class="nav-label">Services</span>
-  </button>
+  {enableServices && (
+    <button 
+      class={`mobile-nav-item ${isServicesActive ? 'active' : ''}`}
+      aria-label="Services"
+      aria-expanded="false"
+      data-menu-trigger="services"
+    >
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+      <span class="nav-label">Services</span>
+    </button>
+  )}
 
   <button 
     class={`mobile-nav-item ${isResourcesActive ? 'active' : ''}`}
@@ -77,19 +80,20 @@ const isServicesActive = currentPath.startsWith('/services');
 </div>
 
 <!-- Services Bottom Sheet -->
-<div class="bottom-sheet" id="services-menu" role="dialog" aria-labelledby="services-title" aria-hidden="true">
-  <div class="bottom-sheet-backdrop" data-close-menu></div>
-  <div class="bottom-sheet-content">
-    <div class="bottom-sheet-header">
-      <h3 id="services-title">Services</h3>
-      <button class="bottom-sheet-close" aria-label="Close menu" data-close-menu>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    <div class="bottom-sheet-menu">
+{enableServices && (
+  <div class="bottom-sheet" id="services-menu" role="dialog" aria-labelledby="services-title" aria-hidden="true">
+    <div class="bottom-sheet-backdrop" data-close-menu></div>
+    <div class="bottom-sheet-content">
+      <div class="bottom-sheet-header">
+        <h3 id="services-title">Services</h3>
+        <button class="bottom-sheet-close" aria-label="Close menu" data-close-menu>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="bottom-sheet-menu">
       <a 
         href="/services" 
         class={`submenu-item ${isActive('/services') && currentPath === '/services' ? 'active' : ''}`}
@@ -145,8 +149,9 @@ const isServicesActive = currentPath.startsWith('/services');
         <span class="submenu-label">Cost Optimization</span>
       </a>
     </div>
+    </div>
   </div>
-</div>
+)}
 
 <!-- Resources Bottom Sheet -->
 <div class="bottom-sheet" id="resources-menu" role="dialog" aria-labelledby="resources-title" aria-hidden="true">

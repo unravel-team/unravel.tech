@@ -14,6 +14,13 @@ const {
 
 // Get current path for active navigation state
 const currentPath = Astro.url.pathname;
+
+// Check if services are enabled
+const enableServices = import.meta.env.ENABLE_SERVICES === 'true';
+
+// Check if current page is a service page and should be noindexed
+const isServicePage = currentPath.startsWith('/services');
+const shouldNoindex = isServicePage && !enableServices;
 ---
 
 <!DOCTYPE html>
@@ -22,6 +29,7 @@ const currentPath = Astro.url.pathname;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description}>
+  {shouldNoindex && <meta name="robots" content="noindex, nofollow">}
   <title>{title}</title>
   
   <!-- Favicon - Comprehensive Support for All Platforms -->
@@ -64,21 +72,23 @@ const currentPath = Astro.url.pathname;
           </a>
           <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li class="nav-dropdown">
-              <button class="nav-dropdown-trigger" aria-expanded="false">
-                Services
-                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-              <div class="nav-dropdown-menu">
-                <a href="/services" class="dropdown-item">All Services</a>
-                <a href="/services/prototype-to-production" class="dropdown-item">Prototype to Production</a>
-                <a href="/services/ai-implementation" class="dropdown-item">AI Implementation</a>
-                <a href="/services/ai-consulting" class="dropdown-item">AI Consulting</a>
-                <a href="/services/cost-optimization" class="dropdown-item">Cost Optimization</a>
-              </div>
-            </li>
+            {enableServices && (
+              <li class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-expanded="false">
+                  Services
+                  <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                  <a href="/services" class="dropdown-item">All Services</a>
+                  <a href="/services/prototype-to-production" class="dropdown-item">Prototype to Production</a>
+                  <a href="/services/ai-implementation" class="dropdown-item">AI Implementation</a>
+                  <a href="/services/ai-consulting" class="dropdown-item">AI Consulting</a>
+                  <a href="/services/cost-optimization" class="dropdown-item">Cost Optimization</a>
+                </div>
+              </li>
+            )}
             <li><a href="/blog">Blog</a></li>
             <li><a href="/talks">Talks</a></li>
             <li><a href="mailto:hello@unravel.tech">Contact</a></li>
@@ -92,7 +102,7 @@ const currentPath = Astro.url.pathname;
     <slot />
     
     <!-- Mobile Navigation - Thumb-Friendly Bottom Bar -->
-    <MobileNavigation currentPath={currentPath} />
+    <MobileNavigation currentPath={currentPath} enableServices={enableServices} />
     
     <footer>
       <div class="container">
@@ -105,7 +115,7 @@ const currentPath = Astro.url.pathname;
             <h4>Quick Links</h4>
             <ul class="footer-links">
               <li><a href="/">Home</a></li>
-              <li><a href="/services">Services</a></li>
+              {enableServices && <li><a href="/services">Services</a></li>}
               <li><a href="/blog">Blog</a></li>
               <li><a href="/talks">Talks</a></li>
               <li><a href="mailto:hello@unravel.tech">Contact</a></li>
