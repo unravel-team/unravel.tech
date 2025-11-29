@@ -155,7 +155,7 @@ import { Icon } from 'astro-icon/components';
       </div>
 
       <div class="difference-grid">
-        <BentoCard span="1" variant="featured">
+        <BentoCard span="1">
           <div class="difference-card">
             <div class="difference-number">01</div>
             <h3>Production AI Engineering</h3>
@@ -247,7 +247,7 @@ import { Icon } from 'astro-icon/components';
       </div>
 
       <div class="results-grid">
-        <BentoCard span="1" variant="featured">
+        <BentoCard span="1">
           <div class="result-card">
             <div class="result-badge">Wealth Management</div>
             <h3>Multi-Agent Orchestration for HNI Clients</h3>
@@ -261,7 +261,7 @@ import { Icon } from 'astro-icon/components';
                 <span class="metric-label">Users willing to pay for</span>
               </div>
             </div>
-            <p>Built a Research Bot that eliminated the need for expensive financial advisors. High adoption—became the only feature users would pay for.</p>
+            <p>Built a Research Bot that eliminated the need for expensive financial advisors. High adoption became the only feature users would pay for.</p>
           </div>
         </BentoCard>
 
@@ -282,24 +282,6 @@ import { Icon } from 'astro-icon/components';
             <p>Transforms hours of research into instant intelligence. Pilots receiving "rave reviews" from account executives.</p>
           </div>
         </BentoCard>
-
-        <BentoCard span="1">
-          <div class="result-card">
-            <div class="result-badge">Legal Tech</div>
-            <h3>Intelligent Document Analysis for E-Discovery</h3>
-            <div class="result-metrics">
-              <div class="metric">
-                <span class="metric-value">6x faster</span>
-                <span class="metric-label">2 days → 20 minutes</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">~2M pages</span>
-                <span class="metric-label">Per case with full traceability</span>
-              </div>
-            </div>
-            <p>Zero-hallucination architecture ensures legal defensibility. Directly translates to billable hour savings.</p>
-          </div>
-        </BentoCard>
       </div>
     </div>
   </section>
@@ -314,28 +296,28 @@ import { Icon } from 'astro-icon/components';
 
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar">VM</div>
+          <img src="/team/vedang.webp" alt="Vedang Manerikar" class="team-avatar-img" />
           <h4>Vedang Manerikar</h4>
           <p class="team-role">Engineering Architect</p>
           <p class="team-bio">Deep systems expertise from Veritas and Helpshift. Scales complex infrastructure with precision.</p>
         </div>
 
         <div class="team-card">
-          <div class="team-avatar">KK</div>
+          <img src="/team/kiran.webp" alt="Kiran Kulkarni" class="team-avatar-img" />
           <h4>Kiran Kulkarni</h4>
           <p class="team-role">AI & Data Lead</p>
           <p class="team-bio">AI pioneer. Led transformative projects at Cisco and Helpshift. Built AI teams before it was cool.</p>
         </div>
 
         <div class="team-card">
-          <div class="team-avatar">KR</div>
+          <img src="/team/kapil.webp" alt="Kapil Reddy" class="team-avatar-img" />
           <h4>Kapil Reddy</h4>
           <p class="team-role">Tech & Business Strategy</p>
           <p class="team-bio">Technology generalist with business acumen. Built critical systems at Helpshift. Creates thriving technical communities.</p>
         </div>
 
         <div class="team-card">
-          <div class="team-avatar">PB</div>
+          <img src="/team/prajwalit.webp" alt="Prajwalit Bhopale" class="team-avatar-img" />
           <h4>Prajwalit Bhopale</h4>
           <p class="team-role">Product Engineering</p>
           <p class="team-bio">Product engineering virtuoso. Architected modern web applications at Cleartrip and Helpshift.</p>
@@ -550,7 +532,7 @@ import { Icon } from 'astro-icon/components';
 
         <BentoCard span="1" padding="none">
           <BentoTestimonial 
-            quote="Unravel built our complete event-ingestion pipeline. Their distributed systems expertise let me focus on business outcomes—a partnership we'll gladly continue."
+            quote="Unravel built our complete event-ingestion pipeline. Their distributed systems expertise let me focus on business outcomes a partnership we'll gladly continue."
             authorName="Kedar Sovani"
             authorTitle="India Head, Espressif Systems"
           />
@@ -971,18 +953,21 @@ import { Icon } from 'astro-icon/components';
     border-color: var(--unravel-blue);
   }
 
-  .team-avatar {
-    width: 60px;
-    height: 60px;
+  .team-avatar-img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background: var(--unravel-green);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.25rem;
+    object-fit: cover;
     margin: 0 auto 1rem;
+    display: block;
+    border: 3px solid var(--unravel-green);
+    transition: all var(--transition-base);
+  }
+
+  .team-card:hover .team-avatar-img {
+    transform: scale(1.05);
+    border-color: var(--unravel-blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .team-card h4 {
