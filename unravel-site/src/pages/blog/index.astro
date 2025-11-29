@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const allPosts = await Astro.glob('./*.md');
-const sortedPosts = allPosts.sort((a, b) => 
+// Filter out draft posts
+const publishedPosts = allPosts.filter(post => !post.frontmatter.draft);
+const sortedPosts = publishedPosts.sort((a, b) => 
   new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
 );
 ---
