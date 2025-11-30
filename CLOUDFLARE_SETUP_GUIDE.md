@@ -37,15 +37,25 @@ Instead, it should run `make build` which:
 
 4. **Update Build Configuration**
    
-   Find the section that says "Build configuration" and click "Edit configuration" or "Configure Build Settings"
+   Find the section with these fields:
+   - build command
+   - deploy command
+   - Non-production branch deploy command
+   - path
    
-   **Change these settings:**
+   **Set them to:**
    
    ```
-   Build command:           make build          (NOT make deploy!)
-   Build output directory:  dist
-   Root directory:          (leave blank or /)
+   build command:                        make build
+   deploy command:                       (leave blank/empty)
+   Non-production branch deploy command: (leave blank/empty)
+   path:                                 dist
    ```
+   
+   **IMPORTANT:**
+   - ✅ Use `make build` for "build command"
+   - ✅ Leave "deploy command" EMPTY (don't put anything)
+   - ✅ Path should be `dist`
    
    **Environment variables (if not already set):**
    ```
