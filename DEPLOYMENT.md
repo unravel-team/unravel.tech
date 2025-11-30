@@ -300,11 +300,16 @@ make deploy
 1. Go to your Cloudflare Pages project
 2. Click "Settings" → "Builds & deployments"
 3. Update the build configuration:
-   - **Build command:** `make build` (this now automatically installs dependencies!)
+   - **Build command:** `make build` (NOT `make deploy`!)
    - **Build output directory:** `dist`
-   - **Root directory:** Leave blank or set to current directory
+   - **Root directory:** Leave blank or set to current directory (NOT `unravel-site`)
    - **Node version:** `18` or higher (set in Environment variables)
 4. Save and trigger a new deployment
+
+**IMPORTANT:** Use `make build`, not `make deploy`! 
+- `make build` - Builds the site and outputs to `dist/` (what Cloudflare needs)
+- `make deploy` - Builds AND deploys via wrangler (conflicts with Cloudflare's own deployment)
+- Cloudflare Pages handles deployment automatically after the build completes
 
 **Alternative build commands (all work):**
 - `make build` - Recommended (automatically installs dependencies)
