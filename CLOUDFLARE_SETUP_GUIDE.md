@@ -1,70 +1,100 @@
-# 🚨 CRITICAL: Cloudflare Pages Build Configuration Fix
+# 🚨 CRITICAL: Cloudflare Pages Configuration Fix
 
 ## Current Issue
 
-✅ **Build succeeds:** `✓ Build complete: unravel-site/dist`  
-❌ **Deployment fails:** `✘ [ERROR] Must specify a project name`
+❌ **Error:** `✘ [ERROR] It looks like you've run a Workers-specific command in a Pages project. For Pages, please run 'wrangler pages deploy' instead.`
 
-The build is working perfectly! But Cloudflare is running the wrong command.
+⚠️ **Warning:** `Multiple environments are defined in the Wrangler configuration file`
 
-## Why This Happens
+## Root Cause
 
-Cloudflare Pages is configured to run `make deploy` which:
-1. Builds the site ✅
-2. Tries to deploy via wrangler ❌ (conflicts with Cloudflare's own deployment)
+Cloudflare is trying to deploy as a **Workers** project instead of a **Pages** project. This happens when:
 
-Instead, it should run `make build` which:
-1. Builds the site ✅
-2. Stops and lets Cloudflare handle deployment ✅
+1. The project is configured as "Workers" in Cloudflare dashboard
+2. OR there's a wrangler.toml file that Cloudflare interprets as a Workers config
+3. OR the build command is trying to deploy (instead of just building)
 
-## Fix Required - Update Cloudflare Dashboard
+## The Solution
 
-**This MUST be done in the Cloudflare dashboard. It cannot be fixed in code.**
+You need to configure this as a **Cloudflare Pages** project, NOT Workers.
 
-### Step-by-Step Instructions:
+## Fix Required - Configure as Pages Project
 
-1. **Go to Cloudflare Dashboard**
-   - Open https://dash.cloudflare.com
-   - Log in to your account
+### Option 1: Re-create as Pages Project (Recommended)
 
-2. **Navigate to your Pages project**
-   - Click "Workers & Pages" in the left sidebar
-   - Find and click on your project (likely named "unravel-tech" or similar)
+If the project was created as a Workers project, the easiest fix is to delete and recreate:
 
-3. **Open Build Settings**
-   - Click on "Settings" tab
-   - Click on "Builds & deployments" in the left menu
+1. **Delete Current Project**
+   - Go to https://dash.cloudflare.com
+   - Click "Workers & Pages"
+   - Find your project → Click on it
+   - Go to "Settings" → Scroll to bottom → "Delete project"
 
-4. **Update Build Configuration**
+2. **Create New Pages Project**
+   - Click "Workers & Pages" → "Create application"
+   - Select "Pages" tab (NOT Workers)
+   - Choose "Connect to Git" OR "Direct Upload"
+
+3. **Configure Build Settings**
    
-   Find the section with these fields:
-   - build command
-   - deploy command
-   - Non-production branch deploy command
-   - path
+   **Framework preset:** Astro
    
-   **Set them to:**
-   
+   **Build command:**
    ```
-   build command:                        make build
-   deploy command:                       (leave blank/empty)
-   Non-production branch deploy command: (leave blank/empty)
-   path:                                 dist
+   npm run build
    ```
    
-   **IMPORTANT:**
-   - ✅ Use `make build` for "build command"
-   - ✅ Leave "deploy command" EMPTY (don't put anything)
-   - ✅ Path should be `dist`
+   **Build output directory:**
+   ```
+   dist
+   ```
    
-   **Environment variables (if not already set):**
+   **Root directory:** (leave empty)
+   
+   **Environment variables:**
    ```
    NODE_VERSION = 18
    ```
 
-5. **Save and Retry**
-   - Click "Save" or "Save and deploy"
-   - Click "Retry deployment" or trigger a new deployment
+4. **Deploy**
+   - Click "Save and Deploy"
+   - Wait for build to complete
+
+### Option 2: Fix Existing Project
+
+If you want to keep the existing project:
+
+1. **Verify Project Type**
+   - Go to https://dash.cloudflare.com
+   - Click "Workers & Pages"
+   - Your project should be under "Pages" tab, NOT "Workers" tab
+   - If it's under Workers, you MUST recreate it as Pages (see Option 1)
+
+2. **Update Build Configuration**
+   - Click on your project
+   - Go to "Settings" → "Builds & deployments"
+   
+   **Set these values:**
+   ```
+   Framework preset:     Astro
+   Build command:        npm run build
+   Build output dir:     dist
+   Root directory:       (empty)
+   ```
+   
+   **Environment variables:**
+   ```
+   NODE_VERSION = 18
+   ```
+
+3. **Remove Any Deploy Commands**
+   - Make sure there's NO "deploy command" or "wrangler deploy" anywhere
+   - Cloudflare Pages handles deployment automatically after build
+
+4. **Save and Retry**
+   - Click "Save"
+   - Go to "Deployments" tab
+   - Click "Retry deployment" on the failed deployment
 
 ## What Each Setting Means
 

@@ -5,8 +5,7 @@
 # Configuration Variables
 # These can be overridden via environment variables or command line
 # Example: make deploy PROJECT_NAME=unravel-tech
-SITE_DIR := unravel-site
-BUILD_DIR := $(SITE_DIR)/dist
+BUILD_DIR := dist
 CLOUDFLARE_PROJECT ?= $(CLOUDFLARE_PROJECT_NAME)
 CLOUDFLARE_ACCOUNT_ID ?= $(CLOUDFLARE_ACCOUNT_ID)
 BRANCH ?= production
@@ -52,19 +51,19 @@ help:
 # Install npm dependencies
 install:
 	@echo "$(COLOR_GREEN)Installing dependencies...$(COLOR_RESET)"
-	cd $(SITE_DIR) && npm install
+	npm install
 	@echo "$(COLOR_GREEN)✓ Dependencies installed$(COLOR_RESET)"
 
 # Build the Astro site (with automatic dependency installation)
 build: install
 	@echo "$(COLOR_GREEN)Building Astro site...$(COLOR_RESET)"
-	cd $(SITE_DIR) && npm run build
+	npm run build
 	@echo "$(COLOR_GREEN)✓ Build complete: $(BUILD_DIR)$(COLOR_RESET)"
 
 # Preview the built site locally
 preview: build
 	@echo "$(COLOR_GREEN)Starting preview server...$(COLOR_RESET)"
-	cd $(SITE_DIR) && npm run preview
+	npm run preview
 
 # Clean build artifacts
 clean:
