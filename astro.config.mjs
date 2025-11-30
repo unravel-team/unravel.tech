@@ -13,7 +13,12 @@ export default defineConfig({
     server: {
       allowedHosts: ['.ngrok-free.app', '.ngrok.io', '.ngrok.app'],
     },
+    ssr: {
+      noExternal: ['react', 'react-dom'],
+    },
   },
 
-  adapter: cloudflare({platformProxy: {enabled: true}}),
+  adapter: cloudflare({
+    platformProxy: { enabled: true },
+  }),
 });
