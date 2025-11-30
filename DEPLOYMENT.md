@@ -287,6 +287,35 @@ make deploy
 # Or create it manually in Cloudflare Dashboard first
 ```
 
+### "astro: not found" Error
+
+**Problem:** Build fails with "sh: 1: astro: not found" or similar error
+
+**Root Cause:** The build command in Cloudflare Pages is set to `astro build` instead of `npm run build`. When run directly, the shell can't find the `astro` command because it's installed locally in `node_modules/.bin/`.
+
+**Solution 1 - Update Cloudflare Pages Dashboard Settings:**
+1. Go to your Cloudflare Pages project
+2. Click "Settings" → "Builds & deployments"
+3. Update the build configuration:
+   - **Build command:** `npm run build` (NOT `astro build`)
+   - **Build output directory:** `dist`
+   - **Root directory:** `unravel-site`
+4. Save and trigger a new deployment
+
+**Solution 2 - Use wrangler.toml (Recommended):**
+The project now includes a `wrangler.toml` file that specifies the correct build command. When deploying via Wrangler, it will automatically use `npm run build`.
+
+```bash
+# Deploy using Wrangler (automatically uses correct build command)
+make deploy
+```
+
+**Why this happens:**
+- `astro` is a local dependency in `node_modules/.bin/`
+- Direct shell commands can't find it in the PATH
+- `npm run build` automatically adds `node_modules/.bin/` to PATH
+- Always use `npm run build` for Cloudflare Pages deployments
+
 ### Build Failures
 
 **Problem:** Site fails to build
