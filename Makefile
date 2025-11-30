@@ -55,8 +55,8 @@ install:
 	cd $(SITE_DIR) && npm install
 	@echo "$(COLOR_GREEN)✓ Dependencies installed$(COLOR_RESET)"
 
-# Build the Astro site
-build:
+# Build the Astro site (with automatic dependency installation)
+build: install
 	@echo "$(COLOR_GREEN)Building Astro site...$(COLOR_RESET)"
 	cd $(SITE_DIR) && npm run build
 	@echo "$(COLOR_GREEN)✓ Build complete: $(BUILD_DIR)$(COLOR_RESET)"

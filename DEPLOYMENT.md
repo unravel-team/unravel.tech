@@ -160,9 +160,10 @@ If this is your first deployment, Wrangler will:
    - Connect to GitHub, GitLab, or Bitbucket
    - Select your repository
    - Configure build settings:
-     - **Build command:** `npm run build`
+     - **Build command:** `npm install && npm run build`
      - **Build output directory:** `dist`
      - **Root directory:** `unravel-site`
+     - **Node version:** `18` or higher
 
 3. **Deploy via Wrangler (Recommended)**
    - No need to connect Git repository
@@ -291,30 +292,37 @@ make deploy
 
 **Problem:** Build fails with "sh: 1: astro: not found" or similar error
 
-**Root Cause:** The build command in Cloudflare Pages is set to `astro build` instead of `npm run build`. When run directly, the shell can't find the `astro` command because it's installed locally in `node_modules/.bin/`.
+**Root Cause:** Dependencies weren't installed before trying to build. The shell can't find the `astro` command because it's installed locally in `node_modules/.bin/`, which doesn't exist yet.
 
-**Solution 1 - Update Cloudflare Pages Dashboard Settings:**
+**✅ FIXED:** The Makefile has been updated so `make build` automatically runs `make install` first!
+
+**Solution - Update Cloudflare Pages Dashboard Settings:**
 1. Go to your Cloudflare Pages project
 2. Click "Settings" → "Builds & deployments"
 3. Update the build configuration:
-   - **Build command:** `npm run build` (NOT `astro build`)
+   - **Build command:** `make build` (this now automatically installs dependencies!)
    - **Build output directory:** `dist`
-   - **Root directory:** `unravel-site`
+   - **Root directory:** Leave blank or set to current directory
+   - **Node version:** `18` or higher (set in Environment variables)
 4. Save and trigger a new deployment
 
-**Solution 2 - Use wrangler.toml (Recommended):**
-The project now includes a `wrangler.toml` file that specifies the correct build command. When deploying via Wrangler, it will automatically use `npm run build`.
+**Alternative build commands (all work):**
+- `make build` - Recommended (automatically installs dependencies)
+- `npm install && npm run build` - Direct approach
+- Use wrangler.toml configuration (included in project)
 
+**Why the Makefile fix works:**
+- The `build` target now depends on `install`
+- When you run `make build`, it automatically runs `make install` first
+- This ensures `node_modules/` exists before building
+- Build command is now simpler and more maintainable
+
+**If deploying via Wrangler:**
+The project includes a `wrangler.toml` file with correct build settings:
 ```bash
 # Deploy using Wrangler (automatically uses correct build command)
 make deploy
 ```
-
-**Why this happens:**
-- `astro` is a local dependency in `node_modules/.bin/`
-- Direct shell commands can't find it in the PATH
-- `npm run build` automatically adds `node_modules/.bin/` to PATH
-- Always use `npm run build` for Cloudflare Pages deployments
 
 ### Build Failures
 
